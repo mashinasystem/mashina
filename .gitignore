@@ -1,0 +1,32 @@
+# Compiled source #
+###################
+*.class
+
+# Packages #
+############
+*.jar
+*.war
+
+# Logs and databases #
+######################
+*.log
+
+# Gradle Files #
+################
+.gradle
+.m2
+gradlew
+gradlew.bat
+build/
+*.properties
+
+# Generated files #
+###################
+*.bin
+*.lock
+
+# IntelliJ specific files/directories #
+#######################################
+out
+.idea
+*.iml
