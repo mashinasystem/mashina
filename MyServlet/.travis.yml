@@ -6,3 +6,6 @@ before_install:
 
 notifications:
   email: false
+  
+script:
+  - ./gradlew build --scan -s
