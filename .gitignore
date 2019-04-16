@@ -13,13 +13,16 @@
 
 # Gradle Files #
 ################
+/build/
 .gradle
 
 # Excluding gradle build #
 ##########################
 !/build.gradle
+!/gradle/wrapper/gradle-wrapper.jar
 
 # IntelliJ specific files/directories #
 #######################################
+/out
 .idea
 *.iml
