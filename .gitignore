@@ -1,0 +1,25 @@
+# Compiled source #
+###################
+*.class
+
+# Packages #
+############
+*.jar
+*.war
+
+# Logs and databases #
+######################
+*.log
+
+# Gradle Files #
+################
+.gradle
+
+# Excluding gradle build #
+##########################
+!/build.gradle
+
+# IntelliJ specific files/directories #
+#######################################
+.idea
+*.iml
