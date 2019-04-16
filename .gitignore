@@ -13,26 +13,13 @@
 
 # Gradle Files #
 ################
-.idea/**/gradle.xml
-.idea/**/libraries
 .gradle
-.m2
-gradlew
-gradlew.bat
-build/
-*.properties
 
 # Excluding gradle build #
 ##########################
 !/build.gradle
 
-# Generated files #
-###################
-*.bin
-*.lock
-
 # IntelliJ specific files/directories #
 #######################################
-out
 .idea
 *.iml
