@@ -17,8 +17,8 @@
 <div class="login-page">
     <div class="form">
         <form class="login-form" action = "login" method = "post">
-            <c:set var = "salary" scope = "session" value = "${fail}"/>
-            <c:if test = "${salary > 0}">
+            <c:set var = "isFail" scope = "session" value = "${fail}"/>
+            <c:if test = "${isFail > 0}">
                  Invalid Credentials
             </c:if>
             <input type="text" placeholder="username" name="username"/>
