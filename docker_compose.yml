@@ -9,4 +9,5 @@ services:
             POSTGRES_PASSWORD: qwerty
             POSTGRES_DB: Car
         ports:
-           - 8080:5432
+           - 5432:5432
+           
