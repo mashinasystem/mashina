@@ -1,4 +1,4 @@
-package com.epam.machine.Controller.util;
+package com.epam.machine.util;
 
 public final class LoginCheck {
     public static boolean checkLog (String username, String password) {
