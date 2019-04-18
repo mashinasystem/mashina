@@ -5,11 +5,13 @@ buildscript {
     
     dependencies {
         classpath 'org.akhikhl.gretty:gretty:+'
+        classpath 'org.postgresql:postgresql:42.2.0'
     }
 }
 
 plugins {
     id 'java'
+    id "org.flywaydb.flyway" version "5.2.4"
 }
 
 apply plugin: 'war'
@@ -37,4 +39,9 @@ gretty {
     httpPort = 8080
     contextPath = '/'
     servletContainer = 'tomcat7'
+}
+
+flyway {
+    url = 'jdbc:postgresql://localhost:5432/Car'
+    user = 'Admin'
 }
