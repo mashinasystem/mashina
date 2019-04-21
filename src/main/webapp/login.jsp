@@ -11,10 +11,13 @@
   <title>Log in</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
   <!-- Custom styles for this template -->
   <link href="css/modern-business.css" rel="stylesheet">
+  <script src="js/passanim.js"></script>
 
 </head>
 
@@ -92,7 +95,7 @@
         <form name="sentMessage" id="contactForm" novalidate>
           <c:set var = "isFail" scope = "session" value = "${fail}"/>
           <c:if test = "${isFail > 0}">
-            Invalid Credentials
+            Invalid Credentials <- HOW TO FIX IT?
           </c:if>
 		  <div class="control-group form-group">
             <div class="controls">
