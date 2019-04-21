@@ -125,7 +125,7 @@
 
     <!-- Marketing Icons Section -->
     <div class="row">
-      <div class="col-lg-4 mb-4">
+      <div class="col-lg-12 mb-12">
         <div class="card h-100">
           <h4 class="card-header">Already have an account?</h4>
           <div class="card-body">
