@@ -4,9 +4,9 @@ values (1, 'Gwion Ritter', '1234567890', '142359708', '89112345678', 'login', 'p
        (3, 'Reem Wiggins', '4109523876', '9018237465', '89560816741', 'wigginsrt@gmail.com', 'AnthropomorphousHuman19');
 
 insert into TICKET
-values (1, TRUE, 15),
-       (1, FALSE, 20),
-       (2, TRUE, 20);
+values (1, 1, TRUE, 15),
+       (2, 1, FALSE, 20),
+       (3, 2, TRUE, 20);
 
 insert into ADMINISTRATOR
 values (1, 'Atticus Burgess', 'Atticus_Burgess', 'averyDifficultpassword'),

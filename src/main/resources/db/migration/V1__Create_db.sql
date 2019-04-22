@@ -11,6 +11,7 @@ create table DRIVER
 
 create table TICKET
 (
+    ID        int     not null primary key,
     ID_CLIENT int     not null references DRIVER (ID),
     IS_PAID   boolean not null,
     COST      int     not null
