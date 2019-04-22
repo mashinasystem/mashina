@@ -26,7 +26,7 @@
   <!-- Navigation -->
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="index.html">Mashina</a>
+      <a class="navbar-brand" href="index.jsp">Mashina</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -92,10 +92,10 @@
 		<!-- Page Heading/Breadcrumbs -->
 	    <h1 class="pt-5">Login <small>form</small></h1>
         <h4>Fill in the following fields:</h4>
-        <form name="sentMessage" id="contactForm" novalidate>
+        <form class="login-form" action = "login" method = "post">
           <c:set var = "isFail" scope = "session" value = "${fail}"/>
           <c:if test = "${isFail > 0}">
-            Invalid Credentials <- HOW TO FIX IT?
+            Invalid Credentials
           </c:if>
 		  <div class="control-group form-group">
             <div class="controls">
@@ -110,7 +110,7 @@
           </div>
           <div id="success"></div>
           <!-- For success/fail messages -->
-          <button type="submit" class="btn btn-dark" id="sendMessageButton" value="login"> Login</button>
+          <button type="submit" class="btn btn-dark" id="text" value="login"> Login</button>
 		  <p class="mt-2 mb-4 message">Not registered? <a href="/registration">Create an account</a></p>
         </form>
       </div>
