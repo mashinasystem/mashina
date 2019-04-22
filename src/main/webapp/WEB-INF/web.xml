@@ -31,4 +31,22 @@
         <servlet-name>registerServlet</servlet-name>
         <url-pattern>/registration</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>personalareaServlet</servlet-name>
+        <servlet-class>com.epam.machine.controller.PersonalareaServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>personalareaServlet</servlet-name>
+        <url-pattern>/personalarea</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>personalinfoServlet</servlet-name>
+        <servlet-class>com.epam.machine.controller.PersonalinfoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>personalinfoServlet</servlet-name>
+        <url-pattern>/personalinfo</url-pattern>
+    </servlet-mapping>
 </web-app>

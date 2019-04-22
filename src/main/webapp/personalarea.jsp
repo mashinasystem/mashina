@@ -101,10 +101,10 @@
       </div>
       <div class="col-lg-6 portfolio-item">
         <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+          <a href="personalinfo"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
           <div class="card-body">
             <h4 class="card-title">
-              <a href="#">Personal info</a>
+              <a href="personalinfo">Personal info</a>
             </h4>
             <p class="card-text">Check or edit your personal information, or delete your account</p>
           </div>
