@@ -5,5 +5,4 @@ import com.epam.machine.entity.Customer;
 public interface serviceCustomerInterface {
 
 
-
 }
