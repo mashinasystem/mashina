@@ -1,3 +1,5 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page contentType = "text/html; charset = UTF-8" language = "java" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -99,13 +101,13 @@
           </c:if>
 		  <div class="control-group form-group">
             <div class="controls">
-              <input type="text" class="form-control" id="text" placeholder="Login" required data-validation-required-message="Please enter your email address.">
+              <input type="text" class="form-control" id="text" placeholder="Login" name="username" required data-validation-required-message="Please enter your email address.">
             </div>
           </div>
 		  <!-- Password -->
 		  <div class="control-group form-group">
             <div class="controls">
-              <input type="password" class="form-control" required="required" type="password" id="password" placeholder="Password" required data-validation-required-message="Please enter your email address.">
+              <input type="password" class="form-control" required="required" type="password" id="password" name = "password" placeholder="Password" required data-validation-required-message="Please enter your email address.">
             </div>
           </div>
           <div id="success"></div>
