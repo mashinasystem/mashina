@@ -15,24 +15,8 @@ public class СlientServiceImplementation implements ClientService {
     @Override
     public void create(String input) {
         if(input != "") {
-            String[] data = input.split(" ");
-            try {
-                client = new Client();
-                client.setId(Integer.parseInt(data[0]));
-                client.setFullName(data[1]);
-                client.setPassport(data[2]);
-                client.setDriverCard(data[3]);
-                client.setPhoneNumber(data[4]);
-                client.setEMail(data[5]);
-                client.setLogin(data[6]);
-                client.setPassword(data[7]);
-            }
-            catch (ArrayIndexOutOfBoundsException e)
-            {
-                throw new ArrayIndexOutOfBoundsException();
-            }
-
-
+            client = addInfoToClient(input,client);
+            clientRepositoryImplementation.createRecord(client);
         }
         else
         {
@@ -45,18 +29,42 @@ public class СlientServiceImplementation implements ClientService {
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(int id)
+    {
+        clientRepositoryImplementation.deleteRecoed(id);
+    }
 
+    @Override
+    public void update(int id,String input)
+    {
 
     }
 
     @Override
-    public void update(int id,String input) {
-
+    public Client getData(int id)
+    {
+        String input = clientRepositoryImplementation.getRecord(id);
+        client = addInfoToClient(input,client);
+        return client;
     }
 
-    @Override
-    public Client getData(int id) {
+    private Client addInfoToClient(String input,Client client)
+    {
+        String[] data = input.split(" ");
+        try {
+            client.setId(Integer.parseInt(data[0]));
+            client.setFullName(data[1]);
+            client.setPassport(data[2]);
+            client.setDriverCard(data[3]);
+            client.setPhoneNumber(data[4]);
+            client.setEMail(data[5]);
+            client.setLogin(data[6]);
+            client.setPassword(data[7]);
+        }
+        catch (ArrayIndexOutOfBoundsException e)
+        {
+            throw new ArrayIndexOutOfBoundsException();
+        }
 
         return client;
     }
