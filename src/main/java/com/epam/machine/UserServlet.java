@@ -1,4 +1,4 @@
-package com.epam.machine.controller;
+package com.epam.machine;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

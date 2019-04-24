@@ -1,4 +1,4 @@
-package com.epam.machine.controller;
+package com.epam.machine;
 
 import com.epam.machine.util.LoginCheck;
 import javax.servlet.ServletException;
@@ -19,7 +19,7 @@ public class LoginServlet extends HttpServlet{
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         response.setContentType("text/html");
