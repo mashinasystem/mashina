@@ -2,7 +2,7 @@ package com.epam.machine.service;
 
 import com.epam.machine.entity.Client;
 
-public class СustomerServiceImplementation implements CustomerService {
+public class СlientServiceImplementation implements ClientService {
 
     private Client client = new Client();
 

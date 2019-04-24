@@ -2,7 +2,7 @@ package com.epam.machine.service;
 
 import com.epam.machine.entity.Client;
 
-public interface CustomerService {
+public interface ClientService {
 
     void create(String input);
     void delete(int id);
