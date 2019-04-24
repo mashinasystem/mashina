@@ -25,7 +25,7 @@ public class LoginServlet extends HttpServlet{
         response.setContentType("text/html");
         try {
             if (LoginCheck.checkLog(username, password)) {
-                response.sendRedirect("user");
+                response.sendRedirect("/clients/{id}/profile");
             } else {
                 request.setAttribute("fail", 1);
                 request.getRequestDispatcher("/login.jsp").forward(request, response);
