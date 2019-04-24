@@ -39,7 +39,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>ClientsProfileServlet</servlet-name>
-        <url-pattern>/clients/{id}/profile</url-pattern>
+        <url-pattern>/clients/1/profile</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -48,6 +48,6 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>ClientsInfoServlet</servlet-name>
-        <url-pattern>/clients/{id}/info</url-pattern>
+        <url-pattern>/clients/1/info</url-pattern>
     </servlet-mapping>
 </web-app>
