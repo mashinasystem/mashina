@@ -1,7 +1,9 @@
 package com.epam.machine.repository;
 
 import com.epam.machine.entity.Client;
+import lombok.Data;
 
+@Data
 public class ClientRepositoryImplementation implements ClientRepository{
 
 
@@ -14,7 +16,7 @@ public class ClientRepositoryImplementation implements ClientRepository{
     }
 
     @Override
-    public void createRecord(int id, Client client) {
+    public void createRecord(Client client) {
 
     }
 
