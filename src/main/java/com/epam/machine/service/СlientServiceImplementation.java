@@ -9,11 +9,14 @@ public class СlientServiceImplementation implements ClientService {
 
     @Override
     public void create(String input) {
+        String[] data = input.split(" ");
+
 
     }
 
     @Override
     public void delete(int id) {
+
 
     }
 
@@ -24,6 +27,7 @@ public class СlientServiceImplementation implements ClientService {
 
     @Override
     public Client getData(int id) {
-        return null;
+
+        return client;
     }
 }
