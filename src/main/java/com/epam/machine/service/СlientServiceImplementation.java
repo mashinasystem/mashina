@@ -23,9 +23,6 @@ public class СlientServiceImplementation implements ClientService {
             throw new IllegalArgumentException();
         }
 
-
-
-
     }
 
     @Override
@@ -37,7 +34,12 @@ public class СlientServiceImplementation implements ClientService {
     @Override
     public void update(int id,String input)
     {
+        Client clientOne = new Client();
+        clientOne = addInfoToClient(input,clientOne);
+        Client clientTwo = new Client();
+        clientTwo = getData(id);
 
+        client = compareClients(clientOne,clientTwo);
     }
 
     @Override
@@ -47,6 +49,13 @@ public class СlientServiceImplementation implements ClientService {
         client = addInfoToClient(input,client);
         return client;
     }
+
+    private Client compareClients(Client first, Client second)
+    {
+
+        return client;
+    }
+
 
     private Client addInfoToClient(String input,Client client)
     {
