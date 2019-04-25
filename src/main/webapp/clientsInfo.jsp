@@ -1,5 +1,3 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page contentType = "text/html; charset = UTF-8" language = "java" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Log in</title>
+  <title>Personal info</title>
 
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -19,7 +17,6 @@
 
   <!-- Custom styles for this template -->
   <link href="css/modern-business.css" rel="stylesheet">
-  <script src="js/passanim.js"></script>
 
 </head>
 
@@ -34,7 +31,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
+          <li class="nav-item active">
             <a class="nav-link" href="#">Profile</a>
           </li>
           <li class="nav-item">
@@ -86,42 +83,57 @@
 
   <!-- Page Content -->
   <div class="container">
+  <div class="row">
+	<div class="col-lg-3"></div>
+    <div class="col-lg-6 mb-4">
+    <!-- Page Heading/Breadcrumbs -->
+      <h1 class="py-4"></h1>
+      <h1 class="mt-4 mb-3">Personal
+        <small>information</small>
+      </h1>
 
-	
-    <!-- Contact Form -->
-    <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
-    <div class="row">
-	  <div class="col-lg-3"></div>
-      <div class="col-lg-6 mb-4">
-		<!-- Page Heading/Breadcrumbs -->
-	    <h1 class="pt-5">Login <small>form</small></h1>
-        <h4>Fill in the following fields:</h4>
-        <form class="login-form" action = "login" method = "post">
-          <c:set var = "isFail" scope = "session" value = "${fail}"/>
-          <c:if test = "${isFail > 0}">
-            <p class="text-danger">Invalid credentials!</p>
-          </c:if>
-		  <div class="control-group form-group">
-            <div class="controls">
-              <input type="text" class="form-control" id="text" placeholder="Login" name="username" required data-validation-required-message="Please enter your email address.">
-            </div>
-          </div>
-		  <!-- Password -->
-		  <div class="control-group form-group">
-            <div class="controls">
-              <input type="password" class="form-control" required="required" type="password" id="password" name = "password" placeholder="Password" required data-validation-required-message="Please enter your email address.">
-            </div>
-          </div>
-          <div id="success"></div>
-          <!-- For success/fail messages -->
-          <button type="submit" class="btn btn-dark" id="text" value="login"> Login</button>
-		  <p class="mt-2 mb-4 message">Not registered? <a href="/registration">Create an account</a></p>
-        </form>
-      </div>
-
+      <p>Here you can check your personal information:</p>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Graph</th>
+            <th>Information</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Full name</td>
+            <td>John Snow</td>
+          </tr>
+          <tr>
+           <td>Passport number</td>
+            <td>7826 487624</td>
+          </tr>
+          <tr>
+            <td>Driving license number</td>
+            <td>785 658 71</td>
+          </tr>
+          <tr>
+            <td>Phone number</td>
+            <td>+7 (921) 365-34-81</td>
+          </tr>
+          <tr>
+            <td>Email</td>
+            <td>johnnysnowysnow@mail.ru</td>
+          </tr>	  
+          <tr>
+            <td>Login</td>
+            <td>master_of_mashina</td>
+          </tr>	
+          <tr>
+            <td>Password</td>
+            <td>*******</td>			
+          </tr>	  
+        </tbody>
+      </table>
+      <button type="submit" class="btn btn-warning" id="sendMessageButton">Edit</button>    
     </div>
-    <!-- /.row -->
-
+  </div>
   </div>
   <!-- /.container -->
 
@@ -132,6 +144,10 @@
     </div>
     <!-- /.container -->
   </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
