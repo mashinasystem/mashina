@@ -5,7 +5,7 @@ import com.epam.machine.repository.ClientRepositoryImpl;
 import lombok.Data;
 
 @Data
-public class СlientServiceImpl implements ClientService {
+public class ClientServiceImpl implements ClientService {
 
     private ClientRepositoryImpl clientRepositoryImpl = new ClientRepositoryImpl();
 
@@ -22,7 +22,7 @@ public class СlientServiceImpl implements ClientService {
     @Override
     public void delete(int id)
     {
-        clientRepositoryImpl.deleteRecoed(id);
+        clientRepositoryImpl.delete(id);
     }
 
     @Override
