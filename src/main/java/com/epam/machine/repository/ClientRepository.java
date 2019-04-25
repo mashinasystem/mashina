@@ -4,8 +4,11 @@ import com.epam.machine.entity.Client;
 
 public interface ClientRepository
 {
-    String getRecord(int id);
-    void createRecord(Client client);
-    void deleteRecoed(int id);
-    void updateRecord(int id,Client client);
+    Client get(int id);
+    void create(Client client);
+    void delete(int id);
+    void update(int id,Client client);
+    int getIdByLogin(String login);
+
+
 }
