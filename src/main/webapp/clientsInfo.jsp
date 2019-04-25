@@ -31,48 +31,50 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Profile</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="services.html">Services</a>
+            <a class="nav-link" href="#">Services</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
-          </li>
-          <li class="nav-item active dropdown">
+          <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Portfolio
+              Brands
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-              <a class="dropdown-item" href="portfolio-1-col.html">1 Column Portfolio</a>
-              <a class="dropdown-item" href="portfolio-2-col.html">2 Column Portfolio</a>
-              <a class="dropdown-item active" href="portfolio-3-col.html">3 Column Portfolio</a>
-              <a class="dropdown-item" href="portfolio-4-col.html">4 Column Portfolio</a>
-              <a class="dropdown-item" href="portfolio-item.html">Single Portfolio Item</a>
+              <a class="dropdown-item" href="#">Tesla</a>
+              <a class="dropdown-item" href="#">Porsche</a>
+              <a class="dropdown-item" href="#">Jaguar</a>
+              <a class="dropdown-item" href="#">Lexus</a>
+              <a class="dropdown-item" href="#">BMW</a>
             </div>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Blog
+              Offices
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-              <a class="dropdown-item" href="blog-home-1.html">Blog Home 1</a>
-              <a class="dropdown-item" href="blog-home-2.html">Blog Home 2</a>
-              <a class="dropdown-item" href="blog-post.html">Blog Post</a>
+              <a class="dropdown-item" href="#">USA</a>
+              <a class="dropdown-item" href="#">Germany</a>
+              <a class="dropdown-item" href="#">France</a>
+              <a class="dropdown-item" href="#">Canada</a>
+              <a class="dropdown-item" href="#">Belarus</a>
+              <a class="dropdown-item" href="#">Russia</a>
             </div>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Other Pages
+              Investors
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-              <a class="dropdown-item" href="full-width.html">Full Width Page</a>
-              <a class="dropdown-item" href="sidebar.html">Sidebar Page</a>
-              <a class="dropdown-item" href="faq.html">FAQ</a>
-              <a class="dropdown-item" href="404.html">404</a>
-              <a class="dropdown-item" href="pricing.html">Pricing Table</a>
+              <a class="dropdown-item" href="#">About</a>
+              <a class="dropdown-item" href="#">Information disclosure</a>
+              <a class="dropdown-item" href="#">Sponsorship</a>
+              <a class="dropdown-item" href="#">Public relations</a>
             </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">FAQ</a>
           </li>
         </ul>
       </div>
@@ -85,11 +87,12 @@
 	<div class="col-lg-3"></div>
     <div class="col-lg-6 mb-4">
     <!-- Page Heading/Breadcrumbs -->
+      <h1 class="py-4"></h1>
       <h1 class="mt-4 mb-3">Personal
-        <small>info</small>
+        <small>information</small>
       </h1>
 
-      <p>Here you can check your personal info:</p>            
+      <p>Here you can check your personal information:</p>
       <table class="table table-hover">
         <thead>
           <tr>
