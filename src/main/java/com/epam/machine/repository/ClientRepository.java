@@ -2,13 +2,15 @@ package com.epam.machine.repository;
 
 import com.epam.machine.entity.Client;
 
+import java.sql.SQLException;
+
 public interface ClientRepository
 {
-    Client get(int id);
+    Client get(int id) throws ClassNotFoundException, SQLException;
     void create(Client client);
     void delete(int id);
     void update(int id,Client client);
-    int getIdByLogin(String login);
+    int getIdByLogin(String login) throws ClassNotFoundException, SQLException;
 
 
 }

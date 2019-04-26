@@ -4,6 +4,8 @@ import com.epam.machine.entity.Client;
 import com.epam.machine.repository.ClientRepositoryImpl;
 import lombok.Data;
 
+import java.sql.SQLException;
+
 @Data
 public class ClientServiceImpl implements ClientService {
 
@@ -26,13 +28,13 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public void update(Client client) {
+    public void update(Client client) throws SQLException, ClassNotFoundException {
         int id = clientRepositoryImpl.getIdByLogin(client.getLogin());
         clientRepositoryImpl.update(id,client);
     }
 
     @Override
-    public Client get(String login) {
+    public Client get(String login) throws SQLException, ClassNotFoundException {
         int id = clientRepositoryImpl.getIdByLogin(login);
         return clientRepositoryImpl.get(id);
     }
