@@ -26,18 +26,15 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public void update(Client client)
-    {
+    public void update(Client client) {
         int id = clientRepositoryImpl.getIdByLogin(client.getLogin());
         clientRepositoryImpl.update(id,client);
     }
 
     @Override
-    public Client get(String login)
-    {
+    public Client get(String login) {
         int id = clientRepositoryImpl.getIdByLogin(login);
-        Client client = clientRepositoryImpl.get(id);
-        return client;
+        return clientRepositoryImpl.get(id);
     }
 
 }

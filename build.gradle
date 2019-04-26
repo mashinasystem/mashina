@@ -46,4 +46,5 @@ gretty {
 flyway {
     url = 'jdbc:postgresql://localhost:5432/Car'
     user = 'Admin'
+    password = 'qwerty'
 }

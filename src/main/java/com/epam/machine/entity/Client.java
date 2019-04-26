@@ -23,7 +23,7 @@ public class Client {
                 .phoneNumber(phoneNumber)
                 .eMail(eMail)
                 .login(login)
-                .passport(passport)
+                .password(password)
                 .build();
     }
 }
