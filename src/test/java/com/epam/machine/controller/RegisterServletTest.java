@@ -1,6 +1,5 @@
 package com.epam.machine.controller;
 
-import com.epam.machine.RegisterServlet;
 import org.junit.Test;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

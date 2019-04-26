@@ -1,4 +1,4 @@
-package com.epam.machine;
+package com.epam.machine.controller;
 
 import com.epam.machine.util.LoginCheck;
 import javax.servlet.ServletException;
