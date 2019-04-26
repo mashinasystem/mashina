@@ -8,7 +8,6 @@ import java.sql.*;
 
 @Data
 public class ClientRepositoryImpl implements ClientRepository{
-
     final static String dataBaseUrl = "jdbc:postgresql://localhost:5432/Car";
     final static String jdbcDriver = "org.postgresql.Driver";
 
@@ -57,6 +56,8 @@ public class ClientRepositoryImpl implements ClientRepository{
             String sql = "SELECT * FROM driver WHERE driver.login = \'" + login + "\'";
             resultSet = statement.executeQuery(sql);
         }
+
+        resultSet.next();
 
         return resultSet.getInt(1);
     }

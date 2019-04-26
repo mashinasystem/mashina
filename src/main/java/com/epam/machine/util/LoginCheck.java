@@ -5,7 +5,7 @@ public final class LoginCheck {
         if (username == null || password == null) {
             throw new IllegalArgumentException("No login or password");
         }
-        return username.equals("1") && password.equals("qwerty");
+        return username.equals("login") && password.equals("qwerty");
     }
 
     private LoginCheck() {}

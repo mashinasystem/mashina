@@ -5,9 +5,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class LoginServlet extends HttpServlet{
+    public HttpSession session;
     @Override
     public void doGet (HttpServletRequest request, HttpServletResponse response) {
         try {
@@ -25,6 +27,8 @@ public class LoginServlet extends HttpServlet{
         response.setContentType("text/html");
         try {
             if (LoginCheck.checkLog(username, password)) {
+                session = request.getSession();
+                session.setAttribute("login", username);
                 response.sendRedirect("/clients/1/profile");
             } else {
                 request.setAttribute("fail", 1);

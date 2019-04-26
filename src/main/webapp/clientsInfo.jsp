@@ -103,7 +103,7 @@
         <tbody>
           <tr>
             <td>Full name</td>
-            <td>John Snow</td>
+            <td>$name</td>
           </tr>
           <tr>
            <td>Passport number</td>
