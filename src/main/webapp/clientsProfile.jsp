@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Registration</title>
+  <title>User</title>
 
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -17,7 +17,6 @@
 
   <!-- Custom styles for this template -->
   <link href="css/modern-business.css" rel="stylesheet">
-  <script src="js/passanim.js"></script>
 
 </head>
 
@@ -32,7 +31,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
+          <li class="nav-item active">
             <a class="nav-link" href="#">Profile</a>
           </li>
           <li class="nav-item">
@@ -85,66 +84,37 @@
   <!-- Page Content -->
   <div class="container">
 
-	
-    <!-- Contact Form -->
-    <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
-    <div class="row">
-	  <div class="col-lg-3"></div>
-      <div class="col-lg-6 mb-4">
-		<!-- Page Heading/Breadcrumbs -->
-	    <h1 class="pt-5">Registration <small>form</small></h1>
-        <h4>Fill in the following fields:</h4>
-        <form name="sentMessage" id="contactForm" novalidate>
-          <div class="control-group form-group">
-            <div class="controls">
-              <input type="text" class="form-control" id="name" placeholder="Full name" required data-validation-required-message="Please enter your name.">
-			  <p class="help-block"></p>
-            </div>
-          </div>
-          <div class="control-group form-group">
-            <div class="controls">
-              <input type="text" class="form-control" id="text" placeholder="Passport number" required data-validation-required-message="Please enter your phone number.">
-            </div>
-          </div>
-		  <div class="control-group form-group">
-            <div class="controls">
-              <input type="text" class="form-control" id="text" placeholder="Driving license number" required data-validation-required-message="Please enter your phone number.">
-            </div>
-          </div>
-		  <div class="control-group form-group">
-            <div class="controls">
-              <input type="tel" class="form-control" id="phone" placeholder="Phone number" required data-validation-required-message="Please enter your phone number.">
-            </div>
-          </div>
-          <div class="control-group form-group">
-            <div class="controls">
-              <input type="email" class="form-control" id="email" placeholder="Your@email.com" required data-validation-required-message="Please enter your email address.">
-			</div>
-          </div>
-		  <div class="control-group form-group">
-            <div class="controls">
-              <input type="text" class="form-control" id="text" placeholder="Login" required data-validation-required-message="Please enter your email address.">
-            </div>
-          </div>
-		  <!-- Password and confirmation -->
-		  <div class="control-group form-group">
-            <div class="controls">
-              <input type="password" class="form-control" required="required" type="password" id="password" placeholder="Password" required data-validation-required-message="Please enter your email address.">
-            </div>
-          </div>
-		  <div class="control-group form-group">
-            <div class="controls">
-              <input type="password" class="form-control" required="required" type="password" id="confirm_password" placeholder="Confirm password" required data-validation-required-message="Please enter your email address."/>
-            </div>
-          </div>
-          <div id="success"></div>
-          <!-- For success/fail messages -->
-          <button type="submit" class="btn btn-dark" id="sendMessageButton">Create an account</button>
-		  <p class="mt-2 mb-4 message">Already registered? <a href="login">Sign in</a></p>
-        </form>
-      </div>
+    <!-- Page Heading/Breadcrumbs -->
+    <h1 class="py-4"></h1>
+    <h1 class="mt-4 mb-3">Personal
+      <small>area</small>
+    </h1>
 
+    <div class="row">
+      <div class="col-lg-6 portfolio-item">
+        <div class="card h-100">
+          <a href="#"><img class="card-img-top" src="htp://placehold.it/700x400" alt=""></a>
+          <div class="card-body">
+            <h4 class="card-title">
+              <a href="#">Orders</a>
+            </h4>
+            <p class="card-text">Book a car to a certain date, explore the status of orders and check, if you have any fines</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 portfolio-item">
+        <div class="card h-100">
+          <a href="/clients/1/info"><img class="card-img-top" src="htp://placehold.it/700x400" alt=""></a>
+          <div class="card-body">
+            <h4 class="card-title">
+              <a href="/clients/1/info">Personal information</a>
+            </h4>
+            <p class="card-text">Check or edit your personal information, or delete your account</p>
+          </div>
+        </div>
+      </div>
     </div>
+    <h1 class="py-4"></h1>
     <!-- /.row -->
 
   </div>
@@ -161,11 +131,6 @@
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Contact form JavaScript -->
-  <!-- Do not edit these files! In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
-  <script src="js/jqBootstrapValidation.js"></script>
-  <script src="js/contact_me.js"></script>
 
 </body>
 
