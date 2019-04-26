@@ -2,7 +2,7 @@ buildscript {
     repositories {
         jcenter()
     }
-    
+
     dependencies {
         classpath 'org.akhikhl.gretty:gretty:+'
         classpath 'org.postgresql:postgresql:42.2.0'
