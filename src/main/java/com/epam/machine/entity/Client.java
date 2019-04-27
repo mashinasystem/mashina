@@ -15,15 +15,4 @@ public class Client {
     private String login;
     private String password;
 
-    public Client of(String fullName, String passport,String driverCard ,String phoneNumber, String eMail,String login, String password){
-        return Client.builder()
-                .fullName(fullName)
-                .passport(passport)
-                .driverCard(driverCard)
-                .phoneNumber(phoneNumber)
-                .eMail(eMail)
-                .login(login)
-                .password(password)
-                .build();
-    }
 }

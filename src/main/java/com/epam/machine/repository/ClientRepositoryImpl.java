@@ -1,10 +1,9 @@
 package com.epam.machine.repository;
 
 import com.epam.machine.entity.Client;
+import lombok.Builder;
 import lombok.Data;
 
-import java.io.FileWriter;
-import java.io.IOException;
 import java.sql.*;
 
 @Data
@@ -15,23 +14,45 @@ public class ClientRepositoryImpl implements ClientRepository{
     final static String admin = "Admin";
     final static String password = "qwerty";
 
+    @Builder
     @Override
     public Client get(int id) throws ClassNotFoundException,SQLException {
         Class.forName(jdbcDriver);
 
-        Client client = null;
+        String fullName = "";
+        String passport = "";
+        String driverCard = "";
+        String phoneNumber = "";
+        String eMail = "";
+        String login = "";
+        String pasword = "";
+
         ResultSet resultSet;
         try(Connection connection = DriverManager.getConnection(dataBaseUrl,admin,password);
         Statement statement = connection.createStatement()) {
             String sql = "SELECT * FROM driver WHERE driver.id = " + id + ";";
             resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {
-                client.of(resultSet.getString(2), resultSet.getString(3), resultSet.getString(4),
-                        resultSet.getString(5), resultSet.getString(1), resultSet.getString(6),
-                        resultSet.getString(7));
+                fullName = resultSet.getString(2);
+                passport = resultSet.getString(3);
+                driverCard = resultSet.getString(4);
+                phoneNumber = resultSet.getString(5);
+                eMail = resultSet.getString(1);
+                login = resultSet.getString(6);
+                pasword = resultSet.getString(7);
             }
-
         }
+        Client client = null;
+        client = client.builder()
+                .id(id)
+                .fullName(fullName)
+                .passport(passport)
+                .driverCard(driverCard)
+                .phoneNumber(phoneNumber)
+                .eMail(eMail)
+                .login(login)
+                .password(password)
+                .build();
 
         return client;
     }
