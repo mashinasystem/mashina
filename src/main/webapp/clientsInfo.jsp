@@ -103,31 +103,31 @@
         <tbody>
           <tr>
             <td>Full name</td>
-            <td>$name</td>
+            <td>${name}</td>
           </tr>
           <tr>
            <td>Passport number</td>
-            <td>7826 487624</td>
+            <td>${passport}</td>
           </tr>
           <tr>
             <td>Driving license number</td>
-            <td>785 658 71</td>
+            <td>${driverCard}</td>
           </tr>
           <tr>
             <td>Phone number</td>
-            <td>+7 (921) 365-34-81</td>
+            <td>${phoneNumber}</td>
           </tr>
           <tr>
             <td>Email</td>
-            <td>johnnysnowysnow@mail.ru</td>
+            <td>${email}</td>
           </tr>	  
           <tr>
             <td>Login</td>
-            <td>master_of_mashina</td>
+            <td>${login}</td>
           </tr>	
           <tr>
             <td>Password</td>
-            <td>*******</td>			
+            <td>${password}</td>
           </tr>	  
         </tbody>
       </table>

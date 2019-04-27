@@ -51,7 +51,7 @@ public class ClientRepositoryImpl implements ClientRepository{
                 .phoneNumber(phoneNumber)
                 .eMail(eMail)
                 .login(login)
-                .password(password)
+                .password(pasword)
                 .build();
 
         return client;
