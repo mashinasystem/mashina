@@ -4,9 +4,8 @@ create table DRIVER
     NAME      varchar(64) not null,
     PASSPORT  varchar(10) not null unique,
     LICENSE   varchar(10) not null unique,
-    EMAIL     varchar(32),
     PHONE_NUM varchar(11),
-    LOGIN     varchar(64) not null unique,
+    EMAIL     varchar(64) not null unique,
     PASSWORD  varchar(64) not null
 );
 
