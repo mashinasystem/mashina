@@ -3,7 +3,8 @@ package com.epam.machine.repository;
 import com.epam.machine.entity.Client;
 import lombok.Data;
 
-import javax.print.DocFlavor;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.*;
 
 @Data
@@ -17,18 +18,22 @@ public class ClientRepositoryImpl implements ClientRepository{
     @Override
     public Client get(int id) throws ClassNotFoundException,SQLException {
         Class.forName(jdbcDriver);
+
         Client client = null;
         ResultSet resultSet;
         try(Connection connection = DriverManager.getConnection(dataBaseUrl,admin,password);
-        Statement statement = connection.createStatement())
-        {
-            String sql = "SELECT * FROM driver WHERE driver.id = " + id;
+        Statement statement = connection.createStatement()) {
+            String sql = "SELECT * FROM driver WHERE driver.id = " + id + ";";
             resultSet = statement.executeQuery(sql);
+            while (resultSet.next()) {
+                client.of(resultSet.getString(2), resultSet.getString(3), resultSet.getString(4),
+                        resultSet.getString(5), resultSet.getString(1), resultSet.getString(6),
+                        resultSet.getString(7));
+            }
+
         }
 
-        return client.of(resultSet.getString(1),resultSet.getString(2),resultSet.getString(3),
-                resultSet.getNString(4),resultSet.getNString(5),resultSet.getString(6),
-                resultSet.getString(7));
+        return client;
     }
 
     @Override
@@ -49,16 +54,18 @@ public class ClientRepositoryImpl implements ClientRepository{
     @Override
     public int getIdByLogin(String login) throws ClassNotFoundException,SQLException  {
         Class.forName(jdbcDriver);
-        ResultSet resultSet;
+        ResultSet resultSet = null;
+        int id=0;
         try(Connection connection = DriverManager.getConnection(dataBaseUrl,admin,password);
             Statement statement = connection.createStatement())
         {
-            String sql = "SELECT * FROM driver WHERE driver.login = \'" + login + "\'";
+            String sql = "SELECT * FROM driver WHERE driver.login = \'" + login + "\';";
             resultSet = statement.executeQuery(sql);
+            while(resultSet.next()) {
+                id = resultSet.getInt(1);
+            }
         }
 
-        resultSet.next();
-
-        return resultSet.getInt(1);
+        return id;
     }
 }
