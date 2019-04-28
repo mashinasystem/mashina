@@ -1,13 +1,13 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page contentType="text/html; charset = UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page isELIgnored="false" %>
 
+<fmt:setLocale value="${param.lang}"/>
 <fmt:setBundle basename="messages"/>
 
 <!DOCTYPE html>
-<html lang="en">
 
+<html lang="${param.lang}">
 <head>
 
     <meta charset="utf-8">
@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Log in</title>
+    <title><fmt:message key="label.logIn"/></title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -33,7 +33,7 @@
 <!-- Navigation -->
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="/">Mashina</a>
+        <a class="navbar-brand" href="/">Mashina Inc.</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                 data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -42,15 +42,19 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Profile</a>
+                    <a class="nav-link" href="#">
+                        <fmt:message key="label.profile"/>
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Services</a>
+                    <a class="nav-link" href="#">
+                        <fmt:message key="label.services"/>
+                    </a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">
-                        Brands
+                        <fmt:message key="label.brands"/>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
                         <a class="dropdown-item" href="#">Tesla</a>
@@ -63,31 +67,43 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">
-                        Offices
+                        <fmt:message key="label.offices"/>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-                        <a class="dropdown-item" href="#">USA</a>
-                        <a class="dropdown-item" href="#">Germany</a>
-                        <a class="dropdown-item" href="#">France</a>
-                        <a class="dropdown-item" href="#">Canada</a>
-                        <a class="dropdown-item" href="#">Belarus</a>
-                        <a class="dropdown-item" href="#">Russia</a>
+                        <a class="dropdown-item" href="#"><fmt:message key="label.USA"/></a>
+                        <a class="dropdown-item" href="#"><fmt:message key="label.Germany"/></a>
+                        <a class="dropdown-item" href="#"><fmt:message key="label.France"/></a>
+                        <a class="dropdown-item" href="#"><fmt:message key="label.Canada"/></a>
+                        <a class="dropdown-item" href="#"><fmt:message key="label.Belarus"/></a>
+                        <a class="dropdown-item" href="#"><fmt:message key="label.Russia"/></a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">
-                        Investors
+                        <fmt:message key="label.investors"/>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-                        <a class="dropdown-item" href="#">About</a>
-                        <a class="dropdown-item" href="#">Information disclosure</a>
-                        <a class="dropdown-item" href="#">Sponsorship</a>
-                        <a class="dropdown-item" href="#">Public relations</a>
+                        <a class="dropdown-item" href="#"><fmt:message key="label.about"/></a>
+                        <a class="dropdown-item" href="#"><fmt:message key="label.infoDisclosure"/></a>
+                        <a class="dropdown-item" href="#"><fmt:message key="label.sponsorship"/></a>
+                        <a class="dropdown-item" href="#"><fmt:message key="label.publicRelations"/></a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">FAQ</a>
+                    <a class="nav-link" href="#">
+                        <fmt:message key="label.faq"/>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                        <fmt:message key="label.language"/>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
+                        <a class="dropdown-item" href="?lang=en"><fmt:message key="label.English"/></a>
+                        <a class="dropdown-item" href="?lang=ru"><fmt:message key="label.Russian"/></a>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -103,14 +119,14 @@
         <div class="col-lg-3"></div>
         <div class="col-lg-6 mb-4">
             <!-- Page Heading/Breadcrumbs -->
-            <h1 class="pt-5">Login
-                <small>form</small>
+            <h1 class="pt-5"><fmt:message key="label.loginForm"/>
+                <small><fmt:message key="label.form"/></small>
             </h1>
-            <h4>Fill in the following fields:</h4>
+            <h4><fmt:message key="label.fillTheFields"/></h4>
             <form class="login-form" action="login" method="post">
                 <c:set var="isFail" scope="session" value="${fail}"/>
                 <c:if test="${isFail > 0}">
-                    <p class="text-danger">Invalid credentials!</p>
+                    <p class="text-danger"><fmt:message key="label.invalidCredentials"/></p>
                 </c:if>
                 <div class="control-group form-group">
                     <div class="controls">
@@ -131,7 +147,12 @@
                 <button type="submit" class="btn btn-dark" id="text" value="login">
                     <fmt:message key="label.login"/>
                 </button>
-                <p class="mt-2 mb-4 message">Not registered? <a href="/registration">Create an account</a></p>
+                <p class="mt-2 mb-4 message">
+                    <fmt:message key="label.notRegistered"/>
+                    <a href="/registration">
+                        <fmt:message key="label.createAccaunt"/>
+                    </a>
+                </p>
             </form>
         </div>
     </div>

@@ -1,4 +1,4 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page isELIgnored="false" %>
 
@@ -9,7 +9,7 @@
 <html lang="${param.lang}">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta name="description" content=""/>
     <meta name="author" content=""/>
@@ -30,7 +30,7 @@
 <!-- Navigation -->
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="/">Mashina</a>
+        <a class="navbar-brand" href="/">Mashina Inc.</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                 data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -39,15 +39,19 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Profile</a>
+                    <a class="nav-link" href="#">
+                        <fmt:message key="label.profile"/>
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Services</a>
+                    <a class="nav-link" href="#">
+                        <fmt:message key="label.services"/>
+                    </a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">
-                        Brands
+                        <fmt:message key="label.brands"/>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
                         <a class="dropdown-item" href="#">Tesla</a>
@@ -60,41 +64,42 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">
-                        Offices
+                        <fmt:message key="label.offices"/>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-                        <a class="dropdown-item" href="#">USA</a>
-                        <a class="dropdown-item" href="#">Germany</a>
-                        <a class="dropdown-item" href="#">France</a>
-                        <a class="dropdown-item" href="#">Canada</a>
-                        <a class="dropdown-item" href="#">Belarus</a>
-                        <a class="dropdown-item" href="#">Russia</a>
+                        <a class="dropdown-item" href="#"><fmt:message key="label.USA"/></a>
+                        <a class="dropdown-item" href="#"><fmt:message key="label.Germany"/></a>
+                        <a class="dropdown-item" href="#"><fmt:message key="label.France"/></a>
+                        <a class="dropdown-item" href="#"><fmt:message key="label.Canada"/></a>
+                        <a class="dropdown-item" href="#"><fmt:message key="label.Belarus"/></a>
+                        <a class="dropdown-item" href="#"><fmt:message key="label.Russia"/></a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">
-                        Investors
+                        <fmt:message key="label.investors"/>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-                        <a class="dropdown-item" href="#">About</a>
-                        <a class="dropdown-item" href="#">Information disclosure</a>
-                        <a class="dropdown-item" href="#">Sponsorship</a>
-                        <a class="dropdown-item" href="#">Public relations</a>
+                        <a class="dropdown-item" href="#"><fmt:message key="label.about"/></a>
+                        <a class="dropdown-item" href="#"><fmt:message key="label.infoDisclosure"/></a>
+                        <a class="dropdown-item" href="#"><fmt:message key="label.sponsorship"/></a>
+                        <a class="dropdown-item" href="#"><fmt:message key="label.publicRelations"/></a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">FAQ</a>
+                    <a class="nav-link" href="#">
+                        <fmt:message key="label.faq"/>
+                    </a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">
-                        Language
+                        <fmt:message key="label.language"/>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-                        <a class="dropdown-item" href="?lang=en">English</a>
-                        <a class="dropdown-item" href="?lang=ru">Russian</a>
-                        <a class="dropdown-item" href="#">Elvish</a>
+                        <a class="dropdown-item" href="?lang=en"><fmt:message key="label.English"/></a>
+                        <a class="dropdown-item" href="?lang=ru"><fmt:message key="label.Russian"/></a>
                     </div>
                 </li>
             </ul>
@@ -114,31 +119,31 @@
             <div class="carousel-item active" style="background-image: url('img/slide1.jpg')">
                 <div class="carousel-caption d-none d-md-block">
                     <h3>Tesla Model X</h3>
-                    <p>Eco-friendly use with powerfull engine</p>
+                    <p><fmt:message key="label.eco-friendly"/></p>
                 </div>
             </div>
             <!-- Slide Two - Set the background image for this slide in the line below -->
             <div class="carousel-item" style="background-image: url('img/slide2.jpg')">
                 <div class="carousel-caption d-none d-md-block">
                     <h3>Porsche Cayman GT4</h3>
-                    <p>Drive and speed allow you to feel the whole set of emotions</p>
+                    <p><fmt:message key="label.setOfEmotions"/></p>
                 </div>
             </div>
             <!-- Slide Three - Set the background image for this slide in the line below -->
             <div class="carousel-item" style="background-image: url('img/slide3.jpg')">
                 <div class="carousel-caption d-none d-md-block">
                     <h3>Ferrari 488</h3>
-                    <p>Refind grace in everything</p>
+                    <p><fmt:message key="label.refined"/></p>
                 </div>
             </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
+            <span class="sr-only"><fmt:message key="label.previous"/></span>
         </a>
         <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
+            <span class="sr-only"><fmt:message key="label.next"/></span>
         </a>
     </div>
 </header>
@@ -153,14 +158,16 @@
         <div class="col-lg-3 my-4 mb-4"></div>
         <div class="col-lg-6 my-4 mb-4">
             <div class="card h-100">
-                <h4 class="card-header">Already have an account?</h4>
+                <h4 class="card-header"><fmt:message key="label.hasAccount"/></h4>
                 <div class="card-body">
-                    <p class="card-text">In your personal area you can book a car, ask some questions to your personal
-                        manager and pay the order. In case of any questions you can call our customer support
-                        service.</p>
+                    <p class="card-text">
+                        <fmt:message key="text.youCanBook"/>
+                    </p>
                 </div>
                 <div class="card-footer">
-                    <a href="login" class="btn btn-primary">Sign in</a>
+                    <a href="login" class="btn btn-primary">
+                        <fmt:message key="label.signIn"/>
+                    </a>
                 </div>
             </div>
         </div>
@@ -168,7 +175,7 @@
     <!-- /.row -->
 
     <!-- Portfolio Section -->
-    <h2>Our most popular sport cars</h2>
+    <h2><fmt:message key="label.ourCars"/></h2>
 
     <div class="row">
         <div class="col-lg-4 col-sm-6 portfolio-item">
@@ -178,11 +185,9 @@
                     <h4 class="card-title">
                         <a href="#">Porsche 911 Carrera</a>
                     </h4>
-                    <p class="card-text">So far we've driven the new 992 generation of Porsche's 911 in both rear-driven
-                        Carrera S and four-wheel-drive Carrera 4S guises, the former only on track, and yet both early
-                        tests suggested that this eighth-generation, rear-engined sporting hero is every inch as great a
-                        driver's car as the 991 it's replacing this year - and, if anything, stands ready to take the
-                        game away from its rivals.</p>
+                    <p class="card-text">
+                        <fmt:message key="text.Porsche911Carrera"/>
+                    </p>
                 </div>
             </div>
         </div>
@@ -193,12 +198,9 @@
                     <h4 class="card-title">
                         <a href="#">Jaguar F-Type</a>
                     </h4>
-                    <p class="card-text">The car falls short of being truly exceptional - it has too many imperfections
-                        and shortcomings for that. On usability, it comes up short next to plenty of sports cars, having
-                        only two seats, offering slightly cramped accommodation even for two, and limited boot space in
-                        convertible forms. And yet, in multi-cylinder engine guises particularly, it has performance and
-                        handling dynamism every bit as boisterous as its throaty, vivacious soul - and a driving
-                        experience to savour.</p>
+                    <p class="card-text">
+                        <fmt:message key="text.JaguarFType"/>
+                    </p>
                 </div>
             </div>
         </div>
@@ -209,10 +211,9 @@
                     <h4 class="card-title">
                         <a href="#">Lotus Evora</a>
                     </h4>
-                    <p class="card-text">At the time of its introduction, the car brought plenty of qualities to embrace
-                        but also flaws to regret. Today, it retains a chassis and steering system that both truly
-                        deserve top billing. Few sports cars have such immersive, positive steering, or a ride and
-                        handling compromise so suited to life on British roads.</p>
+                    <p class="card-text">
+                        <fmt:message key="text.LotusEvora"/>
+                    </p>
                 </div>
             </div>
         </div>
@@ -223,10 +224,9 @@
                     <h4 class="card-title">
                         <a href="#">BMW i8</a>
                     </h4>
-                    <p class="card-text">The i8 is one of the most compelling and unusual sports cars we've tested in
-                        years, not only because of its fascinating plug-in hybrid powertrain, its appealing driving
-                        experience and its otherworldly design, but also because of how exquisitely finished it feels as
-                        a product - both inside and outside - and how easy it would be to live with.</p>
+                    <p class="card-text">
+                        <fmt:message key="text.BMWi8"/>
+                    </p>
                 </div>
             </div>
         </div>
@@ -237,10 +237,9 @@
                     <h4 class="card-title">
                         <a href="#">Nissan GT-R</a>
                     </h4>
-                    <p class="card-text">However long in the tooth he has become, "Godzilla" is in rude health. If
-                        out-and-out real-world, any-condition speed is what you crave from your sports car, nothing does
-                        it better below 100k dollars than Nissan's self-identified "world's fastest brick" - the
-                        incredible, indefatigable GT-R.</p>
+                    <p class="card-text">
+                        <fmt:message key="text.NissanGTR"/>
+                    </p>
                 </div>
             </div>
         </div>
@@ -251,11 +250,9 @@
                     <h4 class="card-title">
                         <a href="#">Lexus LC</a>
                     </h4>
-                    <p class="card-text">As a keen driver, you feel inclined to make a case for the LC. It has a
-                        superbly charismatic and likeable V8 engine, and balanced, spry, involving handling makes it
-                        feel, at times, more of a natural rival for a Jaguar F-Type or a Porsche 911 than the mix of
-                        two- and four-door sporting grand tourers that Lexus identifies as its true opponents. Hence the
-                        car's inclusion here.</p>
+                    <p class="card-text">
+                        <fmt:message key="text.LexusLC"/>
+                    </p>
                 </div>
             </div>
         </div>
@@ -265,15 +262,18 @@
     <!-- Features Section -->
     <div class="row">
         <div class="col-lg-6">
-            <h2>Premium service</h2>
-            <p>Our car rental premium service includes:</p>
+            <h2><fmt:message key="label.premium"/></h2>
+            <p>
+                <fmt:message key="label.premiumIncludes"/>
+            </p>
             <ul>
-                <li>Fast maintenance</li>
-                <li>Best conditions</li>
-                <li>Tech support</li>
+                <li><fmt:message key="label.fast"/></li>
+                <li><fmt:message key="label.best"/></li>
+                <li><fmt:message key="label.tech"/></li>
             </ul>
-            <p>We are proud of our car park, our customers and our philosophy. If you have any questions, you can call
-                us every time - our customer support service works 24 hours.</p>
+            <p>
+                <fmt:message key="text.premium"/>
+            </p>
         </div>
         <div class="col-lg-6">
             <img class="img-fluid rounded" src="img/customer-support.jpg" alt="">
@@ -286,10 +286,14 @@
     <!-- Call to Action Section -->
     <div class="row mb-4">
         <div class="col-md-8">
-            <p>Register now to create your personal area and rent a car.</p>
+            <p>
+                <fmt:message key="label.registerNow"/>
+            </p>
         </div>
         <div class="col-md-4">
-            <a class="btn btn-lg btn-success btn-block" href="registration">Create an account</a>
+            <a class="btn btn-lg btn-success btn-block" href="registration">
+                <fmt:message key="label.createAccaunt"/>
+            </a>
         </div>
     </div>
 
@@ -299,7 +303,9 @@
 <!-- Footer -->
 <footer class="py-3 bg-dark">
     <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Mashina Inc 2019</p>
+        <p class="m-0 text-center text-white">
+            Copyright &copy; Mashina Inc 2019
+        </p>
     </div>
     <!-- /.container -->
 </footer>
