@@ -56,12 +56,34 @@ public class ClientRepositoryImpl implements ClientRepository{
     }
 
     @Override
-    public void create(Client client) {
+    public void create(Client client) throws ClassNotFoundException,SQLException {
+        Class.forName(jdbcDriver);
+
+        try(Connection connection = DriverManager.getConnection(dataBaseUrl,admin,password);
+            Statement statement = connection.createStatement())
+        {
+            String sql = "INSERT INTO driver " + "(name,passport,licence,phone_num,login,password)" +
+                    " VALUES (" + "\'" + client.getFullName() + "\',\'" + client.getPassport() + "\',\'" +
+                    client.getDriverCard() + "\',\'" + client.getPhoneNumber() + "\',\'" + client.getLogin() +
+                    "\',\'" + client.getPassword() + "\');";
+            statement.executeUpdate(sql);
+        }
+
 
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(int id) throws ClassNotFoundException,SQLException {
+
+        Class.forName(jdbcDriver);
+
+        try(Connection connection = DriverManager.getConnection(dataBaseUrl,admin,password);
+            Statement statement = connection.createStatement()){
+
+            String sql = "DELETE FROM driver WHERE driver.id = " + id + ";";
+            statement.executeUpdate(sql);
+
+        }
 
     }
 

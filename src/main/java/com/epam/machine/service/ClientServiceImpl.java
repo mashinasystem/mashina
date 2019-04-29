@@ -12,7 +12,7 @@ public class ClientServiceImpl implements ClientService {
     private ClientRepositoryImpl clientRepositoryImpl = new ClientRepositoryImpl();
 
     @Override
-    public void create(Client client) {
+    public void create(Client client) throws SQLException, ClassNotFoundException {
         if (client != null) {
             clientRepositoryImpl.create(client);
         } else {
@@ -22,8 +22,7 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public void delete(int id)
-    {
+    public void delete(int id) throws SQLException, ClassNotFoundException {
         clientRepositoryImpl.delete(id);
     }
 
