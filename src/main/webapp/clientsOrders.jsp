@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>User</title>
+  <title>Orders</title>
 
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -83,40 +83,150 @@
 
   <!-- Page Content -->
   <div class="container">
-
+  <div class="row">
+	<div class="col-lg-2"></div>
+    <div class="col-lg-8 mb-4">
     <!-- Page Heading/Breadcrumbs -->
-    <h1 class="py-4"></h1>
-    <h1 class="mt-4 mb-3">Personal
-      <small>area</small>
-    </h1>
-
-    <div class="row">
-      <div class="col-lg-6 portfolio-item">
-        <div class="card h-100">
-          <a href="/clients/1/orders"><img class="card-img-top" src="htp://placehold.it/700x400" alt=""></a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="/clients/1/orders">Orders</a>
-            </h4>
-            <p class="card-text">Book a car to a certain date, explore the status of orders and check, if you have any fines</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-6 portfolio-item">
-        <div class="card h-100">
-          <a href="/clients/1/info"><img class="card-img-top" src="htp://placehold.it/700x400" alt=""></a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="/clients/1/info">Personal information</a>
-            </h4>
-            <p class="card-text">Check or edit your personal information, or delete your account</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <h1 class="py-4"></h1>
-    <!-- /.row -->
-
+      <h1 class="py-4"></h1>
+      <h1 class="mt-4 mb-3">Current
+        <small>orders</small>
+      </h1>
+      <p>Here you can check your current orders:</p>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Start date</th>
+            <th>End date</th>
+            <th>Car model</th>
+            <th>Payment</th>
+			<th>Status</th>
+            <th>Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>21.05.19</td>
+            <td>23.05.19</td>
+            <td>Tesla Model X</td>
+			<td>Confirmed</td>
+			<td>Approved</td>
+			<td>
+			  <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton">details</button>
+			</td>
+          </tr>
+		  <tr>
+            <td>21.05.19</td>
+            <td>23.05.19</td>
+            <td>Tesla Model X</td>
+			<td>Confirmed</td>
+			<td>Approved</td>
+			<td>
+			  <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton">details</button>
+			</td>
+			<tr>
+            <td>21.05.19</td>
+            <td>23.05.19</td>
+            <td>Tesla Model X</td>
+			<td>Confirmed</td>
+			<td>Approved</td>
+			<td>
+			  <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton">details</button>
+			</td>
+			<tr>
+            <td>21.05.19</td>
+            <td>23.05.19</td>
+            <td>Tesla Model X</td>
+			<td>Confirmed</td>
+			<td>Approved</td>
+			<td>
+			  <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton">details</button>
+			</td>
+          </tr>
+        </tbody>
+      </table>
+	  <button type="button" class="btn btn-success btn-lg btn-block">NEW ORDER</button>
+    
+      <h1 class="mt-4 mb-3">Past
+        <small>orders</small>
+      </h1>
+      <p>Here you can check your past orders:</p>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Start date</th>
+            <th>End date</th>
+            <th>Car model</th>
+            <th>Payment</th>
+			<th>Status</th>
+            <th>Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>21.05.19</td>
+            <td>23.05.19</td>
+            <td>Tesla Model X</td>
+			<td>Confirmed</td>
+			<td>Approved</td>
+			<td>
+			  <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton">details</button>
+			</td>
+          </tr>
+		  <tr>
+            <td>21.05.19</td>
+            <td>23.05.19</td>
+            <td>Tesla Model X</td>
+			<td>No payment</td>
+			<td>Declined</td>
+			<td>
+			  <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton">details</button>
+			</td>
+          </tr>
+		  <tr>
+            <td>21.05.19</td>
+            <td>23.05.19</td>
+            <td>Tesla Model X</td>
+			<td>No payment</td>
+			<td>Declined</td>
+			<td>
+			  <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton">details</button>
+			</td>
+          </tr>
+		  <tr>
+            <td>21.05.19</td>
+            <td>23.05.19</td>
+            <td>Tesla Model X</td>
+			<td>Confirmed</td>
+			<td>Finished</td>
+			<td>
+			  <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton">details</button>
+			</td>
+		  </tr>
+		  <tr>
+            <td>21.05.19</td>
+            <td>23.05.19</td>
+            <td>Tesla Model X</td>
+			<td>Confirmed</td>
+			<td>Finished</td>
+			<td>
+			  <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton">details</button>
+			</td>
+		  </tr>
+		  <tr>
+            <td>21.05.19</td>
+            <td>23.05.19</td>
+            <td>Tesla Model X</td>
+			<td>No payment</td>
+			<td>Declined</td>
+			<td>
+			  <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton">details</button>
+			</td>
+          </tr>
+        </tbody>
+      </table> 	
+	
+	</div>
+  </div>
   </div>
   <!-- /.container -->
 
