@@ -17,21 +17,21 @@ public class ClientsInfoServlet extends HttpServlet {
     ClientService clientServiceimpl = new ClientServiceImpl();
 
     @Override
-    public void doGet (HttpServletRequest request, HttpServletResponse response) {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) {
         try {
             HttpSession session = request.getSession();
             String login = session.getAttribute("login").toString();
             Client client = clientServiceimpl.get(login);
             request.setAttribute("fail", 0);
             request.setAttribute("name", client.getFullName());
-            request.setAttribute("passport",client.getPassport());
-            request.setAttribute("driverCard",client.getDriverCard());
+            request.setAttribute("passport", client.getPassport());
+            request.setAttribute("driverCard", client.getDriverCard());
             request.setAttribute("phoneNumber", client.getPhoneNumber());
-            request.setAttribute("email",client.getEMail());
-            request.setAttribute("login",client.getLogin());
-            request.setAttribute("password",client.getPassword());
+            request.setAttribute("email", client.getEMail());
+            request.setAttribute("login", client.getLogin());
+            request.setAttribute("password", client.getPassword());
             request.getRequestDispatcher("/clientsInfo.jsp").forward(request, response);
-        } catch(ServletException | IOException err) {
+        } catch (ServletException | IOException err) {
             System.out.println("Something is wrong. Game over. Try again" + err.getMessage());
         } catch (SQLException e) {
             e.printStackTrace();

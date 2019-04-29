@@ -3,14 +3,11 @@ package com.epam.machine.repository;
 import com.epam.machine.entity.Client;
 import lombok.Builder;
 import lombok.Data;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+
+import java.sql.*;
 
 @Data
-public class ClientRepositoryImpl implements ClientRepository{
+public class ClientRepositoryImpl implements ClientRepository {
     final static private String DATA_BASE_URL = "jdbc:postgresql://localhost:5432/Car";
     final static private String JDBC_DRIVER = "org.postgresql.Driver";
 
@@ -19,7 +16,7 @@ public class ClientRepositoryImpl implements ClientRepository{
 
     @Builder
     @Override
-    public Client get(int id) throws ClassNotFoundException,SQLException {
+    public Client get(int id) throws ClassNotFoundException, SQLException {
         Class.forName(JDBC_DRIVER);
 
         String fullName = "";
@@ -31,8 +28,8 @@ public class ClientRepositoryImpl implements ClientRepository{
         String pasword = "";
 
         ResultSet resultSet;
-        try(Connection connection = DriverManager.getConnection(DATA_BASE_URL,ADMIN,PASSWORD);
-        Statement statement = connection.createStatement()) {
+        try (Connection connection = DriverManager.getConnection(DATA_BASE_URL, ADMIN, PASSWORD);
+             Statement statement = connection.createStatement()) {
             String sql = "SELECT * FROM driver WHERE driver.id = " + id + ";";
             resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {
@@ -59,12 +56,11 @@ public class ClientRepositoryImpl implements ClientRepository{
     }
 
     @Override
-    public void create(Client client) throws ClassNotFoundException,SQLException {
+    public void create(Client client) throws ClassNotFoundException, SQLException {
         Class.forName(JDBC_DRIVER);
 
-        try(Connection connection = DriverManager.getConnection(DATA_BASE_URL,ADMIN,PASSWORD);
-            Statement statement = connection.createStatement())
-        {
+        try (Connection connection = DriverManager.getConnection(DATA_BASE_URL, ADMIN, PASSWORD);
+             Statement statement = connection.createStatement()) {
             String sql = "INSERT INTO driver " + "(name,passport,licence,phone_num,login,password)" +
                     " VALUES (" + "\'" + client.getFullName() + "\',\'" + client.getPassport() + "\',\'" +
                     client.getDriverCard() + "\',\'" + client.getPhoneNumber() + "\',\'" + client.getLogin() +
@@ -76,12 +72,12 @@ public class ClientRepositoryImpl implements ClientRepository{
     }
 
     @Override
-    public void delete(int id) throws ClassNotFoundException,SQLException {
+    public void delete(int id) throws ClassNotFoundException, SQLException {
 
         Class.forName(JDBC_DRIVER);
 
-        try(Connection connection = DriverManager.getConnection(DATA_BASE_URL,ADMIN,PASSWORD);
-            Statement statement = connection.createStatement()){
+        try (Connection connection = DriverManager.getConnection(DATA_BASE_URL, ADMIN, PASSWORD);
+             Statement statement = connection.createStatement()) {
 
             String sql = "DELETE FROM driver WHERE driver.id = " + id + ";";
             statement.executeUpdate(sql);
@@ -96,16 +92,15 @@ public class ClientRepositoryImpl implements ClientRepository{
     }
 
     @Override
-    public int getIdByLogin(String login) throws ClassNotFoundException,SQLException  {
+    public int getIdByLogin(String login) throws ClassNotFoundException, SQLException {
         Class.forName(JDBC_DRIVER);
         ResultSet resultSet = null;
-        int id=0;
-        try(Connection connection = DriverManager.getConnection(DATA_BASE_URL,ADMIN,PASSWORD);
-            Statement statement = connection.createStatement())
-        {
+        int id = 0;
+        try (Connection connection = DriverManager.getConnection(DATA_BASE_URL, ADMIN, PASSWORD);
+             Statement statement = connection.createStatement()) {
             String sql = "SELECT * FROM driver WHERE driver.login = \'" + login + "\';";
             resultSet = statement.executeQuery(sql);
-            while(resultSet.next()) {
+            while (resultSet.next()) {
                 id = resultSet.getInt(1);
             }
         }
