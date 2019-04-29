@@ -121,16 +121,17 @@
     <div class="row">
         <div class="col-lg-6 portfolio-item">
             <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="htp://placehold.it/700x400" alt=""></a>
+                <a href="/clients/1/orders"><img class="card-img-top" src="htp://placehold.it/700x400" alt=""></a>
                 <div class="card-body">
                     <h4 class="card-title">
-                        <a href="#"><fmt:message key="label.orders"/></a>
+                        <a href="/clients/1/orders"><fmt:message key="label.orders"/></a>
                     </h4>
                     <p class="card-text">
                         <fmt:message key="text.bookACar"/>
                     </p>
                 </div>
             </div>
+
         </div>
         <div class="col-lg-6 portfolio-item">
             <div class="card h-100">
