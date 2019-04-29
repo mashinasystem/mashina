@@ -1,7 +1,8 @@
-insert into DRIVER (NAME, PASSPORT, LICENSE, PHONE_NUM, LOGIN, PASSWORD)
-values ('Gwion Ritter', '1234567890', '142359708', '89112345678', 'login', 'password'),
-       ('Kyla Williams', '142359708', '4109523876', '13342567676', 'KylalaWill', 'Pa$$w0rd'),
-       ('Reem Wiggins', '4109523876', '9018237465', '89560816741', 'wigginsrt@gmail.com', 'AnthropomorphousHuman19');
+insert into DRIVER (NAME, PASSPORT, LICENSE, PHONE_NUM, EMAIL, PASSWORD)
+values ('Gwion Ritter', '1234567890', '1423597068', '89112345678', 'login@gmail.com', 'password'),
+       ('Kyla Williams', '142359708', '4109523876', '13342567676', 'atgmaildotcom@gmail.com', 'Pa$$w0rd'),
+       ('Reem Wiggins', '4109523876', '9018237465', '89560816741', 'rewig@mash.com',
+        'AnthropomorphousHuman19');
 
 insert into TICKET (DRIVER_ID, IS_PAID, COST)
 values (1, TRUE, 15),
