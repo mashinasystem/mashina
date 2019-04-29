@@ -99,7 +99,6 @@
             <th>Email</th>			
             <th>Passport number</th>
             <th>Driving lisence number</th>
-            <th>Details</th>
           </tr>
         </thead>
         <tbody>
@@ -109,9 +108,6 @@
 			<td>eric@epam.com</td>
             <td>8945 456452</td>
             <td>7875 4657</td>
-			<td>
-			  <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton">details</button>
-			</td>
           </tr>
         </tbody>
       </table>

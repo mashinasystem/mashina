@@ -5,6 +5,7 @@
          version="3.1">
 
     <display-name>Hello</display-name>
+
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>com.epam.machine.controller.LoginServlet</servlet-class>
@@ -13,7 +14,6 @@
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
-
 
     <servlet>
         <servlet-name>registerServlet</servlet-name>
@@ -51,8 +51,6 @@
         <url-pattern>/clients/1/orders</url-pattern>
     </servlet-mapping>
 
-
-
     <servlet>
         <servlet-name>AdminProfileServlet</servlet-name>
         <servlet-class>com.epam.machine.controller.AdminProfileServlet</servlet-class>
@@ -87,5 +85,35 @@
     <servlet-mapping>
         <servlet-name>AdminCustomersServlet</servlet-name>
         <url-pattern>/admin/1/customers</url-pattern>
+    </servlet-mapping>
+
+
+
+
+    <servlet>
+        <servlet-name>ClientsCertainOrderServlet</servlet-name>
+        <servlet-class>com.epam.machine.controller.ClientsCertainOrderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ClientsCertainOrderServlet</servlet-name>
+        <url-pattern>/clients/1/orders/1</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AdminCertainOrderServlet</servlet-name>
+        <servlet-class>com.epam.machine.controller.AdminCertainOrderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminCertainOrderServlet</servlet-name>
+        <url-pattern>/admin/1/orders/1</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AdminFines</servlet-name>
+        <servlet-class>com.epam.machine.controller.AdminFines</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminFines</servlet-name>
+        <url-pattern>/admin/1/orders/1/fines/1</url-pattern>
     </servlet-mapping>
 </web-app>

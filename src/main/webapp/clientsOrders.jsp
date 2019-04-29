@@ -111,12 +111,12 @@
 			<td>Confirmed</td>
 			<td>Approved</td>
 			<td>
-			  <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton">details</button>
+			  <a href="/clients/1/orders/1" class="btn btn-info btn-sm">details</a>
 			</td>
           </tr>
         </tbody>
       </table>
-	  <button type="button" class="btn btn-success btn-lg btn-block">NEW ORDER</button>
+	  <a href="/clients/1/orders/1" class="btn btn-success btn-block">New order</a>
     
       <h1 class="mt-4 mb-3">Past
         <small>orders</small>
@@ -141,7 +141,7 @@
 			<td>Confirmed</td>
 			<td>Finished</td>
 			<td>
-			  <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton">details</button>
+			  <a href="/clients/1/orders/1" class="btn btn-info btn-sm">details</a>
 			</td>
 		  </tr>
 		  <tr>
@@ -151,12 +151,11 @@
 			<td>No payment</td>
 			<td>Declined</td>
 			<td>
-			  <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton">details</button>
+			  <a href="/clients/1/orders/1" class="btn btn-info btn-sm">details</a>
 			</td>
           </tr>
         </tbody>
       </table> 	
-	
 	</div>
   </div>
   </div>
