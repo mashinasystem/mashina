@@ -13,7 +13,7 @@ public class RegisterServletTest {
     private static String path = "/register.jsp";
 
     @Test
-    public void testDoGet() throws ServletException, IOException {
+    public void doGet() throws ServletException, IOException {
         final RegisterServlet servlet = new RegisterServlet();
         final HttpServletRequest request = mock(HttpServletRequest.class);
         final HttpServletResponse response = mock(HttpServletResponse.class);
