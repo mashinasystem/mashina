@@ -41,7 +41,6 @@
         <servlet-name>ClientsInfoServlet</servlet-name>
         <url-pattern>/clients/1/info</url-pattern>
     </servlet-mapping>
-
     <servlet>
         <servlet-name>ClientsOrdersServlet</servlet-name>
         <servlet-class>com.epam.machine.controller.ClientsOrdersServlet</servlet-class>

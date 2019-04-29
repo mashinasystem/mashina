@@ -92,50 +92,50 @@
         <small>information</small>
       </h1>
 
-      <p>Here you can check your personal information:</p>
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th>Graph</th>
-            <th>Information</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Full name</td>
-            <td>${name}</td>
-          </tr>
-          <tr>
-           <td>Passport number</td>
-            <td>${passport}</td>
-          </tr>
-          <tr>
-            <td>Driving license number</td>
-            <td>${driverCard}</td>
-          </tr>
-          <tr>
-            <td>Phone number</td>
-            <td>${phoneNumber}</td>
-          </tr>
-          <tr>
-            <td>Email</td>
-            <td>${email}</td>
-          </tr>	  
-          <tr>
-            <td>Login</td>
-            <td>${login}</td>
-          </tr>	
-          <tr>
-            <td>Password</td>
-            <td>${password}</td>
-          </tr>	  
-        </tbody>
-      </table>
-      <button type="submit" class="btn btn-warning" id="sendMessageButton">Edit</button>    
+            <p><fmt:message key="text.hereYouCheck"/></p>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th><fmt:message key="label.graph"/></th>
+                    <th><fmt:message key="label.info"/></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><fmt:message key="label.name"/></td>
+                    <td>${name}</td>
+                </tr>
+                <tr>
+                    <td><fmt:message key="label.passport"/>Passport number</td>
+                    <td>${passport}</td>
+                </tr>
+                <tr>
+                    <td><fmt:message key="label.license"/></td>
+                    <td>${driverCard}</td>
+                </tr>
+                <tr>
+                    <td><fmt:message key="label.phone"/></td>
+                    <td>${phoneNumber}</td>
+                </tr>
+                <tr>
+                    <td><fmt:message key="label.email"/></td>
+                    <td>${email}</td>
+                </tr>
+                <tr>
+                    <td><fmt:message key="label.login"/></td>
+                    <td>${login}</td>
+                </tr>
+                <tr>
+                    <td><fmt:message key="label.password"/></td>
+                    <td>${password}</td>
+                </tr>
+                </tbody>
+            </table>
+            <button type="submit" class="btn btn-warning" id="sendMessageButton"><fmt:message key="label.edit"/></button>
+        </div>
     </div>
-  </div>
-  </div>
-  <!-- /.container -->
+</div>
+<!-- /.container -->
 
   <!-- Footer -->
   <footer class="py-3 bg-dark">
