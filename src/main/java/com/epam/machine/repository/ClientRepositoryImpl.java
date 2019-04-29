@@ -42,8 +42,8 @@ public class ClientRepositoryImpl implements ClientRepository{
                 pasword = resultSet.getString(7);
             }
         }
-        Client client = null;
-        client = client.builder()
+
+        return Client.builder()
                 .id(id)
                 .fullName(fullName)
                 .passport(passport)
@@ -53,8 +53,6 @@ public class ClientRepositoryImpl implements ClientRepository{
                 .login(login)
                 .password(pasword)
                 .build();
-
-        return client;
     }
 
     @Override
