@@ -9,7 +9,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class LoginServlet extends HttpServlet{
-    public HttpSession session;
+    private HttpSession session;
     @Override
     public void doGet (HttpServletRequest request, HttpServletResponse response) {
         try {

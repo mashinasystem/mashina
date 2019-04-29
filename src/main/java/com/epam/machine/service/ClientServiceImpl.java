@@ -3,7 +3,6 @@ package com.epam.machine.service;
 import com.epam.machine.entity.Client;
 import com.epam.machine.repository.ClientRepositoryImpl;
 import lombok.Data;
-
 import java.sql.SQLException;
 
 @Data

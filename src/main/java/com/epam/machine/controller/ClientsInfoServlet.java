@@ -1,6 +1,7 @@
 package com.epam.machine.controller;
 
 import com.epam.machine.entity.Client;
+import com.epam.machine.service.ClientService;
 import com.epam.machine.service.ClientServiceImpl;
 
 import javax.servlet.ServletException;
@@ -12,10 +13,12 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 public class ClientsInfoServlet extends HttpServlet {
+
+    ClientService clientServiceimpl = new ClientServiceImpl();
+
     @Override
     public void doGet (HttpServletRequest request, HttpServletResponse response) {
         try {
-            ClientServiceImpl clientServiceimpl = new ClientServiceImpl();
             HttpSession session = request.getSession();
             String login = session.getAttribute("login").toString();
             Client client = clientServiceimpl.get(login);
