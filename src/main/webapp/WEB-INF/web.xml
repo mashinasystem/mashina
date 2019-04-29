@@ -41,6 +41,7 @@
         <servlet-name>ClientsInfoServlet</servlet-name>
         <url-pattern>/clients/1/info</url-pattern>
     </servlet-mapping>
+
     <servlet>
         <servlet-name>ClientsOrdersServlet</servlet-name>
         <servlet-class>com.epam.machine.controller.ClientsOrdersServlet</servlet-class>
@@ -48,5 +49,43 @@
     <servlet-mapping>
         <servlet-name>ClientsOrdersServlet</servlet-name>
         <url-pattern>/clients/1/orders</url-pattern>
+    </servlet-mapping>
+
+
+
+    <servlet>
+        <servlet-name>AdminProfileServlet</servlet-name>
+        <servlet-class>com.epam.machine.controller.AdminProfileServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminProfileServlet</servlet-name>
+        <url-pattern>/admin/1/profile</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AdminInfoServlet</servlet-name>
+        <servlet-class>com.epam.machine.controller.AdminInfoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminInfoServlet</servlet-name>
+        <url-pattern>/admin/1/info</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AdminOrdersServlet</servlet-name>
+        <servlet-class>com.epam.machine.controller.AdminOrdersServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminOrdersServlet</servlet-name>
+        <url-pattern>/admin/1/orders</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AdminCustomersServlet</servlet-name>
+        <servlet-class>com.epam.machine.controller.AdminOrdersServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminCustomersServlet</servlet-name>
+        <url-pattern>/admin/1/customers</url-pattern>
     </servlet-mapping>
 </web-app>
