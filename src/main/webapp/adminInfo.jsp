@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Personal info</title>
+    <title>Admin info</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -32,7 +32,7 @@
 <!-- Navigation -->
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="/">Mashina Inc.</a>
+        <a class="navbar-brand" href="/">Mashina</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                 data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -134,24 +134,8 @@
                     <td>John Snow</td>
                 </tr>
                 <tr>
-                    <td><fmt:message key="label.passport"/>Passport number</td>
-                    <td>7826 487624</td>
-                </tr>
-                <tr>
-                    <td><fmt:message key="label.license"/></td>
-                    <td>785 658 71</td>
-                </tr>
-                <tr>
-                    <td><fmt:message key="label.phone"/></td>
-                    <td>+7 (921) 365-34-81</td>
-                </tr>
-                <tr>
                     <td><fmt:message key="label.email"/></td>
                     <td>johnnysnowysnow@mail.ru</td>
-                </tr>
-                <tr>
-                    <td><fmt:message key="label.login"/></td>
-                    <td>master_of_mashina</td>
                 </tr>
                 <tr>
                     <td><fmt:message key="label.password"/></td>

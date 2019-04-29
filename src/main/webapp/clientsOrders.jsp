@@ -114,34 +114,6 @@
 			  <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton">details</button>
 			</td>
           </tr>
-		  <tr>
-            <td>21.05.19</td>
-            <td>23.05.19</td>
-            <td>Tesla Model X</td>
-			<td>Confirmed</td>
-			<td>Approved</td>
-			<td>
-			  <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton">details</button>
-			</td>
-			<tr>
-            <td>21.05.19</td>
-            <td>23.05.19</td>
-            <td>Tesla Model X</td>
-			<td>Confirmed</td>
-			<td>Approved</td>
-			<td>
-			  <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton">details</button>
-			</td>
-			<tr>
-            <td>21.05.19</td>
-            <td>23.05.19</td>
-            <td>Tesla Model X</td>
-			<td>Confirmed</td>
-			<td>Approved</td>
-			<td>
-			  <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton">details</button>
-			</td>
-          </tr>
         </tbody>
       </table>
 	  <button type="button" class="btn btn-success btn-lg btn-block">NEW ORDER</button>
@@ -162,46 +134,6 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>21.05.19</td>
-            <td>23.05.19</td>
-            <td>Tesla Model X</td>
-			<td>Confirmed</td>
-			<td>Approved</td>
-			<td>
-			  <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton">details</button>
-			</td>
-          </tr>
-		  <tr>
-            <td>21.05.19</td>
-            <td>23.05.19</td>
-            <td>Tesla Model X</td>
-			<td>No payment</td>
-			<td>Declined</td>
-			<td>
-			  <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton">details</button>
-			</td>
-          </tr>
-		  <tr>
-            <td>21.05.19</td>
-            <td>23.05.19</td>
-            <td>Tesla Model X</td>
-			<td>No payment</td>
-			<td>Declined</td>
-			<td>
-			  <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton">details</button>
-			</td>
-          </tr>
-		  <tr>
-            <td>21.05.19</td>
-            <td>23.05.19</td>
-            <td>Tesla Model X</td>
-			<td>Confirmed</td>
-			<td>Finished</td>
-			<td>
-			  <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton">details</button>
-			</td>
-		  </tr>
 		  <tr>
             <td>21.05.19</td>
             <td>23.05.19</td>

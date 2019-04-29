@@ -82,7 +82,7 @@
 
     <servlet>
         <servlet-name>AdminCustomersServlet</servlet-name>
-        <servlet-class>com.epam.machine.controller.AdminOrdersServlet</servlet-class>
+        <servlet-class>com.epam.machine.controller.AdminCustomersServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AdminCustomersServlet</servlet-name>

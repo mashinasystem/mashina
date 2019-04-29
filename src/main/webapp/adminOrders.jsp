@@ -84,17 +84,19 @@
   <!-- Page Content -->
   <div class="container">
   <div class="row">
-	<div class="col-lg-2"></div>
-    <div class="col-lg-8 mb-4">
+    <div class="col-lg-12 mb-4">
     <!-- Page Heading/Breadcrumbs -->
       <h1 class="py-4"></h1>
       <h1 class="mt-4 mb-3">Current
         <small>orders</small>
       </h1>
-      <p>Here you can check your current orders:</p>
+      <p>Here you can check customers' current orders:</p>
       <table class="table table-hover">
         <thead>
           <tr>
+            <th>Name</th>		
+            <th>Phone number</th>			
+            <th>Email</th>			
             <th>Start date</th>
             <th>End date</th>
             <th>Car model</th>
@@ -105,34 +107,9 @@
         </thead>
         <tbody>
           <tr>
-            <td>21.05.19</td>
-            <td>23.05.19</td>
-            <td>Tesla Model X</td>
-			<td>Confirmed</td>
-			<td>Approved</td>
-			<td>
-			  <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton">details</button>
-			</td>
-          </tr>
-		  <tr>
-            <td>21.05.19</td>
-            <td>23.05.19</td>
-            <td>Tesla Model X</td>
-			<td>Confirmed</td>
-			<td>Approved</td>
-			<td>
-			  <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton">details</button>
-			</td>
-			<tr>
-            <td>21.05.19</td>
-            <td>23.05.19</td>
-            <td>Tesla Model X</td>
-			<td>Confirmed</td>
-			<td>Approved</td>
-			<td>
-			  <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton">details</button>
-			</td>
-			<tr>
+            <td>Eric Smith</td>
+            <td>89112854675</td>
+			<td>eric@epam.com</td>
             <td>21.05.19</td>
             <td>23.05.19</td>
             <td>Tesla Model X</td>
@@ -149,10 +126,13 @@
       <h1 class="mt-4 mb-3">Past
         <small>orders</small>
       </h1>
-      <p>Here you can check your past orders:</p>
+      <p>Here you can check customers' past orders:</p>
       <table class="table table-hover">
         <thead>
           <tr>
+            <th>Name</th>		
+            <th>Phone number</th>			
+            <th>Email</th>			
             <th>Start date</th>
             <th>End date</th>
             <th>Car model</th>
@@ -163,6 +143,9 @@
         </thead>
         <tbody>
           <tr>
+            <td>Eric Jan</td>
+            <td>89112854675</td>
+			<td>eric@epam.com</td>
             <td>21.05.19</td>
             <td>23.05.19</td>
             <td>Tesla Model X</td>
@@ -172,59 +155,8 @@
 			  <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton">details</button>
 			</td>
           </tr>
-		  <tr>
-            <td>21.05.19</td>
-            <td>23.05.19</td>
-            <td>Tesla Model X</td>
-			<td>No payment</td>
-			<td>Declined</td>
-			<td>
-			  <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton">details</button>
-			</td>
-          </tr>
-		  <tr>
-            <td>21.05.19</td>
-            <td>23.05.19</td>
-            <td>Tesla Model X</td>
-			<td>No payment</td>
-			<td>Declined</td>
-			<td>
-			  <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton">details</button>
-			</td>
-          </tr>
-		  <tr>
-            <td>21.05.19</td>
-            <td>23.05.19</td>
-            <td>Tesla Model X</td>
-			<td>Confirmed</td>
-			<td>Finished</td>
-			<td>
-			  <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton">details</button>
-			</td>
-		  </tr>
-		  <tr>
-            <td>21.05.19</td>
-            <td>23.05.19</td>
-            <td>Tesla Model X</td>
-			<td>Confirmed</td>
-			<td>Finished</td>
-			<td>
-			  <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton">details</button>
-			</td>
-		  </tr>
-		  <tr>
-            <td>21.05.19</td>
-            <td>23.05.19</td>
-            <td>Tesla Model X</td>
-			<td>No payment</td>
-			<td>Declined</td>
-			<td>
-			  <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton">details</button>
-			</td>
-          </tr>
         </tbody>
-      </table> 	
-	
+      </table>	
 	</div>
   </div>
   </div>

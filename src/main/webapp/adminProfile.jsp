@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>User</title>
+    <title>Profile</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -32,7 +32,7 @@
 <!-- Navigation -->
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="/">Mashina Inc.</a>
+        <a class="navbar-brand" href="/">Mashina</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                 data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -119,12 +119,12 @@
     </h1>
 
     <div class="row">
-        <div class="col-lg-6 portfolio-item">
+        <div class="col-lg-4 portfolio-item">
             <div class="card h-100">
-                <a href="/clients/1/orders"><img class="card-img-top" src="htp://placehold.it/700x400" alt=""></a>
+                <a href="/admin/1/orders"><img class="card-img-top" src="htp://placehold.it/700x400" alt=""></a>
                 <div class="card-body">
                     <h4 class="card-title">
-                        <a href="/clients/1/orders"><fmt:message key="label.orders"/></a>
+                        <a href="/admin/1/orders"><fmt:message key="label.orders"/></a>
                     </h4>
                     <p class="card-text">
                         <fmt:message key="text.bookACar"/>
@@ -133,12 +133,27 @@
             </div>
 
         </div>
-        <div class="col-lg-6 portfolio-item">
+        <div class="col-lg-4 portfolio-item">
             <div class="card h-100">
-                <a href="/clients/1/info"><img class="card-img-top" src="htp://placehold.it/700x400" alt=""></a>
+                <a href="/admin/1/customers"><img class="card-img-top" src="htp://placehold.it/700x400" alt=""></a>
                 <div class="card-body">
                     <h4 class="card-title">
-                        <a href="/clients/1/info">
+                        <a href="/admin/1/customers">
+                            <fmt:message key="label.customers"/>
+                        </a>
+                    </h4>
+                    <p class="card-text">
+                        <fmt:message key="text.checkOrEdit"/>
+                    </p>
+                </div>
+            </div>
+        </div>
+		<div class="col-lg-4 portfolio-item">
+            <div class="card h-100">
+                <a href="/admin/1/info"><img class="card-img-top" src="htp://placehold.it/700x400" alt=""></a>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <a href="/admin/1/info">
                             <fmt:message key="label.personal"/> <fmt:message key="label.area"/>
                         </a>
                     </h4>

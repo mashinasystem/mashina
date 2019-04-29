@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Orders</title>
+  <title>Customers</title>
 
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -84,147 +84,38 @@
   <!-- Page Content -->
   <div class="container">
   <div class="row">
-	<div class="col-lg-2"></div>
-    <div class="col-lg-8 mb-4">
+    <div class="col-lg-12 mb-4">
     <!-- Page Heading/Breadcrumbs -->
       <h1 class="py-4"></h1>
       <h1 class="mt-4 mb-3">Current
-        <small>orders</small>
+        <small>customers</small>
       </h1>
-      <p>Here you can check your current orders:</p>
+      <p>Here you can check our current customers:</p>
       <table class="table table-hover">
         <thead>
           <tr>
-            <th>Start date</th>
-            <th>End date</th>
-            <th>Car model</th>
-            <th>Payment</th>
-			<th>Status</th>
+            <th>Name</th>		
+            <th>Phone number</th>			
+            <th>Email</th>			
+            <th>Passport number</th>
+            <th>Driving lisence number</th>
             <th>Details</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>21.05.19</td>
-            <td>23.05.19</td>
-            <td>Tesla Model X</td>
-			<td>Confirmed</td>
-			<td>Approved</td>
-			<td>
-			  <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton">details</button>
-			</td>
-          </tr>
-		  <tr>
-            <td>21.05.19</td>
-            <td>23.05.19</td>
-            <td>Tesla Model X</td>
-			<td>Confirmed</td>
-			<td>Approved</td>
-			<td>
-			  <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton">details</button>
-			</td>
-			<tr>
-            <td>21.05.19</td>
-            <td>23.05.19</td>
-            <td>Tesla Model X</td>
-			<td>Confirmed</td>
-			<td>Approved</td>
-			<td>
-			  <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton">details</button>
-			</td>
-			<tr>
-            <td>21.05.19</td>
-            <td>23.05.19</td>
-            <td>Tesla Model X</td>
-			<td>Confirmed</td>
-			<td>Approved</td>
+            <td>Eric Smith</td>
+            <td>89112854675</td>
+			<td>eric@epam.com</td>
+            <td>8945 456452</td>
+            <td>7875 4657</td>
 			<td>
 			  <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton">details</button>
 			</td>
           </tr>
         </tbody>
       </table>
-	  <button type="button" class="btn btn-success btn-lg btn-block">NEW ORDER</button>
-    
-      <h1 class="mt-4 mb-3">Past
-        <small>orders</small>
-      </h1>
-      <p>Here you can check your past orders:</p>
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th>Start date</th>
-            <th>End date</th>
-            <th>Car model</th>
-            <th>Payment</th>
-			<th>Status</th>
-            <th>Details</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>21.05.19</td>
-            <td>23.05.19</td>
-            <td>Tesla Model X</td>
-			<td>Confirmed</td>
-			<td>Approved</td>
-			<td>
-			  <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton">details</button>
-			</td>
-          </tr>
-		  <tr>
-            <td>21.05.19</td>
-            <td>23.05.19</td>
-            <td>Tesla Model X</td>
-			<td>No payment</td>
-			<td>Declined</td>
-			<td>
-			  <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton">details</button>
-			</td>
-          </tr>
-		  <tr>
-            <td>21.05.19</td>
-            <td>23.05.19</td>
-            <td>Tesla Model X</td>
-			<td>No payment</td>
-			<td>Declined</td>
-			<td>
-			  <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton">details</button>
-			</td>
-          </tr>
-		  <tr>
-            <td>21.05.19</td>
-            <td>23.05.19</td>
-            <td>Tesla Model X</td>
-			<td>Confirmed</td>
-			<td>Finished</td>
-			<td>
-			  <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton">details</button>
-			</td>
-		  </tr>
-		  <tr>
-            <td>21.05.19</td>
-            <td>23.05.19</td>
-            <td>Tesla Model X</td>
-			<td>Confirmed</td>
-			<td>Finished</td>
-			<td>
-			  <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton">details</button>
-			</td>
-		  </tr>
-		  <tr>
-            <td>21.05.19</td>
-            <td>23.05.19</td>
-            <td>Tesla Model X</td>
-			<td>No payment</td>
-			<td>Declined</td>
-			<td>
-			  <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton">details</button>
-			</td>
-          </tr>
-        </tbody>
-      </table> 	
-	
+	  <button type="button" class="btn btn-success btn-lg btn-block">Add customer</button>
 	</div>
   </div>
   </div>
