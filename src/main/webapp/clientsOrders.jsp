@@ -111,8 +111,8 @@
           <c:forEach items="${offers}" var="offer">
             <tr>
               <td><c:out value="${offer.beginDay}" /></td>
-              <td>23.05.19</td>
-              <td><c:out value="${offer.carId}" /></td>
+              <td><c:out value="${offer.period}" /></td>
+              <td><c:out value="${offer.car.getModel()}" /></td>
 		      <td><c:out value="${offer.payment}" /></td>
 			  <td><c:out value="${offer.status}" /></td>
 			  <td>

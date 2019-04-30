@@ -8,7 +8,7 @@ import lombok.Data;
 public class Offer {
     private int id;
     private int driverId;
-    private int carId;
+    private Car car;
     private int payment;
     private int beginDay;
     private int period;

@@ -36,8 +36,9 @@ public class OfferRepositroryImpl implements OfferRepository {
                 payment = resultSet.getInt(5);
                 period = resultSet.getInt(7);
                 status = resultSet.getString(8);
+                CarRepository carRepository = new CarRepositoryImpl();
                 offers.add(Offer.builder()
-                        .carId(carId)
+                        .car(carRepository.get(carId))
                         .driverId(id)
                         .period(period)
                         .status(status)
