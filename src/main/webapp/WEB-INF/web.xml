@@ -87,9 +87,6 @@
         <url-pattern>/admin/1/customers</url-pattern>
     </servlet-mapping>
 
-
-
-
     <servlet>
         <servlet-name>ClientsCertainOrderServlet</servlet-name>
         <servlet-class>com.epam.machine.controller.ClientsCertainOrderServlet</servlet-class>
@@ -117,11 +114,20 @@
         <url-pattern>/admin/1/orders/1/fines/1</url-pattern>
     </servlet-mapping>
 
+    <filter>
+        <filter-name>ClientsFilter</filter-name>
+        <filter-class>com.epam.machine.filter.clients</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>ClientsFilter</filter-name>
+        <url-pattern>/clients/*</url-pattern>
+    </filter-mapping>
+
     <jsp-config>
       <jsp-property-group>
         <url-pattern>*.jsp</url-pattern>
         <page-encoding>UTF-8</page-encoding>
       </jsp-property-group>
     </jsp-config>
-    
+
 </web-app>

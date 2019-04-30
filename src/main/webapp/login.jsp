@@ -34,6 +34,7 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
         <a class="navbar-brand" href="/">Mashina</a>
+        <a class="navbar-brand" href="/clients/1/profile">CUSTOMER PAGE</a>
         <a class="navbar-brand" href="/admin/1/profile">ADMIN PAGE</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                 data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"

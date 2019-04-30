@@ -32,7 +32,7 @@
 <!-- Navigation -->
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="/">Mashina Inc.</a>
+        <a class="navbar-brand" href="/">Mashina</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                 data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -107,56 +107,59 @@
             </ul>
         </div>
     </div>
-</nav>
+  </nav>
 
-<!-- Page Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-3"></div>
-        <div class="col-lg-6 mb-4">
-            <!-- Page Heading/Breadcrumbs -->
-            <h1 class="py-4"></h1>
-            <h1 class="mt-4 mb-3"><fmt:message key="label.personal"/>
-                <small><fmt:message key="label.info"/></small>
-            </h1>
+  <!-- Page Content -->
+  <div class="container">
+  <div class="row">
+	<div class="col-lg-3"></div>
+    <div class="col-lg-6 mb-4">
+    <!-- Page Heading/Breadcrumbs -->
+      <h1 class="py-4"></h1>
+      <h1 class="mt-4 mb-3">Personal
+        <small>information</small>
+      </h1>
 
-            <p><fmt:message key="text.hereYouCheck"/></p>
-            <table class="table table-hover">
-                <thead>
-                <tr>
-                    <th><fmt:message key="label.graph"/></th>
-                    <th><fmt:message key="label.info"/></th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td><fmt:message key="label.name"/></td>
-                    <td>John Snow</td>
-                </tr>
-                <tr>
-                    <td><fmt:message key="label.passport"/>Passport number</td>
-                    <td>7826 487624</td>
-                </tr>
-                <tr>
-                    <td><fmt:message key="label.license"/></td>
-                    <td>785 658 71</td>
-                </tr>
-                <tr>
-                    <td><fmt:message key="label.phone"/></td>
-                    <td>+7 (921) 365-34-81</td>
-                </tr>
-                <tr>
-                    <td><fmt:message key="label.email"/></td>
-                    <td>johnnysnowysnow@mail.ru</td>
-                </tr>
-                <tr>
-                    <td><fmt:message key="label.password"/></td>
-                    <td>*******</td>
-                </tr>
-                </tbody>
-            </table>
-            <button type="submit" class="btn btn-warning" id="sendMessageButton"><fmt:message key="label.edit"/></button>
-        </div>
+      <p>Here you can check your personal information:</p>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Graph</th>
+            <th>Information</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Full name</td>
+            <td>${name}</td>
+          </tr>
+          <tr>
+           <td>Passport number</td>
+            <td>${passport}</td>
+          </tr>
+          <tr>
+            <td>Driving license number</td>
+            <td>${driverCard}</td>
+          </tr>
+          <tr>
+            <td>Phone number</td>
+            <td>${phoneNumber}</td>
+          </tr>
+          <tr>
+            <td>Email</td>
+            <td>${email}</td>
+          </tr>	  
+          <tr>
+            <td>Login</td>
+            <td>${login}</td>
+          </tr>	
+          <tr>
+            <td>Password</td>
+            <td>${password}</td>
+          </tr>	  
+        </tbody>
+      </table>
+      <button type="submit" class="btn btn-warning" id="sendMessageButton">Edit</button>
     </div>
 </div>
 <!-- /.container -->
