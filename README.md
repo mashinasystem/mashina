@@ -32,6 +32,8 @@ Setting -> Plugins -> lombok -> download;
 После утановки необходимо перезагрузить IDEA;
 для использования необходимо импортировать в нужный класс.
 
+
+
 Gradle instrctions
 
 The way it works:
@@ -47,3 +49,11 @@ The way it works:
 
 5. Type "gradle appStop" to a command line to stop the app
 (or click that task in gretty tasks)
+
+
+
+FlyWay instrctions
+
+There are two .sql files in src/main/resources/db/migrations. The first one creates the database, the second one fills it with data.
+
+To execute database creation and filling you should run "flywayMigrate" task. To drop the database you should run "flywayClean"
