@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html" %>
+<%@ page import = "com.epam.machine.entity.Offer" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -104,44 +108,18 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>21.05.19</td>
-            <td>23.05.19</td>
-            <td>Tesla Model X</td>
-			<td>Confirmed</td>
-			<td>Approved</td>
-			<td>
-			  <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton">details</button>
-			</td>
-          </tr>
-		  <tr>
-            <td>21.05.19</td>
-            <td>23.05.19</td>
-            <td>Tesla Model X</td>
-			<td>Confirmed</td>
-			<td>Approved</td>
-			<td>
-			  <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton">details</button>
-			</td>
-			<tr>
-            <td>21.05.19</td>
-            <td>23.05.19</td>
-            <td>Tesla Model X</td>
-			<td>Confirmed</td>
-			<td>Approved</td>
-			<td>
-			  <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton">details</button>
-			</td>
-			<tr>
-            <td>21.05.19</td>
-            <td>23.05.19</td>
-            <td>Tesla Model X</td>
-			<td>Confirmed</td>
-			<td>Approved</td>
-			<td>
-			  <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton">details</button>
-			</td>
-          </tr>
+          <c:forEach items="${offers}" var="offer">
+            <tr>
+              <td><c:out value="${offer.beginDay}" /></td>
+              <td>23.05.19</td>
+              <td><c:out value="${offer.carId}" /></td>
+		      <td><c:out value="${offer.payment}" /></td>
+			  <td><c:out value="${offer.status}" /></td>
+			  <td>
+			    <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton">details</button>
+			  </td>
+            </tr>
+          </c:forEach>
         </tbody>
       </table>
 	  <button type="button" class="btn btn-success btn-lg btn-block">NEW ORDER</button>

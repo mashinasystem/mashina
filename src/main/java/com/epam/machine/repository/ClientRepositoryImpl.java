@@ -98,7 +98,7 @@ public class ClientRepositoryImpl implements ClientRepository {
         int id = 0;
         try (Connection connection = DriverManager.getConnection(DATA_BASE_URL, ADMIN, PASSWORD);
              Statement statement = connection.createStatement()) {
-            String sql = "SELECT * FROM driver WHERE driver.login = \'" + login + "\';";
+            String sql = "SELECT * FROM driver WHERE driver.email = \'" + login + "\';";
             resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {
                 id = resultSet.getInt(1);
