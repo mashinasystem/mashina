@@ -2,119 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="70a0ebf6-3b3d-45fe-b3ca-1c092ebd72ea" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gradle/4.10/fileChanges/last-build.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/4.10/fileContent/fileContent.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/4.10/gc.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/4.10/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/4.10/javaCompile/javaCompile.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/4.10/javaCompile/taskHistory.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileChanges/last-build.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileContent/fileContent.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/5.2.1/gc.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/vcs-1/gc.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyServlet/.gradle/4.10/fileChanges/last-build.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyServlet/.gradle/4.10/fileHashes/fileHashes.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyServlet/.gradle/4.10/fileHashes/fileHashes.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyServlet/.gradle/4.10/gc.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyServlet/.gradle/4.10/taskHistory/taskHistory.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyServlet/.gradle/4.10/taskHistory/taskHistory.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyServlet/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyServlet/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyServlet/.gradle/5.2.1/fileChanges/last-build.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyServlet/.gradle/5.2.1/fileContent/fileContent.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyServlet/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyServlet/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyServlet/.gradle/5.2.1/gc.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyServlet/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyServlet/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyServlet/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyServlet/.gradle/vcs-1/gc.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyServlet/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyServlet/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyServlet/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyServlet/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyServlet/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyServlet/.idea/modules/MyServlet.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyServlet/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyServlet/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyServlet/build/inplaceWebapp/WEB-INF/classes/HelloWorldWeb.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyServlet/build/libs/MyServlet-1.0-SNAPSHOT.war" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyServlet/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/epam/machine/Controller/ClientsInfoServlet.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/epam/machine/Controller/ClientsProfileServlet.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/epam/machine/Controller/LoginServlet.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/epam/machine/Controller/RegisterServlet.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/epam/machine/util/LoginCheck.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/inplaceWebapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/inplaceWebapp/clientsInfo.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/inplaceWebapp/clientsProfile.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/inplaceWebapp/css/example.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/inplaceWebapp/css/modern-business.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/inplaceWebapp/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/inplaceWebapp/js/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/inplaceWebapp/js/passanim.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/inplaceWebapp/login.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/inplaceWebapp/personalarea.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/inplaceWebapp/personalinfo.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/inplaceWebapp/register.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/inplaceWebapp/userform.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/libs/MyServlet-1.0-SNAPSHOT.war" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/serverBaseDir_tomcat7/work/Tomcat/localhost/_/SESSIONS.ser" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/serverBaseDir_tomcat7/work/Tomcat/localhost/_/org/apache/jsp/clientsInfo_jsp.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/serverBaseDir_tomcat7/work/Tomcat/localhost/_/org/apache/jsp/clientsInfo_jsp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/serverBaseDir_tomcat7/work/Tomcat/localhost/_/org/apache/jsp/clientsProfile_jsp.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/serverBaseDir_tomcat7/work/Tomcat/localhost/_/org/apache/jsp/clientsProfile_jsp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/serverBaseDir_tomcat7/work/Tomcat/localhost/_/org/apache/jsp/index_jsp.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/serverBaseDir_tomcat7/work/Tomcat/localhost/_/org/apache/jsp/index_jsp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/serverBaseDir_tomcat7/work/Tomcat/localhost/_/org/apache/jsp/login_jsp.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/serverBaseDir_tomcat7/work/Tomcat/localhost/_/org/apache/jsp/login_jsp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/serverBaseDir_tomcat7/work/Tomcat/localhost/_/org/apache/jsp/personalarea_jsp.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/serverBaseDir_tomcat7/work/Tomcat/localhost/_/org/apache/jsp/personalarea_jsp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/serverBaseDir_tomcat7/work/Tomcat/localhost/_/org/apache/jsp/personalinfo_jsp.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/serverBaseDir_tomcat7/work/Tomcat/localhost/_/org/apache/jsp/personalinfo_jsp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/serverBaseDir_tomcat7/work/Tomcat/localhost/_/org/apache/jsp/register_jsp.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/serverBaseDir_tomcat7/work/Tomcat/localhost/_/org/apache/jsp/register_jsp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/serverBaseDir_tomcat7/work/Tomcat/localhost/_/org/apache/jsp/userform_jsp.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/serverBaseDir_tomcat7/work/Tomcat/localhost/_/org/apache/jsp/userform_jsp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/tmp/war/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/.gradle/4.10/fileChanges/last-build.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/.gradle/4.10/fileHashes/fileHashes.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/.gradle/4.10/fileHashes/fileHashes.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/.gradle/4.10/gc.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/.gradle/4.10/taskHistory/taskHistory.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/.gradle/4.10/taskHistory/taskHistory.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/.gradle/vcs-1/gc.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/epam/machine/controller/AdminCertainOrderServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/epam/machine/controller/AdminCustomersServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/epam/machine/controller/AdminInfoServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/epam/machine/controller/AdminOrdersServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/epam/machine/controller/AdminProfileServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/epam/machine/controller/ClientsCertainOrderServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/messages.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/messages_en.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/messages_ru.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/adminCertainOrder.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/adminCustomers.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/adminInfo.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/adminOrders.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/adminProfile.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/clientsCertainOrder.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/clientsInfo.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/clientsInfo.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/clientsOrders.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/clientsOrders.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/clientsProfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/clientsProfile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/register.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -176,6 +86,15 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/clientsInfo.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="164">
+              <caret line="108" column="10" selection-start-line="108" selection-start-column="10" selection-end-line="108" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/machine/controller/ClientsInfoServlet.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -185,11 +104,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/machine/controller/LoginServlet.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
-              <caret line="27" column="59" lean-forward="true" selection-start-line="27" selection-start-column="59" selection-end-line="27" selection-end-column="59" />
+              <caret line="27" column="59" selection-start-line="27" selection-start-column="59" selection-end-line="27" selection-end-column="59" />
             </state>
           </provider>
         </entry>
@@ -631,27 +550,10 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/db/migration/V1__Create_db.sql">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/clientsInfo.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="17" column="2" lean-forward="true" selection-start-line="17" selection-start-column="2" selection-end-line="18" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/machine/entity/Admin.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/machine/entity/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -682,7 +584,24 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/machine/controller/LoginServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
-          <caret line="27" column="59" lean-forward="true" selection-start-line="27" selection-start-column="59" selection-end-line="27" selection-end-column="59" />
+          <caret line="27" column="59" selection-start-line="27" selection-start-column="59" selection-end-line="27" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/machine/entity/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/clientsInfo.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="108" column="10" selection-start-line="108" selection-start-column="10" selection-end-line="108" selection-end-column="10" />
         </state>
       </provider>
     </entry>

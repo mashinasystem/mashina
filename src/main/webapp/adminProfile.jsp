@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Personal info</title>
+    <title>Profile</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -107,60 +107,66 @@
             </ul>
         </div>
     </div>
-  </nav>
+</nav>
 
-  <!-- Page Content -->
-  <div class="container">
-  <div class="row">
-	<div class="col-lg-3"></div>
-    <div class="col-lg-6 mb-4">
+<!-- Page Content -->
+<div class="container">
+
     <!-- Page Heading/Breadcrumbs -->
-      <h1 class="py-4"></h1>
-      <h1 class="mt-4 mb-3">Personal
-        <small>information</small>
-      </h1>
+    <h1 class="py-4"></h1>
+    <h1 class="mt-4 mb-3"><fmt:message key="label.personal"/>
+        <small><fmt:message key="label.area"/></small>
+    </h1>
 
-      <p>Here you can check your personal information:</p>
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th>Graph</th>
-            <th>Information</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Full name</td>
-            <td>${name}</td>
-          </tr>
-          <tr>
-           <td>Passport number</td>
-            <td>${passport}</td>
-          </tr>
-          <tr>
-            <td>Driving license number</td>
-            <td>${driverCard}</td>
-          </tr>
-          <tr>
-            <td>Phone number</td>
-            <td>${phoneNumber}</td>
-          </tr>
-          <tr>
-            <td>Email</td>
-            <td>${email}</td>
-          </tr>	  
-          <tr>
-            <td>Login</td>
-            <td>${login}</td>
-          </tr>	
-          <tr>
-            <td>Password</td>
-            <td>${password}</td>
-          </tr>	  
-        </tbody>
-      </table>
-      <button type="submit" class="btn btn-warning" id="sendMessageButton">Edit</button>
+    <div class="row">
+        <div class="col-lg-4 portfolio-item">
+            <div class="card h-100">
+                <a href="/admin/1/orders"><img class="card-img-top" src="htp://placehold.it/700x400" alt=""></a>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <a href="/admin/1/orders"><fmt:message key="label.orders"/></a>
+                    </h4>
+                    <p class="card-text">
+                        <fmt:message key="text.bookACar"/>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-lg-4 portfolio-item">
+            <div class="card h-100">
+                <a href="/admin/1/customers"><img class="card-img-top" src="htp://placehold.it/700x400" alt=""></a>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <a href="/admin/1/customers">
+                            <fmt:message key="label.customers"/>
+                        </a>
+                    </h4>
+                    <p class="card-text">
+                        <fmt:message key="text.checkOrEdit"/>
+                    </p>
+                </div>
+            </div>
+        </div>
+		<div class="col-lg-4 portfolio-item">
+            <div class="card h-100">
+                <a href="/admin/1/info"><img class="card-img-top" src="htp://placehold.it/700x400" alt=""></a>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <a href="/admin/1/info">
+                            <fmt:message key="label.personal"/> <fmt:message key="label.area"/>
+                        </a>
+                    </h4>
+                    <p class="card-text">
+                        <fmt:message key="text.checkOrEdit"/>
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
+    <h1 class="py-4"></h1>
+    <!-- /.row -->
+
 </div>
 <!-- /.container -->
 

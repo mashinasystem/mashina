@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Personal info</title>
+    <title>Admin info</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -107,59 +107,44 @@
             </ul>
         </div>
     </div>
-  </nav>
+</nav>
 
-  <!-- Page Content -->
-  <div class="container">
-  <div class="row">
-	<div class="col-lg-3"></div>
-    <div class="col-lg-6 mb-4">
-    <!-- Page Heading/Breadcrumbs -->
-      <h1 class="py-4"></h1>
-      <h1 class="mt-4 mb-3">Personal
-        <small>information</small>
-      </h1>
+<!-- Page Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6 mb-4">
+            <!-- Page Heading/Breadcrumbs -->
+            <h1 class="py-4"></h1>
+            <h1 class="mt-4 mb-3"><fmt:message key="label.personal"/>
+                <small><fmt:message key="label.info"/></small>
+            </h1>
 
-      <p>Here you can check your personal information:</p>
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th>Graph</th>
-            <th>Information</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Full name</td>
-            <td>${name}</td>
-          </tr>
-          <tr>
-           <td>Passport number</td>
-            <td>${passport}</td>
-          </tr>
-          <tr>
-            <td>Driving license number</td>
-            <td>${driverCard}</td>
-          </tr>
-          <tr>
-            <td>Phone number</td>
-            <td>${phoneNumber}</td>
-          </tr>
-          <tr>
-            <td>Email</td>
-            <td>${email}</td>
-          </tr>	  
-          <tr>
-            <td>Login</td>
-            <td>${login}</td>
-          </tr>	
-          <tr>
-            <td>Password</td>
-            <td>${password}</td>
-          </tr>	  
-        </tbody>
-      </table>
-      <button type="submit" class="btn btn-warning" id="sendMessageButton">Edit</button>
+            <p><fmt:message key="text.hereYouCheck"/></p>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th><fmt:message key="label.graph"/></th>
+                    <th><fmt:message key="label.info"/></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><fmt:message key="label.name"/></td>
+                    <td>John Snow</td>
+                </tr>
+                <tr>
+                    <td><fmt:message key="label.email"/></td>
+                    <td>johnnysnowysnow@mail.ru</td>
+                </tr>
+                <tr>
+                    <td><fmt:message key="label.password"/></td>
+                    <td>*******</td>
+                </tr>
+                </tbody>
+            </table>
+            <button type="submit" class="btn btn-warning" id="sendMessageButton"><fmt:message key="label.edit"/></button>
+        </div>
     </div>
 </div>
 <!-- /.container -->
