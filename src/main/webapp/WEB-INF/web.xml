@@ -50,4 +50,12 @@
         <servlet-name>ClientsOrdersServlet</servlet-name>
         <url-pattern>/clients/1/orders</url-pattern>
     </servlet-mapping>
+
+      <jsp-config>
+        <jsp-property-group>
+            <url-pattern>*.jsp</url-pattern>
+            <page-encoding>UTF-8</page-encoding>
+        </jsp-property-group>
+    </jsp-config>
+  
 </web-app>
