@@ -12,45 +12,31 @@ public final class LoginCheckRepository {
         if (username == null || password == null) {
             throw new IllegalArgumentException("No login or password");
         }
-        String passwordDB = "";
-        if (ConnectDBAdmin(username, password)) return 2;
-        if (ConnectDBDriver(username, password)) return 1;
+        if (ConnectDB(username, password, "administrator.login", "administrator")) return 2;
+        if (ConnectDB(username, password, "driver.email", "driver")) return 1;
         return 0;
     }
 
     private LoginCheckRepository() {
     }
 
-    private static boolean ConnectDBAdmin(String username, String password) throws SQLException, ClassNotFoundException {
-        Class.forName(JDBC_DRIVER);
-        String passwordDB = "";
-        ResultSet resultSet;
-        try (Connection connection = DriverManager.getConnection(DATA_BASE_URL, ADMIN, PASSWORD);
-             Statement statement = connection.createStatement()) {
-            String sql = "SELECT * FROM administrator WHERE administrator.login = '" + username + "';";
-            resultSet = statement.executeQuery(sql);
-            while (resultSet.next()) {
-                passwordDB = resultSet.getString(4);
-            }
-            if (!passwordDB.equals("")) {
-                if (password.equals(passwordDB)) {
-                    return true;
-                }
-            }
+    private static boolean ConnectDB(String username, String password, String field, String table)
+            throws SQLException, ClassNotFoundException {
+        int num;
+        if (table.equals("driver")) {
+            num = 7;
+        } else {
+            num = 4;
         }
-        return false;
-    }
-
-    private static boolean ConnectDBDriver(String username, String password) throws SQLException, ClassNotFoundException {
         Class.forName(JDBC_DRIVER);
         String passwordDB = "";
         ResultSet resultSet;
         try (Connection connection = DriverManager.getConnection(DATA_BASE_URL, ADMIN, PASSWORD);
              Statement statement = connection.createStatement()) {
-            String sql = "SELECT * FROM driver WHERE driver.email = '" + username + "';";
+            String sql = "SELECT * FROM " + table + " WHERE " + field + " = '" + username + "';";
             resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {
-                passwordDB = resultSet.getString(7);
+                passwordDB = resultSet.getString(num);
             }
             if (!passwordDB.equals("")) {
                 if (password.equals(passwordDB)) {
