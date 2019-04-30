@@ -10,8 +10,12 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 public class ClientsFilter implements Filter {
+
+    HttpSession session = request.getSession();
+    private String role = (String) session.getAttribute("role");
 
     private ServletContext context;
 
@@ -27,11 +31,16 @@ public class ClientsFilter implements Filter {
         this.context.log("TimeStamp :" + timestamp + " - IP Address" + req.getRemoteAddr());
 
         // pass the request along the filter chain
-        chain.doFilter(request, response);
-    }
+        if (role.equals("customer")) {
+            chain.doFilter(request, response);
+        } else {
+//            response.sendRedirect("/login");
+        }
 
-    public void destroy() {
-        //we can close resources here
-    }
+        @Override
+        public void destroy() {
+            //we can close resources here
+        }
 
+    }
 }
