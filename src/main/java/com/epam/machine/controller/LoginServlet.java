@@ -1,20 +1,24 @@
 package com.epam.machine.controller;
 
 import com.epam.machine.util.LoginCheck;
+import org.apache.log4j.Logger;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class LoginServlet extends HttpServlet{
+public class LoginServlet extends HttpServlet {
+    final static Logger logger = Logger.getLogger(LoginServlet.class);
+
     @Override
-    public void doGet (HttpServletRequest request, HttpServletResponse response) {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) {
         try {
             request.setAttribute("fail", 0);
             request.getRequestDispatcher("/login.jsp").forward(request, response);
-        } catch(ServletException | IOException err) {
-            System.out.println("Something is wrong. Game over. Try again" + err.getMessage());
+        } catch (ServletException | IOException err) {
+            logger.error("Something is wrong. Game over. Try again", err);
         }
     }
 
@@ -30,8 +34,8 @@ public class LoginServlet extends HttpServlet{
                 request.setAttribute("fail", 1);
                 request.getRequestDispatcher("/login.jsp").forward(request, response);
             }
-        } catch(IOException | ServletException err) {
-            System.out.println("Something is wrong. Game over. Try again" + err.getMessage());
+        } catch (IOException | ServletException err) {
+            logger.error("Something is wrong. Game over. Try again", err);
         }
     }
 }
