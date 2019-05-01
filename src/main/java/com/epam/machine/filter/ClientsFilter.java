@@ -10,37 +10,33 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class ClientsFilter implements Filter {
 
-    HttpSession session = request.getSession();
-    private String role = (String) session.getAttribute("role");
-
-    private ServletContext context;
-
-    public void init(FilterConfig fConfig) throws ServletException {
-        this.context = fConfig.getServletContext();
-        this.context.log("RequestLoggingFilter initialized");
+    public void init(FilterConfig fConfig) {
+        ServletContext context = fConfig.getServletContext();
+        context.log("RequestLoggingFilter initialized");
     }
 
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+
         HttpServletRequest req = (HttpServletRequest) request;
-
-        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-        this.context.log("TimeStamp :" + timestamp + " - IP Address" + req.getRemoteAddr());
-
+        HttpServletResponse res = (HttpServletResponse) response;
+        HttpSession session = req.getSession();
+        String role = session.getAttribute("role").toString();
         // pass the request along the filter chain
-        if (role.equals("customer")) {
+        if (role.equals("admin")) {
             chain.doFilter(request, response);
         } else {
-//            response.sendRedirect("/login");
+            res.sendRedirect(res.encodeRedirectURL(req.getContextPath() + "/login"));
         }
 
-        @Override
-        public void destroy() {
-            //we can close resources here
-        }
+    }
+
+    @Override
+    public void destroy() {
 
     }
 }
