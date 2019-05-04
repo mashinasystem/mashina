@@ -23,10 +23,10 @@ public class AdminFilter implements Filter {
             if (role.equals("admin")) {
                 chain.doFilter(request, response);
             } else {
-                res.sendRedirect(res.encodeRedirectURL(req.getContextPath() + "/"));
+                res.sendRedirect(res.encodeRedirectURL(req.getContextPath() + "/page403.jsp"));
             }
         } else {
-            res.sendRedirect(res.encodeRedirectURL(req.getContextPath() + "/"));
+            res.sendRedirect(res.encodeRedirectURL(req.getContextPath() + "/page403.jsp"));
         }
     }
 
