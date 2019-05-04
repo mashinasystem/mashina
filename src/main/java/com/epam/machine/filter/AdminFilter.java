@@ -1,19 +1,12 @@
 package com.epam.machine.filter;
 
-import java.io.IOException;
-import java.sql.Timestamp;
-import javax.servlet.Filter;
-import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
+import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 
-public class ClientsFilter implements Filter {
+public class AdminFilter implements Filter {
 
     public void init(FilterConfig fConfig) {
         ServletContext context = fConfig.getServletContext();
@@ -27,7 +20,7 @@ public class ClientsFilter implements Filter {
         HttpSession session = req.getSession();
         if (session.getAttribute("role") != null) {
             String role = session.getAttribute("role").toString();
-            if (role.equals("customer")) {
+            if (role.equals("admin")) {
                 chain.doFilter(request, response);
             } else {
                 res.sendRedirect(res.encodeRedirectURL(req.getContextPath() + "/"));
