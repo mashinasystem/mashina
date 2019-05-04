@@ -10,14 +10,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+@WebServlet(name = "LogoutServlet", urlPatterns = {"/logout"})
 public class LogoutServlet extends HttpServlet {
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        HttpServletRequest req = (HttpServletRequest) request;
+        HttpServletResponse res = (HttpServletResponse) response;
 
         HttpSession session = request.getSession(false);
         if (session != null) {
             session.invalidate();
         }
-        response.sendRedirect("/");
+        res.sendRedirect(res.encodeRedirectURL(req.getContextPath() + "/"));
+        //response.sendRedirect("/");
     }
 }

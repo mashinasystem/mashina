@@ -25,10 +25,13 @@ public class ClientsFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse res = (HttpServletResponse) response;
         HttpSession session = req.getSession();
-        String role = session.getAttribute("role").toString();
-        // pass the request along the filter chain
-        if (role.equals("admin")) {
-            chain.doFilter(request, response);
+        if (session.getAttribute("role") != null) {
+            String role = session.getAttribute("role").toString();
+            if (role.equals("admin")) {
+                chain.doFilter(request, response);
+            } else {
+                res.sendRedirect(res.encodeRedirectURL(req.getContextPath() + "/login"));
+            }
         } else {
             res.sendRedirect(res.encodeRedirectURL(req.getContextPath() + "/login"));
         }

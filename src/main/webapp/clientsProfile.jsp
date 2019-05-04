@@ -33,7 +33,10 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
         <a class="navbar-brand" href="/">Mashina</a>
-        <a class="navbar-brand" href="/logout">LOGOUT</a>
+        <p class="navbar-nav text-white">
+            Username: <%= session.getAttribute("login") %>, Role: <%= session.getAttribute("role") %>
+        </p>
+        <a class="navbar-brand" href="/logout" method="post">LOGOUT</a>
         <form action="LogoutServlet" method="post">
           <input type="submit" value="Logout" >
         </form>

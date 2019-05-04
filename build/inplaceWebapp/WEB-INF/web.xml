@@ -123,15 +123,6 @@
         <url-pattern>/clients/*</url-pattern>
     </filter-mapping>
 
-    <servlet>
-        <servlet-name>LogoutServlet</servlet-name>
-        <servlet-class>com.epam.machine.controller.LogoutServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>LogoutServlet</servlet-name>
-        <url-pattern>/logout</url-pattern>
-    </servlet-mapping>
-
     <jsp-config>
       <jsp-property-group>
         <url-pattern>*.jsp</url-pattern>
