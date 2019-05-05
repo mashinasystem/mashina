@@ -104,7 +104,7 @@
 </nav>
 
   <!-- Page Content -->
-  <div class="container">
+ <div class="container">
   <div class="row">
 	<div class="col-lg-3"></div>
     <div class="col-lg-6 mb-4">
@@ -155,6 +155,7 @@
       </table>
       <button type="submit" class="btn btn-warning" id="sendMessageButton">Edit</button>
     </div>
+  </div>
 </div>
 <!-- /.container -->
 
@@ -165,10 +166,6 @@
     </div>
     <!-- /.container -->
 </footer>
-
-<!-- Bootstrap core JavaScript -->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
 

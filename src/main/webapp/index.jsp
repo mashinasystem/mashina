@@ -88,7 +88,7 @@
                     </div>
                 </li>
             </ul>
-
+        </div>
         <% if (session.getAttribute("role") == null)  { %>
             <a class="btn btn-success btn-sm" href="login">
                 <fmt:message key="label.signIn"/>
@@ -96,8 +96,6 @@
         <% } else { %>
             <a class="btn btn-danger btn-sm" href="/logout" method="get">Logout</a>
         <% } %>
-
-        </div>
     </div>
 </nav>
 
@@ -149,7 +147,6 @@
 
     <!-- Marketing Icons Section -->
     <div class="row">
-        <div class="col-lg-3 my-4 mb-4"></div>
         <div class="col-lg-6 my-4 mb-4">
             <div class="card h-100">
                 <h4 class="card-header"><fmt:message key="label.hasAccount"/></h4>
@@ -303,10 +300,6 @@
     </div>
     <!-- /.container -->
 </footer>
-
-<!-- Bootstrap core JavaScript -->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
