@@ -90,7 +90,7 @@
                     </div>
                 </li>
             </ul>
-
+        </div>
         <% if (session.getAttribute("role") == null)  { %>
             <a class="btn btn-success btn-sm" href="login">
                 <fmt:message key="label.signIn"/>
@@ -98,8 +98,6 @@
         <% } else { %>
             <a class="btn btn-danger btn-sm" href="/logout" method="get">Logout</a>
         <% } %>
-
-        </div>
     </div>
 </nav>
 
@@ -125,7 +123,6 @@
                     </p>
                 </div>
             </div>
-
         </div>
         <div class="col-lg-6 portfolio-item">
             <div class="card h-100">

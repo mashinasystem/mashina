@@ -10,7 +10,6 @@ public class AdminCustomersServlet extends HttpServlet {
     @Override
     public void doGet (HttpServletRequest request, HttpServletResponse response) {
         try {
-            request.setAttribute("fail", 0);
             request.getRequestDispatcher("/adminCustomers.jsp").forward(request, response);
         } catch(ServletException | IOException err) {
             System.out.println("Something is wrong. Game over. Try again" + err.getMessage());

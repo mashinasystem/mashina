@@ -2,6 +2,7 @@ package com.epam.machine.controller;
 
 import com.epam.machine.util.AdminLoginCheck;
 import com.epam.machine.util.CustomerLoginCheck;
+import com.epam.machine.util.Role;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -32,12 +33,12 @@ public class LoginServlet extends HttpServlet {
             if (AdminLoginCheck.checkLog(username, password)) {
                 session = request.getSession();
                 session.setAttribute("login", username);
-                session.setAttribute("role", "admin");
+                session.setAttribute("role", Role.ADMIN);
                 response.sendRedirect("/admin/1/profile");
             } else if (CustomerLoginCheck.checkLog(username, password)) {
                 session = request.getSession();
                 session.setAttribute("login", username);
-                session.setAttribute("role", "customer");
+                session.setAttribute("role", Role.CUSTOMER);
                 response.sendRedirect("/clients/1/profile");
             } else{
                 request.setAttribute("fail", 1);

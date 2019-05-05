@@ -1,7 +1,7 @@
 package com.epam.machine.filter;
 
+import com.epam.machine.util.Role;
 import java.io.IOException;
-import java.sql.Timestamp;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -26,8 +26,8 @@ public class ClientsFilter implements Filter {
         HttpServletResponse res = (HttpServletResponse) response;
         HttpSession session = req.getSession();
         if (session.getAttribute("role") != null) {
-            String role = session.getAttribute("role").toString();
-            if (role.equals("customer")) {
+            Role role = (Role) session.getAttribute("role");
+            if (role.equals(Role.CUSTOMER)) {
                 chain.doFilter(request, response);
             } else {
                 res.sendRedirect(res.encodeRedirectURL(req.getContextPath() + "/page403.jsp"));
