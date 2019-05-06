@@ -23,20 +23,17 @@ public class CarRepositoryImpl implements CarRepository {
         String model = "";
         ResultSet resultSet;
         try (Connection connection = DriverManager.getConnection(DATA_BASE_URL, ADMIN, PASSWORD);
-             Statement statement = connection.createStatement()) {
-            String sql = "SELECT * FROM car WHERE car.id = " + id + ";";
-            resultSet = statement.executeQuery(sql);
-            while (resultSet.next()) {
-                number = resultSet.getString(3);
-                marque = resultSet.getString(1);
-                model = resultSet.getString(2);
-            }
+             PreparedStatement statement = connection.prepareStatement(
+                     "select * from car where car.id = ?")) {
+            statement.setInt(1, id);
+            resultSet = statement.executeQuery();
+            resultSet.next();
         }
         return Car.builder()
                 .id(id)
-                .marque(marque)
-                .model(model)
-                .number(number)
+                .marque(resultSet.getString(1))
+                .model(resultSet.getString(2))
+                .number(resultSet.getString(3))
                 .build();
     }
 

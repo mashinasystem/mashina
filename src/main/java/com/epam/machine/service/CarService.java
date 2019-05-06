@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public interface CarService {
 
-    public Car get(int id) throws SQLException, ClassNotFoundException;
+    Car get(int id) throws SQLException, ClassNotFoundException;
 
     void create(Car car);
 

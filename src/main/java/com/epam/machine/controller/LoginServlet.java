@@ -1,6 +1,6 @@
 package com.epam.machine.controller;
 
-import com.epam.machine.repository.LoginCheckRepository;
+import com.epam.machine.util.LoginCheck;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.sql.SQLException;
 
 public class LoginServlet extends HttpServlet {
     private HttpSession session;
@@ -29,24 +28,16 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
         response.setContentType("text/html");
         try {
-            int check = LoginCheckRepository.checkLog(username, password);
-            if (check == 1) {
+            if (LoginCheck.checkLog(username, password)) {
                 session = request.getSession();
                 session.setAttribute("login", username);
                 response.sendRedirect("/clients/1/profile");
-            } else if (check == 0) {
+            } else {
                 request.setAttribute("fail", 1);
                 request.getRequestDispatcher("/login.jsp").forward(request, response);
-            } else if (check == 2) {
-                session = request.getSession();
-                session.setAttribute("login", username);
-                response.sendRedirect("/clients/1/profile");
-                System.out.println("Admin");
             }
-        } catch (IOException | ServletException | ClassNotFoundException err) {
+        } catch (IOException | ServletException err) {
             System.out.println("Something is wrong. Game over. Try again" + err.getMessage());
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
     }
 }

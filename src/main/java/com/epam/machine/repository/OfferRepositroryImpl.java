@@ -1,14 +1,12 @@
 package com.epam.machine.repository;
 
 import com.epam.machine.entity.Offer;
-import lombok.Builder;
-import lombok.Data;
+import com.epam.machine.service.CarServiceImpl;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Data
 public class OfferRepositroryImpl implements OfferRepository {
     final static private String DATA_BASE_URL = "jdbc:postgresql://localhost:5432/Car";
     final static private String JDBC_DRIVER = "org.postgresql.Driver";
@@ -17,32 +15,26 @@ public class OfferRepositroryImpl implements OfferRepository {
     final static private String PASSWORD = "qwerty";
 
     @Override
-    @Builder
     public List<Offer> get(int id) throws ClassNotFoundException, SQLException {
         Class.forName(JDBC_DRIVER);
 
         List<Offer> offers = new ArrayList<>();
         int carId = 0;
-        int payment = 0;
-        int period = 0;
-        String status = "";
         ResultSet resultSet;
         try (Connection connection = DriverManager.getConnection(DATA_BASE_URL, ADMIN, PASSWORD);
-             Statement statement = connection.createStatement()) {
-            String sql = "SELECT * FROM offer WHERE offer.id = " + id + ";";
-            resultSet = statement.executeQuery(sql);
+             PreparedStatement statement = connection.prepareStatement(
+                     "select * from offer where offer.driver_id = ?")) {
+            statement.setInt(1, id);
+            resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 carId = resultSet.getInt(4);
-                payment = resultSet.getInt(5);
-                period = resultSet.getInt(7);
-                status = resultSet.getString(8);
-                CarRepository carRepository = new CarRepositoryImpl();
+                CarServiceImpl carService = new CarServiceImpl();
                 offers.add(Offer.builder()
-                        .car(carRepository.get(carId))
+                        .car(carService.get(carId))
                         .driverId(id)
-                        .period(period)
-                        .status(status)
-                        .payment(payment)
+                        .period(resultSet.getInt(7))
+                        .status(resultSet.getString(8))
+                        .payment(resultSet.getInt(5))
                         .build());
             }
         }

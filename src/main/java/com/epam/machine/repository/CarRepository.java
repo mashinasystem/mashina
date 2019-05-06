@@ -4,9 +4,9 @@ import com.epam.machine.entity.Car;
 
 import java.sql.SQLException;
 
-public interface CarRepository {
+interface CarRepository {
 
-    public Car get(int id) throws ClassNotFoundException, SQLException;
+    Car get(int id) throws ClassNotFoundException, SQLException;
 
     void create(Car car);
 
