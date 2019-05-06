@@ -101,7 +101,6 @@
         <% } %>
     </div>
 </nav>
-
   <!-- Page Content -->
   <div class="container">
   <div class="row">
@@ -189,7 +188,6 @@
     </div>
     <!-- /.container -->
   </footer>
-
 </body>
 
 </html>
