@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Profile</title>
+    <title>Admin info</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -111,47 +111,41 @@
 
 <!-- Page Content -->
 <div class="container">
-
-    <!-- Page Heading/Breadcrumbs -->
-    <h1 class="py-4"></h1>
-    <h1 class="mt-4 mb-3"><fmt:message key="label.personal"/>
-        <small><fmt:message key="label.area"/></small>
-    </h1>
-
     <div class="row">
-        <div class="col-lg-6 portfolio-item">
-            <div class="card h-100">
-                <a href="/clients/1/orders"><img class="card-img-top" src="htp://placehold.it/700x400" alt=""></a>
-                <div class="card-body">
-                    <h4 class="card-title">
-                        <a href="/clients/1/orders"><fmt:message key="label.orders"/></a>
-                    </h4>
-                    <p class="card-text">
-                        <fmt:message key="text.bookACar"/>
-                    </p>
-                </div>
-            </div>
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6 mb-4">
+            <!-- Page Heading/Breadcrumbs -->
+            <h1 class="py-4"></h1>
+            <h1 class="mt-4 mb-3"><fmt:message key="label.personal"/>
+                <small><fmt:message key="label.info"/></small>
+            </h1>
 
-        </div>
-        <div class="col-lg-6 portfolio-item">
-            <div class="card h-100">
-                <a href="/clients/1/info"><img class="card-img-top" src="htp://placehold.it/700x400" alt=""></a>
-                <div class="card-body">
-                    <h4 class="card-title">
-                        <a href="/clients/1/info">
-                            <fmt:message key="label.personal"/> <fmt:message key="label.area"/>
-                        </a>
-                    </h4>
-                    <p class="card-text">
-                        <fmt:message key="text.checkOrEdit"/>
-                    </p>
-                </div>
-            </div>
+            <p><fmt:message key="text.hereYouCheck"/></p>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th><fmt:message key="label.graph"/></th>
+                    <th><fmt:message key="label.info"/></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><fmt:message key="label.name"/></td>
+                    <td>John Snow</td>
+                </tr>
+                <tr>
+                    <td><fmt:message key="label.email"/></td>
+                    <td>johnnysnowysnow@mail.ru</td>
+                </tr>
+                <tr>
+                    <td><fmt:message key="label.password"/></td>
+                    <td>*******</td>
+                </tr>
+                </tbody>
+            </table>
+            <button type="submit" class="btn btn-warning" id="sendMessageButton"><fmt:message key="label.edit"/></button>
         </div>
     </div>
-    <h1 class="py-4"></h1>
-    <!-- /.row -->
-
 </div>
 <!-- /.container -->
 

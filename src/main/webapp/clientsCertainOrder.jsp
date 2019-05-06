@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Orders</title>
+  <title>Certain order</title>
 
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -88,10 +88,10 @@
     <div class="col-lg-8 mb-4">
     <!-- Page Heading/Breadcrumbs -->
       <h1 class="py-4"></h1>
-      <h1 class="mt-4 mb-3">Current
-        <small>orders</small>
+      <h1 class="mt-4 mb-3">Certain
+        <small>order</small>
       </h1>
-      <p>Here you can check your current orders:</p>
+      <p>Here you can find information about order:</p>
       <table class="table table-hover">
         <thead>
           <tr>
@@ -100,7 +100,6 @@
             <th>Car model</th>
             <th>Payment</th>
 			<th>Status</th>
-            <th>Details</th>
           </tr>
         </thead>
         <tbody>
@@ -110,52 +109,12 @@
             <td>Tesla Model X</td>
 			<td>Confirmed</td>
 			<td>Approved</td>
-			<td>
-			  <a href="/clients/1/orders/1" class="btn btn-info btn-sm">details</a>
-			</td>
           </tr>
         </tbody>
       </table>
-	  <a href="/clients/1/orders/1" class="btn btn-success btn-block">New order</a>
-    
-      <h1 class="mt-4 mb-3">Past
-        <small>orders</small>
-      </h1>
-      <p>Here you can check your past orders:</p>
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th>Start date</th>
-            <th>End date</th>
-            <th>Car model</th>
-            <th>Payment</th>
-			<th>Status</th>
-            <th>Details</th>
-          </tr>
-        </thead>
-        <tbody>
-		  <tr>
-            <td>21.05.19</td>
-            <td>23.05.19</td>
-            <td>Tesla Model X</td>
-			<td>Confirmed</td>
-			<td>Finished</td>
-			<td>
-			  <a href="/clients/1/orders/1" class="btn btn-info btn-sm">details</a>
-			</td>
-		  </tr>
-		  <tr>
-            <td>21.05.19</td>
-            <td>23.05.19</td>
-            <td>Tesla Model X</td>
-			<td>No payment</td>
-			<td>Declined</td>
-			<td>
-			  <a href="/clients/1/orders/1" class="btn btn-info btn-sm">details</a>
-			</td>
-          </tr>
-        </tbody>
-      </table> 	
+      <h1 class="mt-2 mb-3">Fines</h1>
+	  <h4>20$ <span class="badge badge-success">paid</span></h4>
+	  <h4>50$ <span class="badge badge-danger">not paid</span></h4>
 	</div>
   </div>
   </div>
