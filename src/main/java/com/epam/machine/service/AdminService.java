@@ -9,7 +9,7 @@ public interface AdminService {
 
     void create(Admin admin);
 
-    void delete(int id);
+    void delete(int id) throws ClassNotFoundException;
 
     void update(Admin admin) throws SQLException, ClassNotFoundException;
 

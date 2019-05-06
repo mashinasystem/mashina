@@ -10,9 +10,9 @@ public interface AdminRepository {
 
     void create(Admin admin);
 
-    void delete(int id);
+    void delete(int id) throws ClassNotFoundException;
 
-    void update(int id, Admin admin) throws ClassNotFoundException;
+    void update(int id, Admin admin) throws ClassNotFoundException, SQLException;
 
     int getByLogin(String login) throws ClassNotFoundException, SQLException;
 }

@@ -1,7 +1,6 @@
 package com.epam.machine.repository;
 
 import com.epam.machine.entity.Admin;
-import jdk.nashorn.internal.ir.WhileNode;
 
 import java.sql.*;
 
@@ -24,14 +23,32 @@ public class AdminRepositoryImpl implements AdminRepository {
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(int id) throws ClassNotFoundException {
 
+        Class.forName(JDBC_DRIVER);
+        try (Connection connection = DriverManager.getConnection(DATA_BASE_URL, ADMIN, PASSWORD);
+             Statement statement = connection.createStatement()) {
+            String sql = "DELETE FROM administrator WHERE administrator.id = " + id + ";";
+            statement.executeUpdate(sql);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
-    public void update(int id, Admin admin) throws ClassNotFoundException {
+    public void update(int id, Admin admin) throws ClassNotFoundException, SQLException {
 
         Class.forName(JDBC_DRIVER);
+
+        try (Connection connection = DriverManager.getConnection(DATA_BASE_URL, ADMIN, PASSWORD);
+             Statement statement = connection.createStatement()) {
+            String sql = "UPDATE administrator SET name = " + admin.getName() + ", login = "
+                    + admin.getLogin() + ", password = " + admin.getPassword() + " WHERE administrator.id = "
+                    + id + " ;";
+
+            statement.executeUpdate(sql);
+        }
 
     }
 
@@ -45,8 +62,7 @@ public class AdminRepositoryImpl implements AdminRepository {
             String sql = "SELECT * FROM administrator WHERE login = \'" + login + "\';";
             resultSet = statement.executeQuery(sql);
 
-            while (resultSet.next())
-            {
+            while (resultSet.next()) {
                 id = resultSet.getInt(1);
             }
         }

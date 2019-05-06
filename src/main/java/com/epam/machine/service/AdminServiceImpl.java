@@ -21,7 +21,7 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(int id) throws ClassNotFoundException {
         adminRepository.delete(id);
     }
 

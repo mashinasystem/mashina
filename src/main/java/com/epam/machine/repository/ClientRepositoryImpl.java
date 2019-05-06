@@ -3,11 +3,8 @@ package com.epam.machine.repository;
 import com.epam.machine.entity.Client;
 import lombok.Builder;
 import lombok.Data;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+
+import java.sql.*;
 
 @Data
 public class ClientRepositoryImpl implements ClientRepository {
