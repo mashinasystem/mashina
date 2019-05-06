@@ -20,13 +20,14 @@ public class AdminRepositoryImpl implements AdminRepository {
              Statement statement = connection.createStatement()) {
             String sql = "SELECT * FROM administrator WHERE administrator.id = " + id + ";";
             resultSet = statement.executeQuery(sql);
-        }
+            resultSet.next();
 
-        return Admin.builder()
-                .name(resultSet.getString(2))
-                .login(resultSet.getString(3))
-                .password(resultSet.getString(4))
-                .build();
+            return Admin.builder()
+                    .name(resultSet.getString(2))
+                    .login(resultSet.getString(3))
+                    .password(resultSet.getString(4))
+                    .build();
+        }
     }
 
     @Override

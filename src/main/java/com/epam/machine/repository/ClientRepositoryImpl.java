@@ -18,38 +18,23 @@ public class ClientRepositoryImpl implements ClientRepository {
     @Override
     public Client get(int id) throws ClassNotFoundException, SQLException {
         Class.forName(JDBC_DRIVER);
-
-        String fullName = "";
-        String passport = "";
-        String driverCard = "";
-        String phoneNumber = "";
-        String eMail = "";
-        String pasword = "";
-
         ResultSet resultSet;
         try (Connection connection = DriverManager.getConnection(DATA_BASE_URL, ADMIN, PASSWORD);
              Statement statement = connection.createStatement()) {
             String sql = "SELECT * FROM driver WHERE driver.id = " + id + ";";
             resultSet = statement.executeQuery(sql);
-            while (resultSet.next()) {
-                fullName = resultSet.getString(2);
-                passport = resultSet.getString(3);
-                driverCard = resultSet.getString(4);
-                phoneNumber = resultSet.getString(5);
-                eMail = resultSet.getString(6);
-                pasword = resultSet.getString(7);
-            }
-        }
+            resultSet.next();
 
-        return Client.builder()
-                .id(id)
-                .fullName(fullName)
-                .passport(passport)
-                .driverCard(driverCard)
-                .phoneNumber(phoneNumber)
-                .eMail(eMail)
-                .password(pasword)
-                .build();
+            return Client.builder()
+                    .id(id)
+                    .fullName(resultSet.getString(2))
+                    .passport(resultSet.getString(3))
+                    .driverCard(resultSet.getString(4))
+                    .phoneNumber(resultSet.getString(5))
+                    .eMail(resultSet.getString(6))
+                    .password(resultSet.getString(7))
+                    .build();
+        }
     }
 
     @Override
