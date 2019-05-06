@@ -13,17 +13,37 @@ public class AdminRepositoryImpl implements AdminRepository {
     final static private String PASSWORD = "qwerty";
 
     @Override
-    public Admin get(int id) {
-        return null;
+    public Admin get(int id) throws ClassNotFoundException, SQLException {
+        Class.forName(JDBC_DRIVER);
+        ResultSet resultSet;
+        try (Connection connection = DriverManager.getConnection(DATA_BASE_URL, ADMIN, PASSWORD);
+             Statement statement = connection.createStatement()) {
+            String sql = "SELECT * FROM administrator WHERE administrator.id = " + id + ";";
+            resultSet = statement.executeQuery(sql);
+        }
+
+        return Admin.builder()
+                .name(resultSet.getString(2))
+                .login(resultSet.getString(3))
+                .password(resultSet.getString(4))
+                .build();
     }
 
     @Override
-    public void create(Admin admin) {
+    public void create(Admin admin) throws SQLException, ClassNotFoundException {
+        Class.forName(JDBC_DRIVER);
+
+        try (Connection connection = DriverManager.getConnection(DATA_BASE_URL, ADMIN, PASSWORD);
+             Statement statement = connection.createStatement()) {
+            String sql = "INSERT INTO administrator (name,login,password) VALUES (\'" + admin.getName() +
+                    "\',\'" + admin.getLogin() + "\',\'" + admin.getPassword() + "\');";
+            statement.executeUpdate(sql);
+        }
 
     }
 
     @Override
-    public void delete(int id) throws ClassNotFoundException {
+    public void delete(int id) throws ClassNotFoundException, SQLException {
 
         Class.forName(JDBC_DRIVER);
         try (Connection connection = DriverManager.getConnection(DATA_BASE_URL, ADMIN, PASSWORD);
@@ -31,8 +51,6 @@ public class AdminRepositoryImpl implements AdminRepository {
             String sql = "DELETE FROM administrator WHERE administrator.id = " + id + ";";
             statement.executeUpdate(sql);
 
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
     }
 

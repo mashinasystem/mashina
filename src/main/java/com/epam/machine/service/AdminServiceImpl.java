@@ -11,7 +11,7 @@ public class AdminServiceImpl implements AdminService {
     private AdminRepository adminRepository = new AdminRepositoryImpl();
 
     @Override
-    public void create(Admin admin) {
+    public void create(Admin admin) throws SQLException, ClassNotFoundException {
         if (admin != null) {
             adminRepository.create(admin);
         } else {
@@ -21,7 +21,7 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public void delete(int id) throws ClassNotFoundException {
+    public void delete(int id) throws ClassNotFoundException, SQLException {
         adminRepository.delete(id);
     }
 

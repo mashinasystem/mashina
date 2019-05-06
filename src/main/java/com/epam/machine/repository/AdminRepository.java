@@ -6,11 +6,11 @@ import java.sql.SQLException;
 
 public interface AdminRepository {
 
-    Admin get(int id);
+    Admin get(int id) throws ClassNotFoundException, SQLException;
 
-    void create(Admin admin);
+    void create(Admin admin) throws SQLException, ClassNotFoundException;
 
-    void delete(int id) throws ClassNotFoundException;
+    void delete(int id) throws ClassNotFoundException, SQLException;
 
     void update(int id, Admin admin) throws ClassNotFoundException, SQLException;
 

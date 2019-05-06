@@ -7,9 +7,9 @@ import java.sql.SQLException;
 
 public interface AdminService {
 
-    void create(Admin admin);
+    void create(Admin admin) throws SQLException, ClassNotFoundException;
 
-    void delete(int id) throws ClassNotFoundException;
+    void delete(int id) throws ClassNotFoundException, SQLException;
 
     void update(Admin admin) throws SQLException, ClassNotFoundException;
 
