@@ -1,3 +1,10 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page isELIgnored="false" %>
+
+<fmt:setLocale value="${param.lang}"/>
+<fmt:setBundle basename="messages"/>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,64 +30,77 @@
 <body>
 
   <!-- Navigation -->
-  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="/">Mashina</a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Profile</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Brands
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-              <a class="dropdown-item" href="#">Tesla</a>
-              <a class="dropdown-item" href="#">Porsche</a>
-              <a class="dropdown-item" href="#">Jaguar</a>
-              <a class="dropdown-item" href="#">Lexus</a>
-              <a class="dropdown-item" href="#">BMW</a>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Offices
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-              <a class="dropdown-item" href="#">USA</a>
-              <a class="dropdown-item" href="#">Germany</a>
-              <a class="dropdown-item" href="#">France</a>
-              <a class="dropdown-item" href="#">Canada</a>
-              <a class="dropdown-item" href="#">Belarus</a>
-              <a class="dropdown-item" href="#">Russia</a>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Investors
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-              <a class="dropdown-item" href="#">About</a>
-              <a class="dropdown-item" href="#">Information disclosure</a>
-              <a class="dropdown-item" href="#">Sponsorship</a>
-              <a class="dropdown-item" href="#">Public relations</a>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">FAQ</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+        <a href="/"><img src="/img/m.png" class="navbar-brand rounded"></a>
+        <a class="navbar-brand" href="/">Mashina</a>
 
+        <% if (session.getAttribute("role") != null)  { %>
+            <p class="navbar-nav text-white">
+                Username: <%= session.getAttribute("login") %>, Role: <%= session.getAttribute("role") %>
+            </p>
+        <% } %>
+
+        <a class="navbar-brand"></a>
+        <a class="navbar-brand" href="/clients/1/profile">CLIENT</a>
+        <a class="navbar-brand" href="/admin/1/profile">ADMIN</a>
+
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <fmt:message key="label.profile"/>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <fmt:message key="label.services"/>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                        <fmt:message key="label.brands"/>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+                        <a class="dropdown-item" href="#">Tesla</a>
+                        <a class="dropdown-item" href="#">Porsche</a>
+                        <a class="dropdown-item" href="#">Jaguar</a>
+                        <a class="dropdown-item" href="#">Lexus</a>
+                        <a class="dropdown-item" href="#">BMW</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <fmt:message key="label.faq"/>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                        <fmt:message key="label.language"/>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
+                        <a class="dropdown-item" href="?lang=en"><fmt:message key="label.English"/></a>
+                        <a class="dropdown-item" href="?lang=ru"><fmt:message key="label.Russian"/></a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <% if (session.getAttribute("role") == null)  { %>
+            <a class="btn btn-success btn-sm" href="login">
+                <fmt:message key="label.signIn"/>
+            </a>
+        <% } else { %>
+            <a class="btn btn-danger btn-sm" href="/logout" method="get">Logout</a>
+        <% } %>
+    </div>
+</nav>
   <!-- Page Content -->
   <div class="container">
   <div class="row">
@@ -124,11 +144,6 @@
     </div>
     <!-- /.container -->
   </footer>
-
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
 </body>
 
 </html>

@@ -32,7 +32,19 @@
 <!-- Navigation -->
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
+        <a href="/"><img src="/img/m.png" class="navbar-brand rounded"></a>
         <a class="navbar-brand" href="/">Mashina</a>
+
+        <% if (session.getAttribute("role") != null)  { %>
+            <p class="navbar-nav text-white">
+                Username: <%= session.getAttribute("login") %>, Role: <%= session.getAttribute("role") %>
+            </p>
+        <% } %>
+
+        <a class="navbar-brand"></a>
+        <a class="navbar-brand" href="/clients/1/profile">CLIENT</a>
+        <a class="navbar-brand" href="/admin/1/profile">ADMIN</a>
+
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                 data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -63,32 +75,6 @@
                         <a class="dropdown-item" href="#">BMW</a>
                     </div>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">
-                        <fmt:message key="label.offices"/>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-                        <a class="dropdown-item" href="#"><fmt:message key="label.USA"/></a>
-                        <a class="dropdown-item" href="#"><fmt:message key="label.Germany"/></a>
-                        <a class="dropdown-item" href="#"><fmt:message key="label.France"/></a>
-                        <a class="dropdown-item" href="#"><fmt:message key="label.Canada"/></a>
-                        <a class="dropdown-item" href="#"><fmt:message key="label.Belarus"/></a>
-                        <a class="dropdown-item" href="#"><fmt:message key="label.Russia"/></a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">
-                        <fmt:message key="label.investors"/>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-                        <a class="dropdown-item" href="#"><fmt:message key="label.about"/></a>
-                        <a class="dropdown-item" href="#"><fmt:message key="label.infoDisclosure"/></a>
-                        <a class="dropdown-item" href="#"><fmt:message key="label.sponsorship"/></a>
-                        <a class="dropdown-item" href="#"><fmt:message key="label.publicRelations"/></a>
-                    </div>
-                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">
                         <fmt:message key="label.faq"/>
@@ -106,6 +92,13 @@
                 </li>
             </ul>
         </div>
+        <% if (session.getAttribute("role") == null)  { %>
+            <a class="btn btn-success btn-sm" href="login">
+                <fmt:message key="label.signIn"/>
+            </a>
+        <% } else { %>
+            <a class="btn btn-danger btn-sm" href="/logout" method="get">Logout</a>
+        <% } %>
     </div>
 </nav>
 
@@ -156,11 +149,6 @@
     </div>
     <!-- /.container -->
 </footer>
-
-<!-- Bootstrap core JavaScript -->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
 </body>
 
 </html>
