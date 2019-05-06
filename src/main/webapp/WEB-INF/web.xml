@@ -141,6 +141,15 @@
         <url-pattern>/login</url-pattern>
     </filter-mapping>
 
+    <filter>
+        <filter-name>RegistraionFilter</filter-name>
+        <filter-class>com.epam.machine.filter.RegistraionFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>RegistraionFilter</filter-name>
+        <url-pattern>/registration</url-pattern>
+    </filter-mapping>
+
     <jsp-config>
       <jsp-property-group>
         <url-pattern>*.jsp</url-pattern>

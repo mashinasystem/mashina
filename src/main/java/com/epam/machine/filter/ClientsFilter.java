@@ -30,10 +30,10 @@ public class ClientsFilter implements Filter {
             if (role.equals(Role.CUSTOMER)) {
                 chain.doFilter(request, response);
             } else {
-                res.sendRedirect(res.encodeRedirectURL(req.getContextPath() + "/page403.jsp"));
+                request.getRequestDispatcher("/page403.jsp").forward(request, response);
             }
         } else {
-            res.sendRedirect(res.encodeRedirectURL(req.getContextPath() + "/page403.jsp"));
+            request.getRequestDispatcher("/page403.jsp").forward(request, response);
         }
     }
 

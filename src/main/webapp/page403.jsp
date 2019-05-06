@@ -32,7 +32,7 @@
 <!-- Navigation -->
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-        <a href="/"><img src="img/m.png" class="navbar-brand rounded"></a>
+        <a href="/"><img src="/img/m.png" class="navbar-brand rounded"></a>
         <a class="navbar-brand" href="/">Mashina</a>
 
         <% if (session.getAttribute("role") != null)  { %>
@@ -93,7 +93,7 @@
             </ul>
         </div>
         <% if (session.getAttribute("role") == null)  { %>
-            <a class="btn btn-success btn-sm" href="login">
+            <a class="btn btn-success btn-sm" href="/login">
                 <fmt:message key="label.signIn"/>
             </a>
         <% } else { %>

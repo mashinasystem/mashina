@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class AdminFilter implements Filter {
+public class RegistraionFilter implements Filter {
 
     public void init(FilterConfig fConfig) {
         ServletContext context = fConfig.getServletContext();
@@ -26,16 +26,12 @@ public class AdminFilter implements Filter {
         HttpServletResponse res = (HttpServletResponse) response;
         HttpSession session = req.getSession();
         if (session.getAttribute("role") != null) {
-            Role role = (Role) session.getAttribute("role");
-            if (role.equals(Role.ADMIN)) {
-                chain.doFilter(request, response);
-            } else {
-                request.getRequestDispatcher("/page403.jsp").forward(request, response);
-            }
+            res.sendRedirect(res.encodeRedirectURL(req.getContextPath() + "/"));
         } else {
-            request.getRequestDispatcher("/page403.jsp").forward(request, response);
+            chain.doFilter(request, response);
         }
     }
+
 
     @Override
     public void destroy() {
