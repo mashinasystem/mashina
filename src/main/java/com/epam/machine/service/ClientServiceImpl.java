@@ -1,6 +1,7 @@
 package com.epam.machine.service;
 
 import com.epam.machine.entity.Client;
+import com.epam.machine.repository.ClientRepository;
 import com.epam.machine.repository.ClientRepositoryImpl;
 import lombok.Data;
 
@@ -9,7 +10,7 @@ import java.sql.SQLException;
 @Data
 public class ClientServiceImpl implements ClientService {
 
-    private ClientRepositoryImpl clientRepositoryImpl = new ClientRepositoryImpl();
+    private ClientRepository clientRepositoryImpl = new ClientRepositoryImpl();
 
     @Override
     public void create(Client client) throws SQLException, ClassNotFoundException {
@@ -28,7 +29,7 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public void update(Client client) throws SQLException, ClassNotFoundException {
-        int id = clientRepositoryImpl.getIdByLogin(client.getLogin());
+        int id = clientRepositoryImpl.getIdByLogin(client.getEMail());
         clientRepositoryImpl.update(id, client);
     }
 

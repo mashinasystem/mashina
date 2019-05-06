@@ -134,7 +134,7 @@
                     <td>${name}</td>
                 </tr>
                 <tr>
-                    <td><fmt:message key="label.passport"/>Passport number</td>
+                    <td><fmt:message key="label.passport"/></td>
                     <td>${passport}</td>
                 </tr>
                 <tr>

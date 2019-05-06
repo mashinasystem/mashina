@@ -11,7 +11,7 @@ public interface ClientRepository {
 
     void delete(int id) throws ClassNotFoundException, SQLException;
 
-    void update(int id, Client client);
+    void update(int id, Client client) throws ClassNotFoundException, SQLException;
 
     int getIdByLogin(String login) throws ClassNotFoundException, SQLException;
 }

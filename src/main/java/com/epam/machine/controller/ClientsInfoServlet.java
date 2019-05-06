@@ -28,7 +28,6 @@ public class ClientsInfoServlet extends HttpServlet {
             request.setAttribute("driverCard", client.getDriverCard());
             request.setAttribute("phoneNumber", client.getPhoneNumber());
             request.setAttribute("email", client.getEMail());
-            request.setAttribute("login", client.getLogin());
             request.setAttribute("password", client.getPassword());
             request.getRequestDispatcher("/clientsInfo.jsp").forward(request, response);
         } catch (ServletException | IOException err) {

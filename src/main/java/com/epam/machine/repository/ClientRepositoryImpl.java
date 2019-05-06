@@ -3,8 +3,11 @@ package com.epam.machine.repository;
 import com.epam.machine.entity.Client;
 import lombok.Builder;
 import lombok.Data;
-
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 @Data
 public class ClientRepositoryImpl implements ClientRepository {
@@ -24,7 +27,6 @@ public class ClientRepositoryImpl implements ClientRepository {
         String driverCard = "";
         String phoneNumber = "";
         String eMail = "";
-        String login = "";
         String pasword = "";
 
         ResultSet resultSet;
@@ -37,8 +39,7 @@ public class ClientRepositoryImpl implements ClientRepository {
                 passport = resultSet.getString(3);
                 driverCard = resultSet.getString(4);
                 phoneNumber = resultSet.getString(5);
-                eMail = resultSet.getString(1);
-                login = resultSet.getString(6);
+                eMail = resultSet.getString(6);
                 pasword = resultSet.getString(7);
             }
         }
@@ -50,7 +51,6 @@ public class ClientRepositoryImpl implements ClientRepository {
                 .driverCard(driverCard)
                 .phoneNumber(phoneNumber)
                 .eMail(eMail)
-                .login(login)
                 .password(pasword)
                 .build();
     }
@@ -61,9 +61,9 @@ public class ClientRepositoryImpl implements ClientRepository {
 
         try (Connection connection = DriverManager.getConnection(DATA_BASE_URL, ADMIN, PASSWORD);
              Statement statement = connection.createStatement()) {
-            String sql = "INSERT INTO driver " + "(name,passport,licence,phone_num,login,password)" +
+            String sql = "INSERT INTO driver " + "(name,passport,licence,phone_num,email,password)" +
                     " VALUES (" + "\'" + client.getFullName() + "\',\'" + client.getPassport() + "\',\'" +
-                    client.getDriverCard() + "\',\'" + client.getPhoneNumber() + "\',\'" + client.getLogin() +
+                    client.getDriverCard() + "\',\'" + client.getPhoneNumber() + "\',\'" + client.getEMail() +
                     "\',\'" + client.getPassword() + "\');";
             statement.executeUpdate(sql);
         }
@@ -78,7 +78,6 @@ public class ClientRepositoryImpl implements ClientRepository {
 
         try (Connection connection = DriverManager.getConnection(DATA_BASE_URL, ADMIN, PASSWORD);
              Statement statement = connection.createStatement()) {
-
             String sql = "DELETE FROM driver WHERE driver.id = " + id + ";";
             statement.executeUpdate(sql);
 
@@ -87,7 +86,17 @@ public class ClientRepositoryImpl implements ClientRepository {
     }
 
     @Override
-    public void update(int id, Client client) {
+    public void update(int id, Client client) throws ClassNotFoundException, SQLException {
+        Class.forName(JDBC_DRIVER);
+
+        try (Connection connection = DriverManager.getConnection(DATA_BASE_URL, ADMIN, PASSWORD);
+             Statement statement = connection.createStatement()) {
+            String sql = "UPDATE driver SET name = " + client.getFullName() + ", passport = " +
+                    client.getPassword() + ", license = " + client.getDriverCard() + ", phone_num = "
+                    + client.getPhoneNumber() + ", email = " + client.getEMail() + ", password = " +
+                    client.getPassword() + " WHERE driver.id = " + id + ";";
+            statement.executeUpdate(sql);
+        }
 
     }
 
@@ -98,7 +107,7 @@ public class ClientRepositoryImpl implements ClientRepository {
         int id = 0;
         try (Connection connection = DriverManager.getConnection(DATA_BASE_URL, ADMIN, PASSWORD);
              Statement statement = connection.createStatement()) {
-            String sql = "SELECT * FROM driver WHERE driver.login = \'" + login + "\';";
+            String sql = "SELECT * FROM driver WHERE driver.email = \'" + login + "\';";
             resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {
                 id = resultSet.getInt(1);
