@@ -1,9 +1,14 @@
 package com.epam.machine.repository;
 
 import com.epam.machine.entity.Admin;
+import lombok.NoArgsConstructor;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
-import java.sql.*;
-
+@NoArgsConstructor
 public class AdminRepositoryImpl implements AdminRepository {
 
     final static private String DATA_BASE_URL = "jdbc:postgresql://localhost:5432/Car";
@@ -36,8 +41,8 @@ public class AdminRepositoryImpl implements AdminRepository {
 
         try (Connection connection = DriverManager.getConnection(DATA_BASE_URL, ADMIN, PASSWORD);
              Statement statement = connection.createStatement()) {
-            String sql = "INSERT INTO administrator (name,login,password) VALUES (\'" + admin.getName() +
-                    "\',\'" + admin.getLogin() + "\',\'" + admin.getPassword() + "\');";
+            String sql = "INSERT INTO administrator (name,password) VALUES (\'" + admin.getName()
+                    + "\',\'" + admin.getPassword() + "\');";
             statement.executeUpdate(sql);
         }
 

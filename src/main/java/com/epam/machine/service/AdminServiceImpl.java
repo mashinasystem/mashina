@@ -3,9 +3,11 @@ package com.epam.machine.service;
 import com.epam.machine.entity.Admin;
 import com.epam.machine.repository.AdminRepository;
 import com.epam.machine.repository.AdminRepositoryImpl;
+import lombok.NoArgsConstructor;
 
 import java.sql.SQLException;
 
+@NoArgsConstructor
 public class AdminServiceImpl implements AdminService {
 
     private AdminRepository adminRepository = new AdminRepositoryImpl();

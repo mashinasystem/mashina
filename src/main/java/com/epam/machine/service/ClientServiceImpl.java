@@ -3,11 +3,11 @@ package com.epam.machine.service;
 import com.epam.machine.entity.Client;
 import com.epam.machine.repository.ClientRepository;
 import com.epam.machine.repository.ClientRepositoryImpl;
-import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.sql.SQLException;
 
-@Data
+@NoArgsConstructor
 public class ClientServiceImpl implements ClientService {
 
     private ClientRepository clientRepositoryImpl = new ClientRepositoryImpl();
@@ -17,7 +17,7 @@ public class ClientServiceImpl implements ClientService {
         if (client != null) {
             clientRepositoryImpl.create(client);
         } else {
-            throw new IllegalArgumentException();
+            throw new NullPointerException();
         }
 
     }
@@ -29,8 +29,12 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public void update(Client client) throws SQLException, ClassNotFoundException {
-        int id = clientRepositoryImpl.getIdByLogin(client.getEMail());
-        clientRepositoryImpl.update(id, client);
+        if(client != null) {
+            int id = clientRepositoryImpl.getIdByLogin(client.getEMail());
+            clientRepositoryImpl.update(id, client);
+        } else {
+            throw new NullPointerException();
+        }
     }
 
     @Override

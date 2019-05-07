@@ -1,12 +1,15 @@
 package com.epam.machine.repository;
 
 import com.epam.machine.entity.Client;
-import lombok.Builder;
-import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
-@Data
+@NoArgsConstructor
 public class ClientRepositoryImpl implements ClientRepository {
     final static private String DATA_BASE_URL = "jdbc:postgresql://localhost:5432/Car";
     final static private String JDBC_DRIVER = "org.postgresql.Driver";
@@ -14,7 +17,6 @@ public class ClientRepositoryImpl implements ClientRepository {
     final static private String ADMIN = "Admin";
     final static private String PASSWORD = "qwerty";
 
-    @Builder
     @Override
     public Client get(int id) throws ClassNotFoundException, SQLException {
         Class.forName(JDBC_DRIVER);
@@ -43,9 +45,9 @@ public class ClientRepositoryImpl implements ClientRepository {
 
         try (Connection connection = DriverManager.getConnection(DATA_BASE_URL, ADMIN, PASSWORD);
              Statement statement = connection.createStatement()) {
-            String sql = "INSERT INTO driver " + "(name,passport,licence,phone_num,email,password)" +
+            String sql = "INSERT INTO driver " + "(name,passport,licence,phone_num,password)" +
                     " VALUES (" + "\'" + client.getFullName() + "\',\'" + client.getPassport() + "\',\'" +
-                    client.getDriverCard() + "\',\'" + client.getPhoneNumber() + "\',\'" + client.getEMail() +
+                    client.getDriverCard() + "\',\'" + client.getPhoneNumber() +
                     "\',\'" + client.getPassword() + "\');";
             statement.executeUpdate(sql);
         }
