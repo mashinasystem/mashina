@@ -2,6 +2,7 @@ package com.epam.machine.repository;
 
 import com.epam.machine.entity.Admin;
 import lombok.NoArgsConstructor;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;

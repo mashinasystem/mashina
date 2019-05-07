@@ -29,7 +29,7 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public void update(Client client) throws SQLException, ClassNotFoundException {
-        if(client != null) {
+        if (client != null) {
             int id = clientRepositoryImpl.getIdByLogin(client.getEMail());
             clientRepositoryImpl.update(id, client);
         } else {
