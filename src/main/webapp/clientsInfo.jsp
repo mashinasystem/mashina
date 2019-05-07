@@ -32,7 +32,19 @@
 <!-- Navigation -->
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="/">Mashina Inc.</a>
+        <a href="/"><img src="/img/m.png" class="navbar-brand rounded"></a>
+        <a class="navbar-brand" href="/">Mashina</a>
+
+        <% if (session.getAttribute("role") != null)  { %>
+            <p class="navbar-nav text-white">
+                Username: <%= session.getAttribute("login") %>, Role: <%= session.getAttribute("role") %>
+            </p>
+        <% } %>
+
+        <a class="navbar-brand"></a>
+        <a class="navbar-brand" href="/clients/1/profile">CLIENT</a>
+        <a class="navbar-brand" href="/admin/1/profile">ADMIN</a>
+
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                 data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -63,32 +75,6 @@
                         <a class="dropdown-item" href="#">BMW</a>
                     </div>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">
-                        <fmt:message key="label.offices"/>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-                        <a class="dropdown-item" href="#"><fmt:message key="label.USA"/></a>
-                        <a class="dropdown-item" href="#"><fmt:message key="label.Germany"/></a>
-                        <a class="dropdown-item" href="#"><fmt:message key="label.France"/></a>
-                        <a class="dropdown-item" href="#"><fmt:message key="label.Canada"/></a>
-                        <a class="dropdown-item" href="#"><fmt:message key="label.Belarus"/></a>
-                        <a class="dropdown-item" href="#"><fmt:message key="label.Russia"/></a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">
-                        <fmt:message key="label.investors"/>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-                        <a class="dropdown-item" href="#"><fmt:message key="label.about"/></a>
-                        <a class="dropdown-item" href="#"><fmt:message key="label.infoDisclosure"/></a>
-                        <a class="dropdown-item" href="#"><fmt:message key="label.sponsorship"/></a>
-                        <a class="dropdown-item" href="#"><fmt:message key="label.publicRelations"/></a>
-                    </div>
-                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">
                         <fmt:message key="label.faq"/>
@@ -106,62 +92,69 @@
                 </li>
             </ul>
         </div>
+        <% if (session.getAttribute("role") == null)  { %>
+            <a class="btn btn-success btn-sm" href="login">
+                <fmt:message key="label.signIn"/>
+            </a>
+        <% } else { %>
+            <a class="btn btn-danger btn-sm" href="/logout" method="get">Logout</a>
+        <% } %>
     </div>
 </nav>
 
-<!-- Page Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-3"></div>
-        <div class="col-lg-6 mb-4">
-            <!-- Page Heading/Breadcrumbs -->
-            <h1 class="py-4"></h1>
-            <h1 class="mt-4 mb-3"><fmt:message key="label.personal"/>
-                <small><fmt:message key="label.info"/></small>
-            </h1>
+  <!-- Page Content -->
+ <div class="container">
+  <div class="row">
+	<div class="col-lg-3"></div>
+    <div class="col-lg-6 mb-4">
+    <!-- Page Heading/Breadcrumbs -->
+      <h1 class="py-4"></h1>
+      <h1 class="mt-4 mb-3">Personal
+        <small>information</small>
+      </h1>
 
-            <p><fmt:message key="text.hereYouCheck"/></p>
-            <table class="table table-hover">
-                <thead>
-                <tr>
-                    <th><fmt:message key="label.graph"/></th>
-                    <th><fmt:message key="label.info"/></th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td><fmt:message key="label.name"/></td>
-                    <td>John Snow</td>
-                </tr>
-                <tr>
-                    <td><fmt:message key="label.passport"/>Passport number</td>
-                    <td>7826 487624</td>
-                </tr>
-                <tr>
-                    <td><fmt:message key="label.license"/></td>
-                    <td>785 658 71</td>
-                </tr>
-                <tr>
-                    <td><fmt:message key="label.phone"/></td>
-                    <td>+7 (921) 365-34-81</td>
-                </tr>
-                <tr>
-                    <td><fmt:message key="label.email"/></td>
-                    <td>johnnysnowysnow@mail.ru</td>
-                </tr>
-                <tr>
-                    <td><fmt:message key="label.login"/></td>
-                    <td>master_of_mashina</td>
-                </tr>
-                <tr>
-                    <td><fmt:message key="label.password"/></td>
-                    <td>*******</td>
-                </tr>
-                </tbody>
-            </table>
-            <button type="submit" class="btn btn-warning" id="sendMessageButton"><fmt:message key="label.edit"/></button>
-        </div>
+      <p>Here you can check your personal information:</p>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Graph</th>
+            <th>Information</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Full name</td>
+            <td>${name}</td>
+          </tr>
+          <tr>
+           <td>Passport number</td>
+            <td>${passport}</td>
+          </tr>
+          <tr>
+            <td>Driving license number</td>
+            <td>${driverCard}</td>
+          </tr>
+          <tr>
+            <td>Phone number</td>
+            <td>${phoneNumber}</td>
+          </tr>
+          <tr>
+            <td>Email</td>
+            <td>${email}</td>
+          </tr>	  
+          <tr>
+            <td>Login</td>
+            <td>${login}</td>
+          </tr>	
+          <tr>
+            <td>Password</td>
+            <td>${password}</td>
+          </tr>	  
+        </tbody>
+      </table>
+      <button type="submit" class="btn btn-warning" id="sendMessageButton">Edit</button>
     </div>
+  </div>
 </div>
 <!-- /.container -->
 
@@ -172,10 +165,6 @@
     </div>
     <!-- /.container -->
 </footer>
-
-<!-- Bootstrap core JavaScript -->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
 

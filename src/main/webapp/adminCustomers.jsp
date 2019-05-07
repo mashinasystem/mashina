@@ -15,7 +15,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Orders</title>
+  <title>Customers</title>
 
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -101,82 +101,37 @@
         <% } %>
     </div>
 </nav>
-
   <!-- Page Content -->
   <div class="container">
   <div class="row">
-	<div class="col-lg-2"></div>
-    <div class="col-lg-8 mb-4">
+    <div class="col-lg-12 mb-4">
     <!-- Page Heading/Breadcrumbs -->
       <h1 class="py-4"></h1>
       <h1 class="mt-4 mb-3">Current
-        <small>orders</small>
+        <small>customers</small>
       </h1>
-      <p>Here you can check your current orders:</p>
+      <p>Here you can check our current customers:</p>
       <table class="table table-hover">
         <thead>
           <tr>
-            <th>Start date</th>
-            <th>End date</th>
-            <th>Car model</th>
-            <th>Payment</th>
-			<th>Status</th>
-            <th>Details</th>
+            <th>Name</th>		
+            <th>Phone number</th>			
+            <th>Email</th>			
+            <th>Passport number</th>
+            <th>Driving lisence number</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>21.05.19</td>
-            <td>23.05.19</td>
-            <td>Tesla Model X</td>
-			<td>Confirmed</td>
-			<td>Approved</td>
-			<td>
-			  <a href="/clients/1/orders/1" class="btn btn-info btn-sm">details</a>
-			</td>
+            <td>Eric Smith</td>
+            <td>89112854675</td>
+			<td>eric@epam.com</td>
+            <td>8945 456452</td>
+            <td>7875 4657</td>
           </tr>
         </tbody>
       </table>
-	  <a href="/clients/1/orders/1" class="btn btn-success btn-block">New order</a>
-    
-      <h1 class="mt-4 mb-3">Past
-        <small>orders</small>
-      </h1>
-      <p>Here you can check your past orders:</p>
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th>Start date</th>
-            <th>End date</th>
-            <th>Car model</th>
-            <th>Payment</th>
-			<th>Status</th>
-            <th>Details</th>
-          </tr>
-        </thead>
-        <tbody>
-		  <tr>
-            <td>21.05.19</td>
-            <td>23.05.19</td>
-            <td>Tesla Model X</td>
-			<td>Confirmed</td>
-			<td>Finished</td>
-			<td>
-			  <a href="/clients/1/orders/1" class="btn btn-info btn-sm">details</a>
-			</td>
-		  </tr>
-		  <tr>
-            <td>21.05.19</td>
-            <td>23.05.19</td>
-            <td>Tesla Model X</td>
-			<td>No payment</td>
-			<td>Declined</td>
-			<td>
-			  <a href="/clients/1/orders/1" class="btn btn-info btn-sm">details</a>
-			</td>
-          </tr>
-        </tbody>
-      </table> 	
+	  <button type="button" class="btn btn-success btn-lg btn-block">Add customer</button>
 	</div>
   </div>
   </div>
@@ -189,7 +144,6 @@
     </div>
     <!-- /.container -->
   </footer>
-
 </body>
 
 </html>

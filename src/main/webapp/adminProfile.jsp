@@ -6,30 +6,30 @@
 <fmt:setBundle basename="messages"/>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="${param.lang}">
 
 <head>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-  <title>Orders</title>
+    <title>Profile</title>
 
-  <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-  <!-- Custom styles for this template -->
-  <link href="css/modern-business.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/modern-business.css" rel="stylesheet">
 
 </head>
 
 <body>
 
-  <!-- Navigation -->
+<!-- Navigation -->
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
         <a href="/"><img src="/img/m.png" class="navbar-brand rounded"></a>
@@ -102,94 +102,74 @@
     </div>
 </nav>
 
-  <!-- Page Content -->
-  <div class="container">
-  <div class="row">
-	<div class="col-lg-2"></div>
-    <div class="col-lg-8 mb-4">
-    <!-- Page Heading/Breadcrumbs -->
-      <h1 class="py-4"></h1>
-      <h1 class="mt-4 mb-3">Current
-        <small>orders</small>
-      </h1>
-      <p>Here you can check your current orders:</p>
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th>Start date</th>
-            <th>End date</th>
-            <th>Car model</th>
-            <th>Payment</th>
-			<th>Status</th>
-            <th>Details</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>21.05.19</td>
-            <td>23.05.19</td>
-            <td>Tesla Model X</td>
-			<td>Confirmed</td>
-			<td>Approved</td>
-			<td>
-			  <a href="/clients/1/orders/1" class="btn btn-info btn-sm">details</a>
-			</td>
-          </tr>
-        </tbody>
-      </table>
-	  <a href="/clients/1/orders/1" class="btn btn-success btn-block">New order</a>
-    
-      <h1 class="mt-4 mb-3">Past
-        <small>orders</small>
-      </h1>
-      <p>Here you can check your past orders:</p>
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th>Start date</th>
-            <th>End date</th>
-            <th>Car model</th>
-            <th>Payment</th>
-			<th>Status</th>
-            <th>Details</th>
-          </tr>
-        </thead>
-        <tbody>
-		  <tr>
-            <td>21.05.19</td>
-            <td>23.05.19</td>
-            <td>Tesla Model X</td>
-			<td>Confirmed</td>
-			<td>Finished</td>
-			<td>
-			  <a href="/clients/1/orders/1" class="btn btn-info btn-sm">details</a>
-			</td>
-		  </tr>
-		  <tr>
-            <td>21.05.19</td>
-            <td>23.05.19</td>
-            <td>Tesla Model X</td>
-			<td>No payment</td>
-			<td>Declined</td>
-			<td>
-			  <a href="/clients/1/orders/1" class="btn btn-info btn-sm">details</a>
-			</td>
-          </tr>
-        </tbody>
-      </table> 	
-	</div>
-  </div>
-  </div>
-  <!-- /.container -->
+<!-- Page Content -->
+<div class="container">
 
-  <!-- Footer -->
-  <footer class="py-3 bg-dark">
+    <!-- Page Heading/Breadcrumbs -->
+    <h1 class="py-4"></h1>
+    <h1 class="mt-4 mb-3"><fmt:message key="label.personal"/>
+        <small><fmt:message key="label.area"/></small>
+    </h1>
+
+    <div class="row">
+        <div class="col-lg-4 portfolio-item">
+            <div class="card h-100">
+                <a href="/admin/1/orders"><img class="card-img-top" src="htp://placehold.it/700x400" alt=""></a>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <a href="/admin/1/orders"><fmt:message key="label.orders"/></a>
+                    </h4>
+                    <p class="card-text">
+                        <fmt:message key="text.bookACar"/>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-lg-4 portfolio-item">
+            <div class="card h-100">
+                <a href="/admin/1/customers"><img class="card-img-top" src="htp://placehold.it/700x400" alt=""></a>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <a href="/admin/1/customers">
+                            <fmt:message key="label.customers"/>
+                        </a>
+                    </h4>
+                    <p class="card-text">
+                        <fmt:message key="text.checkOrEdit"/>
+                    </p>
+                </div>
+            </div>
+        </div>
+		<div class="col-lg-4 portfolio-item">
+            <div class="card h-100">
+                <a href="/admin/1/info"><img class="card-img-top" src="htp://placehold.it/700x400" alt=""></a>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <a href="/admin/1/info">
+                            <fmt:message key="label.personal"/> <fmt:message key="label.area"/>
+                        </a>
+                    </h4>
+                    <p class="card-text">
+                        <fmt:message key="text.checkOrEdit"/>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h1 class="py-4"></h1>
+    <!-- /.row -->
+
+</div>
+<!-- /.container -->
+
+<!-- Footer -->
+<footer class="py-3 bg-dark">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Mashina Inc 2019</p>
+        <p class="m-0 text-center text-white">Copyright &copy; Mashina Inc 2019</p>
     </div>
     <!-- /.container -->
-  </footer>
-
+</footer>
 </body>
 
 </html>
