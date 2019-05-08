@@ -69,14 +69,15 @@ public class TicketRepositoryImpl implements TicketRepository {
     }
 
     @Override
-    public void update(int id, Ticket ticket) throws ClassNotFoundException, SQLException {
+    public void update(int id, boolean paid) throws ClassNotFoundException, SQLException {
         Class.forName(JDBC_DRIVER);
 
         try (Connection connection = DriverManager.getConnection(DATA_BASE_URL, ADMIN, PASSWORD);
              Statement statement = connection.createStatement()) {
-
-            String sql = "UPDATE ticket SET driver_id = " + ticket.getDriverId() + ", is_paid = "
-                    + ticket.getIsPaid() + ", cost = " + ticket.getCost() + " ;";
+            String sql =
+                    "UPDATE ticket " +
+                    "SET is_paid = " + paid +
+                    "WHERE id = " + id + ";";
             statement.executeUpdate(sql);
         }
     }

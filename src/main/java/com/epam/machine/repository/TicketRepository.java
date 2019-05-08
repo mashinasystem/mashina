@@ -12,5 +12,5 @@ public interface TicketRepository {
 
     void delete(int id) throws ClassNotFoundException, SQLException;
 
-    void update(int id, Ticket ticket) throws ClassNotFoundException, SQLException;
+    void update(int id, boolean paid) throws ClassNotFoundException, SQLException;
 }
