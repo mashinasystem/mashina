@@ -141,11 +141,7 @@
           <tr>
             <td>Email</td>
             <td>${email}</td>
-          </tr>	  
-          <tr>
-            <td>Login</td>
-            <td>${login}</td>
-          </tr>	
+          </tr>
           <tr>
             <td>Password</td>
             <td>${password}</td>
