@@ -23,7 +23,6 @@ public class CertainOrderServlet extends HttpServlet {
             HttpSession session = request.getSession();
             String login = session.getAttribute("login").toString();
 
-            OfferServiceImpl offerService = new OfferServiceImpl();
             List<Offer> offers = offerService.get(login);
             request.setAttribute("offer", offers.get(offerId));
 
