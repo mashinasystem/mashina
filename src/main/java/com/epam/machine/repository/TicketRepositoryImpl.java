@@ -49,7 +49,7 @@ public class TicketRepositoryImpl implements TicketRepository {
 
             String sql = "INSERT INTO ticket (driver_id,is_paid,cost) VALUES (" + "\'"
                     + ticket.getDriverId() + "\',\'" +
-                    ticket.isPaid() + "\',\'" +
+                    ticket.getIsPaid() + "\',\'" +
                     ticket.getCost() + "\');";
 
             statement.executeUpdate(sql);
@@ -76,7 +76,7 @@ public class TicketRepositoryImpl implements TicketRepository {
              Statement statement = connection.createStatement()) {
 
             String sql = "UPDATE ticket SET driver_id = " + ticket.getDriverId() + ", is_paid = "
-                    + ticket.isPaid() + ", cost = " + ticket.getCost() + " ;";
+                    + ticket.getIsPaid() + ", cost = " + ticket.getCost() + " ;";
             statement.executeUpdate(sql);
         }
     }

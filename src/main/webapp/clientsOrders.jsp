@@ -206,14 +206,11 @@
                     <tr>
                         <td><c:out value="${ticket.id}"/></td>
                         <td><c:out value="${ticket.cost}"/> $</td>
-                        <c:set var="wasItPaid" value="true"/>
                         <td>
-                            <c:out value="${wasItPaid}"/>
-
-                            <c:if test="${wasItPaid}">
+                            <c:if test="${ticket.isPaid}">
                                 paid
                             </c:if>
-                            <c:if test="${!wasItPaid}">
+                            <c:if test="${!ticket.isPaid}">
                                 not paid
                             </c:if>
                         </td>
