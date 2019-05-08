@@ -12,7 +12,5 @@ public class Client {
     private String driverCard;
     private String phoneNumber;
     private String eMail;
-    private String login;
     private String password;
-
 }

@@ -1,6 +1,8 @@
 package com.epam.machine.controller;
 
-import com.epam.machine.util.LoginCheck;
+import com.epam.machine.util.AdminLoginCheck;
+import com.epam.machine.util.CustomerLoginCheck;
+import com.epam.machine.util.Role;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -28,11 +30,17 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
         response.setContentType("text/html");
         try {
-            if (LoginCheck.checkLog(username, password)) {
+            if (AdminLoginCheck.checkLog(username, password)) {
                 session = request.getSession();
                 session.setAttribute("login", username);
+                session.setAttribute("role", Role.ADMIN);
+                response.sendRedirect("/admin/1/profile");
+            } else if (CustomerLoginCheck.checkLog(username, password)) {
+                session = request.getSession();
+                session.setAttribute("login", username);
+                session.setAttribute("role", Role.CUSTOMER);
                 response.sendRedirect("/clients/1/profile");
-            } else {
+            } else{
                 request.setAttribute("fail", 1);
                 request.getRequestDispatcher("/login.jsp").forward(request, response);
             }

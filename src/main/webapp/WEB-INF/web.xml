@@ -5,6 +5,7 @@
          version="3.1">
 
     <display-name>Hello</display-name>
+
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>com.epam.machine.controller.LoginServlet</servlet-class>
@@ -13,7 +14,6 @@
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
-
 
     <servlet>
         <servlet-name>registerServlet</servlet-name>
@@ -51,11 +51,110 @@
         <url-pattern>/clients/1/orders</url-pattern>
     </servlet-mapping>
 
-      <jsp-config>
-        <jsp-property-group>
-            <url-pattern>*.jsp</url-pattern>
-            <page-encoding>UTF-8</page-encoding>
-        </jsp-property-group>
+    <servlet>
+        <servlet-name>AdminProfileServlet</servlet-name>
+        <servlet-class>com.epam.machine.controller.AdminProfileServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminProfileServlet</servlet-name>
+        <url-pattern>/admin/1/profile</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AdminInfoServlet</servlet-name>
+        <servlet-class>com.epam.machine.controller.AdminInfoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminInfoServlet</servlet-name>
+        <url-pattern>/admin/1/info</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AdminOrdersServlet</servlet-name>
+        <servlet-class>com.epam.machine.controller.AdminOrdersServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminOrdersServlet</servlet-name>
+        <url-pattern>/admin/1/orders</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AdminCustomersServlet</servlet-name>
+        <servlet-class>com.epam.machine.controller.AdminCustomersServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminCustomersServlet</servlet-name>
+        <url-pattern>/admin/1/customers</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ClientsCertainOrderServlet</servlet-name>
+        <servlet-class>com.epam.machine.controller.ClientsCertainOrderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ClientsCertainOrderServlet</servlet-name>
+        <url-pattern>/clients/1/orders/1</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AdminCertainOrderServlet</servlet-name>
+        <servlet-class>com.epam.machine.controller.AdminCertainOrderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminCertainOrderServlet</servlet-name>
+        <url-pattern>/admin/1/orders/1</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AdminFines</servlet-name>
+        <servlet-class>com.epam.machine.controller.AdminFines</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminFines</servlet-name>
+        <url-pattern>/admin/1/orders/1/fines/1</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>ClientsFilter</filter-name>
+        <filter-class>com.epam.machine.filter.ClientsFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>ClientsFilter</filter-name>
+        <url-pattern>/clients/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>AdminFilter</filter-name>
+        <filter-class>com.epam.machine.filter.AdminFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <url-pattern>/admin/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>LoginFilter</filter-name>
+        <filter-class>com.epam.machine.filter.LoginFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>LoginFilter</filter-name>
+        <url-pattern>/login</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>RegistraionFilter</filter-name>
+        <filter-class>com.epam.machine.filter.RegistraionFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>RegistraionFilter</filter-name>
+        <url-pattern>/registration</url-pattern>
+    </filter-mapping>
+
+    <jsp-config>
+      <jsp-property-group>
+        <url-pattern>*.jsp</url-pattern>
+        <page-encoding>UTF-8</page-encoding>
+      </jsp-property-group>
     </jsp-config>
 
     <servlet>

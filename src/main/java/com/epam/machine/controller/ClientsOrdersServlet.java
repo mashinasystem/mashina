@@ -28,11 +28,4 @@ public class ClientsOrdersServlet extends HttpServlet {
             System.out.println("Something is wrong. Game over. Try again" + err.getMessage());
         }
     }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
-        int offerId = Integer.parseInt(request.getParameter("val"));
-        System.out.println(offerId);
-
-    }
 }
