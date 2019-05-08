@@ -35,6 +35,7 @@ public class OfferRepositroryImpl implements OfferRepository {
                         .period(resultSet.getInt(7))
                         .status(resultSet.getString(8))
                         .payment(resultSet.getInt(5))
+                        .beginDay(resultSet.getObject(6).toString())
                         .build());
             }
         }

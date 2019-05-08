@@ -13,6 +13,8 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class CertainOrderServlet extends HttpServlet {
+    private OfferServiceImpl offerService = new OfferServiceImpl();
+
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) {
         try {
@@ -20,7 +22,6 @@ public class CertainOrderServlet extends HttpServlet {
             System.out.println(offerId);
             HttpSession session = request.getSession();
             String login = session.getAttribute("login").toString();
-            OfferServiceImpl offerService = new OfferServiceImpl();
             List<Offer> offers = offerService.get(login);
             request.setAttribute("offer", offers.get(offerId));
             request.getRequestDispatcher("/clientCertainOrder.jsp").forward(request, response);

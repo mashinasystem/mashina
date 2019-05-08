@@ -10,7 +10,7 @@ public class Offer {
     private int driverId;
     private Car car;
     private int payment;
-    private int beginDay;
+    private String beginDay;
     private int period;
     private String status;
 }
