@@ -19,7 +19,16 @@ public class OfferServiceImpl implements OfferService{
     }
 
     @Override
-    public void create(Offer offer) {}
+    public void create(Offer offer) {
+        OfferRepositroryImpl offerRepositrory = new OfferRepositroryImpl();
+        try {
+            offerRepositrory.create(offer);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public void delete(int id) {}

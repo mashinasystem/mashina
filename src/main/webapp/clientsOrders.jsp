@@ -108,7 +108,10 @@
           </tr>
         </thead>
         <tbody>
+          <c:set var = "offerId" value = "0" scope = "session" />
           <c:forEach items="${offers}" var="offer">
+          <form action="/clients/1/order" method="get">
+          <input id="id_anything123" type="hidden" name="val" value="${offerId}" />
             <tr>
               <td><c:out value="${offer.beginDay}" /></td>
               <td><c:out value="${offer.period}" /></td>
@@ -116,14 +119,19 @@
 		      <td><c:out value="${offer.payment}" /></td>
 			  <td><c:out value="${offer.status}" /></td>
 			  <td>
-			    <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton">details</button>
+
+			    <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton" name = "orderDet" value = "${offerId}">details</button>
 			  </td>
             </tr>
+            <c:set var="offerId" value="${offerId + 1}" scope="session"/>
+            </form>
           </c:forEach>
         </tbody>
       </table>
-	  <button type="button" class="btn btn-success btn-lg btn-block">NEW ORDER</button>
-    
+
+                          <a href="/neworder" class="btn btn-success btn-lg btn-block">
+                              New order
+                          </a>
       <h1 class="mt-4 mb-3">Past
         <small>orders</small>
       </h1>

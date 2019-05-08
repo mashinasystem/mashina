@@ -13,14 +13,9 @@ public class CarRepositoryImpl implements CarRepository {
     final static private String ADMIN = "Admin";
     final static private String PASSWORD = "qwerty";
 
-    @Builder
     @Override
     public Car get(int id) throws ClassNotFoundException, SQLException {
         Class.forName(JDBC_DRIVER);
-        int carId = id;
-        String number = "";
-        String marque = "";
-        String model = "";
         ResultSet resultSet;
         try (Connection connection = DriverManager.getConnection(DATA_BASE_URL, ADMIN, PASSWORD);
              PreparedStatement statement = connection.prepareStatement(
@@ -28,13 +23,13 @@ public class CarRepositoryImpl implements CarRepository {
             statement.setInt(1, id);
             resultSet = statement.executeQuery();
             resultSet.next();
+            return Car.builder()
+                    .id(id)
+                    .marque(resultSet.getString(1))
+                    .model(resultSet.getString(2))
+                    .number(resultSet.getString(3))
+                    .build();
         }
-        return Car.builder()
-                .id(id)
-                .marque(resultSet.getString(1))
-                .model(resultSet.getString(2))
-                .number(resultSet.getString(3))
-                .build();
     }
 
     @Override

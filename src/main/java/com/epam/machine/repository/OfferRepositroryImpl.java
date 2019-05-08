@@ -42,7 +42,18 @@ public class OfferRepositroryImpl implements OfferRepository {
     }
 
     @Override
-    public void create(Offer offer) {}
+    public void create(Offer offer) throws ClassNotFoundException, SQLException {
+        Class.forName(JDBC_DRIVER);
+
+        try (Connection connection = DriverManager.getConnection(DATA_BASE_URL, ADMIN, PASSWORD);
+             Statement statement = connection.createStatement()) {
+            String sql = "INSERT INTO offer " + "(driver_id,admin_id,car_id,payment,period_days,status)" +
+                    " VALUES (" + "\'" + offer.getDriverId() + "\',\'" + 1 + "\',\'" +
+                    3 + "\',\'" + offer.getPayment() + "\',\'" + offer.getPeriod() +
+                    "\',\'" + offer.getStatus() + "\');";
+            statement.executeUpdate(sql);
+        }
+    }
 
     @Override
     public void delete(int id) {}

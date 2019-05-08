@@ -8,7 +8,7 @@ import java.util.List;
 public interface OfferRepository {
     List<Offer> get(int id) throws ClassNotFoundException, SQLException;
 
-    void create(Offer offer);
+    void create(Offer offer) throws ClassNotFoundException, SQLException;
 
     void delete(int id);
 
