@@ -5,7 +5,7 @@ public final class CustomerLoginCheck {
         if (username == null || password == null) {
             throw new IllegalArgumentException("No login or password");
         }
-        return username.equals("customer") && password.equals("qwerty");
+        return username.equals("login@gmail.com") && password.equals("qwerty");
     }
 
     private CustomerLoginCheck() {
