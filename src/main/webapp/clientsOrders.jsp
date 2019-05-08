@@ -10,35 +10,35 @@
 
 <head>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-  <title>Orders</title>
+    <title>Orders</title>
 
-  <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-  <!-- Custom styles for this template -->
-  <link href="css/modern-business.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/modern-business.css" rel="stylesheet">
 
 </head>
 
 <body>
 
-  <!-- Navigation -->
+<!-- Navigation -->
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
         <a href="/"><img src="/img/m.png" class="navbar-brand rounded"></a>
         <a class="navbar-brand" href="/">Mashina</a>
 
-        <% if (session.getAttribute("role") != null)  { %>
-            <p class="navbar-nav text-white">
-                Username: <%= session.getAttribute("login") %>, Role: <%= session.getAttribute("role") %>
-            </p>
+        <% if (session.getAttribute("role") != null) { %>
+        <p class="navbar-nav text-white">
+            Username: <%= session.getAttribute("login") %>, Role: <%= session.getAttribute("role") %>
+        </p>
         <% } %>
 
         <a class="navbar-brand"></a>
@@ -92,113 +92,125 @@
                 </li>
             </ul>
         </div>
-        <% if (session.getAttribute("role") == null)  { %>
-            <a class="btn btn-success btn-sm" href="login">
-                <fmt:message key="label.signIn"/>
-            </a>
+        <% if (session.getAttribute("role") == null) { %>
+        <a class="btn btn-success btn-sm" href="login">
+            <fmt:message key="label.signIn"/>
+        </a>
         <% } else { %>
-            <a class="btn btn-danger btn-sm" href="/logout" method="get">Logout</a>
+        <a class="btn btn-danger btn-sm" href="/logout" method="get">Logout</a>
         <% } %>
     </div>
 </nav>
 
-  <!-- Page Content -->
-  <div class="container">
-  <div class="row">
-	<div class="col-lg-2"></div>
-    <div class="col-lg-8 mb-4">
-    <!-- Page Heading/Breadcrumbs -->
-      <h1 class="py-4"></h1>
-      <h1 class="mt-4 mb-3">Current
-        <small>orders</small>
-      </h1>
-      <p>Here you can check your current orders:</p>
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th>Start date</th>
-            <th>End date</th>
-            <th>Car model</th>
-            <th>Payment</th>
-			<th>Status</th>
-            <th>Details</th>
-          </tr>
-        </thead>
-        <tbody>
-          <c:set var = "offerId" value = "0" scope = "session" />
-          <c:forEach items="${offers}" var="offer">
-          <form action="/clients/1/order" method="get">
-          <input id="id_anything123" type="hidden" name="val" value="${offerId}" />
-            <tr>
-              <td><c:out value="${offer.beginDay}" /></td>
-              <td><c:out value="${offer.period}" /></td>
-              <td><c:out value="${offer.car.getModel()}" /></td>
-		      <td><c:out value="${offer.payment}" /></td>
-			  <td><c:out value="${offer.status}" /></td>
-			  <td>
+<!-- Page Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8 mb-4">
+            <!-- Page Heading/Breadcrumbs -->
+            <h1 class="py-4"></h1>
+            <h1 class="mt-4 mb-3">Current
+                <small>orders</small>
+            </h1>
+            <p>Here you can check your current orders:</p>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Start date</th>
+                    <th>End date</th>
+                    <th>Car model</th>
+                    <th>Payment</th>
+                    <th>Status</th>
+                    <th>Details</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:set var="offerId" value="0" scope="session"/>
+                <c:forEach items="${offers}" var="offer">
+                    <form action="/clients/1/order" method="get">
+                        <input id="id_anything123" type="hidden" name="val" value="${offerId}"/>
+                        <tr>
+                            <td><c:out value="${offer.beginDay}"/></td>
+                            <td><c:out value="${offer.period}"/></td>
+                            <td><c:out value="${offer.car.getModel()}"/></td>
+                            <td><c:out value="${offer.payment}"/></td>
+                            <td><c:out value="${offer.status}"/></td>
+                            <td>
+                                <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton" name="orderDet"
+                                        value="${offerId}">details
+                                </button>
+                            </td>
+                        </tr>
+                        <c:set var="offerId" value="${offerId + 1}" scope="session"/>
+                    </form>
+                </c:forEach>
+                </tbody>
+            </table>
 
-			    <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton" name = "orderDet" value = "${offerId}">details</button>
-			  </td>
-            </tr>
-            <c:set var="offerId" value="${offerId + 1}" scope="session"/>
-            </form>
-          </c:forEach>
-        </tbody>
-      </table>
+            <a href="/neworder" class="btn btn-success btn-lg btn-block">
+                New order
+            </a>
+            <h1 class="mt-4 mb-3">Past
+                <small>orders</small>
+            </h1>
+            <p>Here you can check your past orders:</p>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Start date</th>
+                    <th>End date</th>
+                    <th>Car model</th>
+                    <th>Payment</th>
+                    <th>Status</th>
+                    <th>Details</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>21.05.19</td>
+                    <td>23.05.19</td>
+                    <td>Tesla Model X</td>
+                    <td>Confirmed</td>
+                    <td>Finished</td>
+                    <td>
+                        <a href="/clients/1/orders/1" class="btn btn-info btn-sm">details</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>21.05.19</td>
+                    <td>23.05.19</td>
+                    <td>Tesla Model X</td>
+                    <td>No payment</td>
+                    <td>Declined</td>
+                    <td>
+                        <a href="/clients/1/orders/1" class="btn btn-info btn-sm">details</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
 
-                          <a href="/neworder" class="btn btn-success btn-lg btn-block">
-                              New order
-                          </a>
-      <h1 class="mt-4 mb-3">Past
-        <small>orders</small>
-      </h1>
-      <p>Here you can check your past orders:</p>
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th>Start date</th>
-            <th>End date</th>
-            <th>Car model</th>
-            <th>Payment</th>
-			<th>Status</th>
-            <th>Details</th>
-          </tr>
-        </thead>
-        <tbody>
-		  <tr>
-            <td>21.05.19</td>
-            <td>23.05.19</td>
-            <td>Tesla Model X</td>
-			<td>Confirmed</td>
-			<td>Finished</td>
-			<td>
-			  <a href="/clients/1/orders/1" class="btn btn-info btn-sm">details</a>
-			</td>
-		  </tr>
-		  <tr>
-            <td>21.05.19</td>
-            <td>23.05.19</td>
-            <td>Tesla Model X</td>
-			<td>No payment</td>
-			<td>Declined</td>
-			<td>
-			  <a href="/clients/1/orders/1" class="btn btn-info btn-sm">details</a>
-			</td>
-          </tr>
-        </tbody>
-      </table>
-	</div>
-  </div>
-  </div>
-  <!-- /.container -->
+            <h1 class="mt-2 mb-3">Fines</h1>
+            <table class="table table-hover">
+                <c:forEach items="${tickets}" var="tickets">
+                    <tr>
+                        <td><c:out value="${tickets.id}"/></td>
+                        <td><c:out value="${tickets.cost}"/></td>
+                    </tr>
+                </c:forEach>
+            </table>
 
-  <!-- Footer -->
-  <footer class="py-3 bg-dark">
+        </div>
+    </div>
+</div>
+<!-- /.container -->
+
+<!-- Footer -->
+<footer class="py-3 bg-dark">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Mashina Inc 2019</p>
+        <p class="m-0 text-center text-white">Copyright &copy; Mashina Inc 2019</p>
     </div>
     <!-- /.container -->
-  </footer>
+</footer>
 
 </body>
 
