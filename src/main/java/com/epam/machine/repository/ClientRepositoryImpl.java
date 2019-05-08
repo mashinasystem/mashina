@@ -52,7 +52,6 @@ public class ClientRepositoryImpl implements ClientRepository {
             statement.executeUpdate(sql);
         }
 
-
     }
 
     @Override
