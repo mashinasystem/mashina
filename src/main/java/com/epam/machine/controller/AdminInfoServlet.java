@@ -17,16 +17,16 @@ public class AdminInfoServlet extends HttpServlet {
     AdminService adminServiceImpl = new AdminServiceImpl();
 
     @Override
-    public void doGet (HttpServletRequest request, HttpServletResponse response) {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) {
         try {
             HttpSession session = request.getSession();
             String login = session.getAttribute("login").toString();
             Admin admin = adminServiceImpl.get(login);
-            request.setAttribute("name",admin.getName());
-            request.setAttribute("login",admin.getLogin());
-            request.setAttribute("password",admin.getPassword());
+            request.setAttribute("name", admin.getName());
+            request.setAttribute("login", admin.getLogin());
+            request.setAttribute("password", admin.getPassword());
             request.getRequestDispatcher("/adminInfo.jsp").forward(request, response);
-        } catch(ServletException | IOException err) {
+        } catch (ServletException | IOException err) {
             System.out.println("Something is wrong. Game over. Try again" + err.getMessage());
         } catch (SQLException e) {
             e.printStackTrace();
