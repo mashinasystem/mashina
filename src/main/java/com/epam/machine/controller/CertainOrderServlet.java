@@ -19,7 +19,6 @@ public class CertainOrderServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) {
         try {
             int offerId = Integer.parseInt(request.getParameter("val"));
-            System.out.println(offerId);
             HttpSession session = request.getSession();
             String login = session.getAttribute("login").toString();
             List<Offer> offers = offerService.get(login);
