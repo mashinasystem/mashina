@@ -42,7 +42,7 @@ public class TicketServiceImpl implements TicketService {
     @Override
     public void update(Ticket ticket) throws ClassNotFoundException, SQLException {
         if (ticket != null) {
-            ticketRepository.update(ticket.getId(), ticket);
+            ticketRepository.update(ticket.getId(), ticket.getIsPaid());
         } else {
             throw new NullPointerException();
         }

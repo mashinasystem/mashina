@@ -189,12 +189,37 @@
                 </tbody>
             </table>
 
-            <h1 class="mt-2 mb-3">Fines</h1>
+            <h1 class="mt-4 mb-3">Your
+                <small>fines</small>
+            </h1>
             <table class="table table-hover">
-                <c:forEach items="${tickets}" var="tickets">
+                <thead>
+                <tr>
+                    <th>№</th>
+                    <th>Cost</th>
+                    <th>Status</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <c:set var="ticketId" value="0" scope="session"/>
+                <c:forEach items="${tickets}" var="ticket">
                     <tr>
-                        <td><c:out value="${tickets.id}"/></td>
-                        <td><c:out value="${tickets.cost}"/></td>
+                        <td><c:out value="${ticket.id}"/></td>
+                        <td><c:out value="${ticket.cost}"/> $</td>
+                        <td>
+                            <c:if test="${ticket.isPaid}">
+                                paid
+                            </c:if>
+                            <c:if test="${!ticket.isPaid}">
+                                not paid
+                            </c:if>
+                        </td>
+                        <td>
+                            <button type="submit" class="btn btn-info btn-sm">
+                                pay
+                            </button>
+                        </td>
+
                     </tr>
                 </c:forEach>
             </table>
