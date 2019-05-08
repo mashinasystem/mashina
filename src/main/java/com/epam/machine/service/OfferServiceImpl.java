@@ -9,8 +9,8 @@ import java.util.List;
 
 public class OfferServiceImpl implements OfferService{
 
-    ClientRepositoryImpl clientRepository = new ClientRepositoryImpl();
-    OfferRepositroryImpl offerRepositrory = new OfferRepositroryImpl();
+    private ClientRepositoryImpl clientRepository = new ClientRepositoryImpl();
+    private OfferRepositroryImpl offerRepositrory = new OfferRepositroryImpl();
 
     @Override
     public List<Offer> get(String login) throws SQLException, ClassNotFoundException {
@@ -20,7 +20,6 @@ public class OfferServiceImpl implements OfferService{
 
     @Override
     public void create(Offer offer) {
-        OfferRepositroryImpl offerRepositrory = new OfferRepositroryImpl();
         try {
             offerRepositrory.create(offer);
         } catch (ClassNotFoundException e) {

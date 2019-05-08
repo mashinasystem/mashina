@@ -13,6 +13,8 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class CertainOrderServlet extends HttpServlet {
+    private OfferServiceImpl offerService = new OfferServiceImpl();
+
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) {
         try {

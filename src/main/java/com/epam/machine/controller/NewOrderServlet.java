@@ -13,6 +13,10 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 public class NewOrderServlet extends HttpServlet {
+    private OfferServiceImpl offerService = new OfferServiceImpl();
+    private CarServiceImpl carService = new CarServiceImpl();
+    private ClientServiceImpl clientService = new ClientServiceImpl();
+
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) {
         try {
@@ -26,9 +30,6 @@ public class NewOrderServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
         int carId = Integer.parseInt(request.getParameter("carId"));
         int period = Integer.parseInt(request.getParameter("period"));
-        OfferServiceImpl offerService = new OfferServiceImpl();
-        CarServiceImpl carService = new CarServiceImpl();
-        ClientServiceImpl clientService = new ClientServiceImpl();
         HttpSession session = request.getSession();
         String login = session.getAttribute("login").toString();
         try {
