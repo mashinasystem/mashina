@@ -40,7 +40,7 @@ public class LoginServlet extends HttpServlet {
                 session.setAttribute("login", username);
                 session.setAttribute("role", Role.CUSTOMER);
                 response.sendRedirect("/clients/1/profile");
-            } else{
+            } else {
                 request.setAttribute("fail", 1);
                 request.getRequestDispatcher("/login.jsp").forward(request, response);
             }

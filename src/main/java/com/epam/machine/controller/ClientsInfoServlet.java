@@ -21,13 +21,13 @@ public class ClientsInfoServlet extends HttpServlet {
         try {
             HttpSession session = request.getSession();
             String login = session.getAttribute("login").toString();
-            Client client =clientServiceImpl.get(login);
-            request.setAttribute("name",client.getFullName());
-            request.setAttribute("passport",client.getPassport());
-            request.setAttribute("driverCard",client.getDriverCard());
-            request.setAttribute("phoneNumber",client.getPhoneNumber());
-            request.setAttribute("email",client.getEMail());
-            request.setAttribute("password",client.getPassport());
+            Client client = clientServiceImpl.get(login);
+            request.setAttribute("name", client.getFullName());
+            request.setAttribute("passport", client.getPassport());
+            request.setAttribute("driverCard", client.getDriverCard());
+            request.setAttribute("phoneNumber", client.getPhoneNumber());
+            request.setAttribute("email", client.getEMail());
+            request.setAttribute("password", client.getPassport());
             request.getRequestDispatcher("/clientsInfo.jsp").forward(request, response);
         } catch (ServletException | IOException err) {
             System.out.println("Something is wrong. Game over. Try again" + err.getMessage());
