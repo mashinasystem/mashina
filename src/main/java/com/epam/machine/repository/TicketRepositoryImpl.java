@@ -26,7 +26,7 @@ public class TicketRepositoryImpl implements TicketRepository {
         try (Connection connection = DriverManager.getConnection(DATA_BASE_URL, ADMIN, PASSWORD);
              Statement statement = connection.createStatement()) {
 
-            String sql = "SELECT * FROM ticket WHERE ticket.driverId = " + driverId + ";";
+            String sql = "SELECT * FROM ticket WHERE ticket.driver_id = " + driverId + ";";
             resultSet = statement.executeQuery(sql);
             List<Ticket> tickets = new ArrayList<>();
             while (resultSet.next()) {

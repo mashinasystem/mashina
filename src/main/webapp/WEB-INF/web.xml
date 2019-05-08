@@ -88,15 +88,6 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>ClientsCertainOrderServlet</servlet-name>
-        <servlet-class>com.epam.machine.controller.ClientsCertainOrderServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ClientsCertainOrderServlet</servlet-name>
-        <url-pattern>/clients/1/orders/1</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
         <servlet-name>AdminCertainOrderServlet</servlet-name>
         <servlet-class>com.epam.machine.controller.AdminCertainOrderServlet</servlet-class>
     </servlet>
