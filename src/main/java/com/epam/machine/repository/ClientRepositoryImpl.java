@@ -45,10 +45,14 @@ public class ClientRepositoryImpl implements ClientRepository {
 
         try (Connection connection = DriverManager.getConnection(DATA_BASE_URL, ADMIN, PASSWORD);
              Statement statement = connection.createStatement()) {
-            String sql = "INSERT INTO driver " + "(name,passport,licence,phone_num,password)" +
-                    " VALUES (" + "\'" + client.getFullName() + "\',\'" + client.getPassport() + "\',\'" +
-                    client.getDriverCard() + "\',\'" + client.getPhoneNumber() +
-                    "\',\'" + client.getPassword() + "\');";
+            String sql = "INSERT INTO driver " + "(name,passport,license,phone_num,email,password)" +
+                    " VALUES (" + "\'"
+                    + client.getFullName() + "\',\'"
+                    + client.getPassport() + "\',\'"
+                    + client.getDriverCard() + "\',\'"
+                    + client.getPhoneNumber() + "\',\'"
+                    + client.getEMail() + "\',\'"
+                    + client.getPassword() + "\');";
             statement.executeUpdate(sql);
         }
 
