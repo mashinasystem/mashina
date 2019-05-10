@@ -11,9 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
+import org.apache.log4j.Logger;
 
 public class AdminInfoServlet extends HttpServlet {
-
+    final static Logger logger = Logger.getLogger(AdminInfoServlet.class);
     AdminService adminServiceImpl = new AdminServiceImpl();
 
     @Override
@@ -27,11 +28,11 @@ public class AdminInfoServlet extends HttpServlet {
             request.setAttribute("password", admin.getPassword());
             request.getRequestDispatcher("/adminInfo.jsp").forward(request, response);
         } catch (ServletException | IOException err) {
-            System.out.println("Something is wrong. Game over. Try again" + err.getMessage());
+            logger.error("Something is wrong. Game over. Try again. " + err.getMessage());
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
     }
 }

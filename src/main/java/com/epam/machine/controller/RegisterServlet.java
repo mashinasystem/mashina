@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
+import org.apache.log4j.Logger;
 
 public class RegisterServlet extends HttpServlet {
+    final static Logger logger = Logger.getLogger(RegisterServlet.class);
     private ClientServiceImpl clientService = new ClientServiceImpl();
 
     @Override
@@ -19,7 +21,7 @@ public class RegisterServlet extends HttpServlet {
         try {
             request.getRequestDispatcher("/register.jsp").forward(request, response);
         } catch (ServletException | IOException err) {
-            System.out.println("Something is wrong. Game over. Try again" + err.getMessage());
+            logger.error("Something is wrong. Game over. Try again. " + err.getMessage());
         }
     }
 
@@ -41,14 +43,14 @@ public class RegisterServlet extends HttpServlet {
                     .password(password)
                     .build());
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
         try {
             response.sendRedirect("/");
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
     }
 }
