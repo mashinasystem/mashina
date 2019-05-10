@@ -136,7 +136,7 @@
 			<td>Confirmed</td>
 			<td>Approved</td>
 			<td>
-			  <a href="/admin/1/orders/1" class="btn btn-info btn-sm">details</a>
+			  <a href="/admin/1/orders/1" class="btn btn-info btn-sm">edit</a>
 			</td>
           </tr>
         </tbody>
@@ -171,7 +171,7 @@
 			<td>Confirmed</td>
 			<td>Approved</td>
 			<td>
-			  <a href="/admin/1/orders/1" class="btn btn-info btn-sm">details</a>
+			  <a href="/admin/1/orders/1" class="btn btn-info btn-sm">edit</a>
 			</td>
           </tr>
         </tbody>

@@ -173,17 +173,7 @@
                     <td>Confirmed</td>
                     <td>Finished</td>
                     <td>
-                        <a href="/clients/1/orders/1" class="btn btn-info btn-sm">details</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>21.05.19</td>
-                    <td>23.05.19</td>
-                    <td>Tesla Model X</td>
-                    <td>No payment</td>
-                    <td>Declined</td>
-                    <td>
-                        <a href="/clients/1/orders/1" class="btn btn-info btn-sm">details</a>
+                        <a href="/clients/1/orders/1" class="btn btn-info btn-sm">edit</a>
                     </td>
                 </tr>
                 </tbody>

@@ -131,7 +131,6 @@
           </tr>
         </tbody>
       </table>
-	  <button type="button" class="btn btn-success btn-lg btn-block">Add customer</button>
 	</div>
   </div>
   </div>

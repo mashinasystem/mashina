@@ -11,6 +11,7 @@ values (1, TRUE, 15),
 
 insert into ADMINISTRATOR (NAME, LOGIN, PASSWORD)
 values ('Atticus Burgess', 'Atticus_Burgess', 'averyDifficultpassword'),
+       ('Adam Smith', 'admin', 'password'),
        ('Liyah Walters', 'Liyah_Walters2', 'ThePasswordNumber7');
 
 insert into CAR (MARQUE, MODEL, NUMBER)
