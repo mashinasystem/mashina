@@ -14,4 +14,6 @@ public interface AdminService {
     void update(Admin admin) throws SQLException, ClassNotFoundException;
 
     Admin get(String login) throws SQLException, ClassNotFoundException;
+
+    boolean adminLoginCheck(String login, String password) throws SQLException, ClassNotFoundException;
 }

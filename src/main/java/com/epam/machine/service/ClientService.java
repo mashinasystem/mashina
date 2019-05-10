@@ -13,4 +13,6 @@ public interface ClientService {
     void update(Client client) throws SQLException, ClassNotFoundException;
 
     Client get(String login) throws SQLException, ClassNotFoundException;
+
+    boolean clientLoginCheck(String login,String password) throws SQLException, ClassNotFoundException;
 }
