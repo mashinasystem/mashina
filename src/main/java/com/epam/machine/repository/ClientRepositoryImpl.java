@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -49,6 +50,8 @@ public class ClientRepositoryImpl implements ClientRepository {
                     " VALUES (" + "\'" + client.getFullName() + "\',\'" + client.getPassport() + "\',\'" +
                     client.getDriverCard() + "\',\'" + client.getPhoneNumber() +
                     "\',\'" + client.getPassword() + "\');";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
             statement.executeUpdate(sql);
         }
 
@@ -99,5 +102,24 @@ public class ClientRepositoryImpl implements ClientRepository {
         }
 
         return id;
+    }
+
+    @Override
+    public boolean checkLogin(String login, String password) throws ClassNotFoundException, SQLException {
+        Class.forName(JDBC_DRIVER);
+        ResultSet resultSet = null;
+        try (Connection connection = DriverManager.getConnection(DATA_BASE_URL, ADMIN, PASSWORD);
+             Statement statement = connection.createStatement()) {
+            String sql = "SELECT * FROM driver";
+            resultSet = statement.executeQuery(sql);
+            while (resultSet.next())
+            {
+                if(resultSet.getString(6).equals(login) && resultSet.getString(7).equals(password))
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }

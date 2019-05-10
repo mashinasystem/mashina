@@ -43,4 +43,9 @@ public class ClientServiceImpl implements ClientService {
         return clientRepositoryImpl.get(id);
     }
 
+    @Override
+    public boolean clientLoginCheck(String login,String password) throws SQLException, ClassNotFoundException {
+        return clientRepositoryImpl.checkLogin(login, password);
+    }
+
 }

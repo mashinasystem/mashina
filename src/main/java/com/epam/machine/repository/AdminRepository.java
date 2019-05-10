@@ -15,4 +15,6 @@ public interface AdminRepository {
     void update(int id, Admin admin) throws ClassNotFoundException, SQLException;
 
     int getByLogin(String login) throws ClassNotFoundException, SQLException;
+
+    boolean checkLogin(String login,String password) throws ClassNotFoundException, SQLException;
 }

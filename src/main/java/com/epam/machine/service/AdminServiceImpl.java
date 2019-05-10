@@ -43,4 +43,9 @@ public class AdminServiceImpl implements AdminService {
         int id = adminRepository.getByLogin(login);
         return adminRepository.get(id);
     }
+
+    @Override
+    public boolean AdminLoginCheck(String login, String password) throws SQLException, ClassNotFoundException {
+        return adminRepository.checkLogin(login, password);
+    }
 }

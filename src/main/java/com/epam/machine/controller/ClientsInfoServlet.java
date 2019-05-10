@@ -27,7 +27,7 @@ public class ClientsInfoServlet extends HttpServlet {
             request.setAttribute("driverCard", client.getDriverCard());
             request.setAttribute("phoneNumber", client.getPhoneNumber());
             request.setAttribute("email", client.getEMail());
-            request.setAttribute("password", client.getPassport());
+            request.setAttribute("password", client.getPassword());
             request.getRequestDispatcher("/clientsInfo.jsp").forward(request, response);
         } catch (ServletException | IOException err) {
             System.out.println("Something is wrong. Game over. Try again" + err.getMessage());

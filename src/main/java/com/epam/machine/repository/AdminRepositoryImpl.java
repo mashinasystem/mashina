@@ -95,4 +95,25 @@ public class AdminRepositoryImpl implements AdminRepository {
         return id;
     }
 
+    @Override
+    public boolean checkLogin(String login, String password) throws ClassNotFoundException, SQLException {
+        Class.forName(JDBC_DRIVER);
+        ResultSet resultSet = null;
+        int id = 0;
+        try (Connection connection = DriverManager.getConnection(DATA_BASE_URL, ADMIN, PASSWORD);
+             Statement statement = connection.createStatement()) {
+            String sql = "SELECT * FROM administrator";
+            resultSet = statement.executeQuery(sql);
+
+            while (resultSet.next())
+            {
+                if(resultSet.getString(3).equals(login) && resultSet.getString(4).equals(password))
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
 }
