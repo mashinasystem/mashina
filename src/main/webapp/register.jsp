@@ -167,7 +167,7 @@
                 </div>
                 <div id="success"></div>
                 <!-- For success/fail messages -->
-                <input type="submit" class="btn btn-dark" id="sendMessageButton"><fmt:message key="label.createAccaunt"/></button>
+                <button type="submit" class="btn btn-dark"><fmt:message key="label.createAccaunt"/></button>
                 <p class="mt-2 mb-4 message"><fmt:message key="label.hasAccount"/> <a href="login"><fmt:message key="label.signIn"/></a></p>
             </form>
         </div>

@@ -31,8 +31,6 @@ public class RegisterServlet extends HttpServlet {
         String phoneNumber = request.getParameter("phoneNumber");
         String eMail = request.getParameter("eMail");
         String password = request.getParameter("password");
-//        HttpSession session = request.getSession();
-//        String login = session.getAttribute("login").toString();
         try {
             clientService.create(Client.builder()
                     .fullName(fullName)
