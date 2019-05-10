@@ -11,8 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
+import org.apache.log4j.Logger;
 
 public class NewOrderServlet extends HttpServlet {
+    final static Logger logger = Logger.getLogger(NewOrderServlet.class);
+
     private OfferServiceImpl offerService = new OfferServiceImpl();
     private CarServiceImpl carService = new CarServiceImpl();
     private ClientServiceImpl clientService = new ClientServiceImpl();
@@ -22,33 +25,41 @@ public class NewOrderServlet extends HttpServlet {
         try {
             request.getRequestDispatcher("/newOrder.jsp").forward(request, response);
         } catch (ServletException | IOException err) {
-            System.out.println("Something is wrong. Game over. Try again" + err.getMessage());
+            logger.error("Something is wrong. Game over. Try again. " + err.getMessage());
         }
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
-        int carId = Integer.parseInt(request.getParameter("carId"));
-        int period = Integer.parseInt(request.getParameter("period"));
         HttpSession session = request.getSession();
         String login = session.getAttribute("login").toString();
+
         try {
-            offerService.create(Offer.builder()
-                .car(carService.get(carId))
-                .payment(period * 200)
-                .period(period)
-                .status("In progress")
-                .driverId(clientService.get(login).getId())
-                .build());
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        try {
-            response.sendRedirect("/clients/1/orders");
-        } catch (IOException e) {
-            e.printStackTrace();
+            int carId = Integer.parseInt(request.getParameter("carId"));
+            int period = Integer.parseInt(request.getParameter("period"));
+
+            try {
+                offerService.create(Offer.builder()
+                        .car(carService.get(carId))
+                        .payment(period * 200)
+                        .period(period)
+                        .status("In progress")
+                        .driverId(clientService.get(login).getId())
+                        .build());
+            } catch (SQLException e) {
+                logger.error(e.getMessage());
+            } catch (ClassNotFoundException e) {
+                logger.error(e.getMessage());
+            }
+
+            try {
+                response.sendRedirect("/clients/1/orders");
+            } catch (IOException e) {
+                logger.error(e.getMessage());
+            }
+
+        } catch (NumberFormatException err){
+            logger.error("Incorrect input. " + err.getMessage());
         }
     }
 }

@@ -11,8 +11,10 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+import org.apache.log4j.Logger;
 
 public class CertainOrderServlet extends HttpServlet {
+    final static Logger logger = Logger.getLogger(CertainOrderServlet.class);
     private OfferServiceImpl offerService = new OfferServiceImpl();
 
     @Override
@@ -28,11 +30,11 @@ public class CertainOrderServlet extends HttpServlet {
 
             request.getRequestDispatcher("/clientCertainOrder.jsp").forward(request, response);
         } catch (ServletException | IOException err) {
-            System.out.println("Something is wrong. Game over. Try again" + err.getMessage());
+            logger.error("Something is wrong. Game over. Try again. " + err.getMessage());
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
     }
 }
