@@ -57,7 +57,6 @@ public class ClientRepositoryImpl implements ClientRepository {
             preparedStatement.executeUpdate();
         }
 
-
     }
 
     @Override

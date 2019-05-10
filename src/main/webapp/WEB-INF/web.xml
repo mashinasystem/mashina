@@ -88,15 +88,6 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>ClientsCertainOrderServlet</servlet-name>
-        <servlet-class>com.epam.machine.controller.ClientsCertainOrderServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ClientsCertainOrderServlet</servlet-name>
-        <url-pattern>/clients/1/orders/1</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
         <servlet-name>AdminCertainOrderServlet</servlet-name>
         <servlet-class>com.epam.machine.controller.AdminCertainOrderServlet</servlet-class>
     </servlet>
@@ -157,4 +148,21 @@
       </jsp-property-group>
     </jsp-config>
 
+    <servlet>
+        <servlet-name>newOrderServlet</servlet-name>
+        <servlet-class>com.epam.machine.controller.NewOrderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>newOrderServlet</servlet-name>
+        <url-pattern>/neworder</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>certainOrderServlet</servlet-name>
+        <servlet-class>com.epam.machine.controller.CertainOrderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>certainOrderServlet</servlet-name>
+        <url-pattern>/clients/1/order</url-pattern>
+    </servlet-mapping>
 </web-app>
