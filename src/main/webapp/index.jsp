@@ -33,63 +33,77 @@
         <a href="/"><img src="/img/m.png" class="navbar-brand rounded"></a>
         <a class="navbar-brand" href="/">Mashina</a>
 
-        <% if (session.getAttribute("role") != null)  { %>
-            <p class="navbar-nav text-white">
-                Username: <%= session.getAttribute("login") %>, Role: <%= session.getAttribute("role") %>
-            </p>
-        <% } %>
-
-        <a class="navbar-brand"></a>
-        <a class="navbar-brand" href="/clients/1/profile">CLIENT</a>
-        <a class="navbar-brand" href="/admin/1/profile">ADMIN</a>
-
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                 data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
                 aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
+
+        <% if (session.getAttribute("role") == null) {%>
+
+            <ul class="navbar-nav ml-auto">
+
+
+        <%} else if (session.getAttribute("role").toString().equals("CUSTOMER")) {%>
+
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="/clients/1/profile">
                         <fmt:message key="label.profile"/>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <fmt:message key="label.services"/>
+                    <a class="nav-link" href="/clients/1/orders">
+                        Orders
                     </a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">
-                        <fmt:message key="label.brands"/>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-                        <a class="dropdown-item" href="#">Tesla</a>
-                        <a class="dropdown-item" href="#">Porsche</a>
-                        <a class="dropdown-item" href="#">Jaguar</a>
-                        <a class="dropdown-item" href="#">Lexus</a>
-                        <a class="dropdown-item" href="#">BMW</a>
-                    </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <fmt:message key="label.faq"/>
+                    <a class="nav-link" href="/clients/1/info">
+                        Info
                     </a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">
-                        <fmt:message key="label.language"/>
+
+        <% } else if (session.getAttribute("role").toString().equals("ADMIN")) {%>
+
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/1/profile">
+                        <fmt:message key="label.profile"/>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-                        <a class="dropdown-item" href="?lang=en"><fmt:message key="label.English"/></a>
-                        <a class="dropdown-item" href="?lang=ru"><fmt:message key="label.Russian"/></a>
-                    </div>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/1/orders">
+                        Orders
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/1/customers">
+                        Customers
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/1/info">
+                        Info
+                    </a>
+                </li>
+
+        <% }%>
+
             </ul>
         </div>
+
+        <div class="btn-group">
+            <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown">
+                <fmt:message key="label.language"/>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right">
+                <a class="dropdown-item" href="?lang=en"><fmt:message key="label.English"/></a>
+                <a class="dropdown-item" href="?lang=ru"><fmt:message key="label.Russian"/></a>
+            </div>
+        </div>
+        <a class="text-dark">.</a>
+
         <% if (session.getAttribute("role") == null)  { %>
             <a class="btn btn-success btn-sm" href="/login">
                 <fmt:message key="label.signIn"/>
@@ -97,6 +111,7 @@
         <% } else { %>
             <a class="btn btn-danger btn-sm" href="/logout" method="get">Logout</a>
         <% } %>
+
     </div>
 </nav>
 
