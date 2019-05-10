@@ -124,15 +124,15 @@
                 <tbody>
                 <tr>
                     <td><fmt:message key="label.name"/></td>
-                    <td>John Snow</td>
+                    <td>${name}</td>
                 </tr>
                 <tr>
                     <td><fmt:message key="label.email"/></td>
-                    <td>johnnysnowysnow@mail.ru</td>
+                    <td>${login}</td>
                 </tr>
                 <tr>
                     <td><fmt:message key="label.password"/></td>
-                    <td>*******</td>
+                    <td>${password}</td>
                 </tr>
                 </tbody>
             </table>

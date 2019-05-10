@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -46,10 +47,14 @@ public class ClientRepositoryImpl implements ClientRepository {
         try (Connection connection = DriverManager.getConnection(DATA_BASE_URL, ADMIN, PASSWORD);
              Statement statement = connection.createStatement()) {
             String sql = "INSERT INTO driver " + "(name,passport,licence,phone_num,password)" +
-                    " VALUES (" + "\'" + client.getFullName() + "\',\'" + client.getPassport() + "\',\'" +
-                    client.getDriverCard() + "\',\'" + client.getPhoneNumber() +
-                    "\',\'" + client.getPassword() + "\');";
-            statement.executeUpdate(sql);
+                    " VALUES (?,?,?,?,?);";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, client.getFullName());
+            preparedStatement.setString(2, client.getPassport());
+            preparedStatement.setString(3, client.getDriverCard());
+            preparedStatement.setString(4, client.getPhoneNumber());
+            preparedStatement.setString(5, client.getPassword());
+            preparedStatement.executeUpdate();
         }
 
     }
@@ -98,5 +103,17 @@ public class ClientRepositoryImpl implements ClientRepository {
         }
 
         return id;
+    }
+
+    @Override
+    public boolean checkLogin(String login, String password) throws ClassNotFoundException, SQLException {
+        Class.forName(JDBC_DRIVER);
+        ResultSet resultSet = null;
+        try (Connection connection = DriverManager.getConnection(DATA_BASE_URL, ADMIN, PASSWORD);
+             Statement statement = connection.createStatement()) {
+            String sql = "SELECT * FROM driver WHERE email = \'" + login + "\' AND password = \'" + password + "\';";
+            resultSet = statement.executeQuery(sql);
+            return resultSet.next();
+        }
     }
 }

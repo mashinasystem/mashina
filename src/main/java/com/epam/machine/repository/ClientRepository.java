@@ -14,4 +14,6 @@ public interface ClientRepository {
     void update(int id, Client client) throws ClassNotFoundException, SQLException;
 
     int getIdByLogin(String login) throws ClassNotFoundException, SQLException;
+
+    boolean checkLogin(String login,String password) throws ClassNotFoundException, SQLException;
 }
