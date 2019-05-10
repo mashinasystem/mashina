@@ -102,18 +102,11 @@ public class AdminRepositoryImpl implements AdminRepository {
         int id = 0;
         try (Connection connection = DriverManager.getConnection(DATA_BASE_URL, ADMIN, PASSWORD);
              Statement statement = connection.createStatement()) {
-            String sql = "SELECT * FROM administrator";
+            String sql = "SELECT * FROM administrator WHERE login = \'" + login + "\' AND password = \'" + password + "\';";
             resultSet = statement.executeQuery(sql);
 
-            while (resultSet.next())
-            {
-                if(resultSet.getString(3).equals(login) && resultSet.getString(4).equals(password))
-                {
-                    return true;
-                }
-            }
+            return resultSet.next();
         }
-        return false;
     }
 
 }

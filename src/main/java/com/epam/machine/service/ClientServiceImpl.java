@@ -44,7 +44,7 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public boolean clientLoginCheck(String login,String password) throws SQLException, ClassNotFoundException {
+    public boolean clientLoginCheck(String login, String password) throws SQLException, ClassNotFoundException {
         return clientRepositoryImpl.checkLogin(login, password);
     }
 

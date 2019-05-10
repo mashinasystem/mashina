@@ -15,5 +15,5 @@ public interface AdminService {
 
     Admin get(String login) throws SQLException, ClassNotFoundException;
 
-    boolean AdminLoginCheck(String login,String password) throws SQLException, ClassNotFoundException;
+    boolean adminLoginCheck(String login, String password) throws SQLException, ClassNotFoundException;
 }

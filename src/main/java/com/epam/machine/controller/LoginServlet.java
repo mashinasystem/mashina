@@ -4,8 +4,6 @@ import com.epam.machine.service.AdminService;
 import com.epam.machine.service.AdminServiceImpl;
 import com.epam.machine.service.ClientService;
 import com.epam.machine.service.ClientServiceImpl;
-import com.epam.machine.util.AdminLoginCheck;
-import com.epam.machine.util.CustomerLoginCheck;
 import com.epam.machine.util.Role;
 
 import javax.servlet.ServletException;
@@ -38,7 +36,7 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
         response.setContentType("text/html");
         try {
-            if (adminServiceImpl.AdminLoginCheck(username,password)) {
+            if (adminServiceImpl.adminLoginCheck(username,password)) {
                 session = request.getSession();
                 session.setAttribute("login", username);
                 session.setAttribute("role", Role.ADMIN);

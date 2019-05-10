@@ -47,12 +47,14 @@ public class ClientRepositoryImpl implements ClientRepository {
         try (Connection connection = DriverManager.getConnection(DATA_BASE_URL, ADMIN, PASSWORD);
              Statement statement = connection.createStatement()) {
             String sql = "INSERT INTO driver " + "(name,passport,licence,phone_num,password)" +
-                    " VALUES (" + "\'" + client.getFullName() + "\',\'" + client.getPassport() + "\',\'" +
-                    client.getDriverCard() + "\',\'" + client.getPhoneNumber() +
-                    "\',\'" + client.getPassword() + "\');";
+                    " VALUES (?,?,?,?,?);";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-
-            statement.executeUpdate(sql);
+            preparedStatement.setString(1, client.getFullName());
+            preparedStatement.setString(2, client.getPassport());
+            preparedStatement.setString(3, client.getDriverCard());
+            preparedStatement.setString(4, client.getPhoneNumber());
+            preparedStatement.setString(5, client.getPassword());
+            preparedStatement.executeUpdate();
         }
 
 
@@ -110,16 +112,9 @@ public class ClientRepositoryImpl implements ClientRepository {
         ResultSet resultSet = null;
         try (Connection connection = DriverManager.getConnection(DATA_BASE_URL, ADMIN, PASSWORD);
              Statement statement = connection.createStatement()) {
-            String sql = "SELECT * FROM driver";
+            String sql = "SELECT * FROM driver WHERE email = \'" + login + "\' AND password = \'" + password + "\';";
             resultSet = statement.executeQuery(sql);
-            while (resultSet.next())
-            {
-                if(resultSet.getString(6).equals(login) && resultSet.getString(7).equals(password))
-                {
-                    return true;
-                }
-            }
+            return resultSet.next();
         }
-        return false;
     }
 }

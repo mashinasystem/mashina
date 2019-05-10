@@ -45,7 +45,7 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public boolean AdminLoginCheck(String login, String password) throws SQLException, ClassNotFoundException {
+    public boolean adminLoginCheck(String login, String password) throws SQLException, ClassNotFoundException {
         return adminRepository.checkLogin(login, password);
     }
 }
