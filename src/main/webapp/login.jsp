@@ -12,6 +12,13 @@
     <c:if test="${not empty param.lang}">
         <c:set var="lang" scope="session" value="${param.lang}"/>
     </c:if>
+    <script>
+        (function setLangParameterToSessionScope() {
+            if (window.location.search === '?lang=en' || window.location.search === '?lang=ru') {
+                window.location.search = '';
+            }
+        })()
+    </script>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -101,8 +108,12 @@
                 <fmt:message key="label.language"/>
             </button>
             <div class="dropdown-menu dropdown-menu-right">
-                <a class="dropdown-item" href="?lang=en"><fmt:message key="label.English"/></a>
-                <a class="dropdown-item" href="?lang=ru"><fmt:message key="label.Russian"/></a>
+                <a class="dropdown-item" href="?lang=en">
+                    <fmt:message key="label.English"/>
+                </a>
+                <a class="dropdown-item" href="?lang=ru">
+                    <fmt:message key="label.Russian"/>
+                </a>
             </div>
         </div>
         <a class="text-dark">.</a>
