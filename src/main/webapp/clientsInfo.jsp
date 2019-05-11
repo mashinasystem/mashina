@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Personal info</title>
+    <title><fmt:message key="label.personal"/> <fmt:message key="label._info"/></title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -35,10 +35,10 @@
         <a href="/"><img src="/img/m.png" class="navbar-brand rounded"></a>
         <a class="navbar-brand" href="/">Mashina</a>
 
-        <% if (session.getAttribute("role") != null)  { %>
-            <p class="navbar-nav text-white">
-                Username: <%= session.getAttribute("login") %>, Role: <%= session.getAttribute("role") %>
-            </p>
+        <% if (session.getAttribute("role") != null) { %>
+        <p class="navbar-nav text-white">
+            Username: <%= session.getAttribute("login") %>, Role: <%= session.getAttribute("role") %>
+        </p>
         <% } %>
 
         <a class="navbar-brand"></a>
@@ -92,65 +92,67 @@
                 </li>
             </ul>
         </div>
-        <% if (session.getAttribute("role") == null)  { %>
-            <a class="btn btn-success btn-sm" href="login">
-                <fmt:message key="label.signIn"/>
-            </a>
+        <% if (session.getAttribute("role") == null) { %>
+        <a class="btn btn-success btn-sm" href="login">
+            <fmt:message key="label.signIn"/>
+        </a>
         <% } else { %>
-            <a class="btn btn-danger btn-sm" href="/logout" method="get">Logout</a>
+        <a class="btn btn-danger btn-sm" href="/logout" method="get">
+            <fmt:message key="label.logout"/>
+        </a>
         <% } %>
     </div>
 </nav>
 
-  <!-- Page Content -->
- <div class="container">
-  <div class="row">
-	<div class="col-lg-3"></div>
-    <div class="col-lg-6 mb-4">
-    <!-- Page Heading/Breadcrumbs -->
-      <h1 class="py-4"></h1>
-      <h1 class="mt-4 mb-3">Personal
-        <small>information</small>
-      </h1>
+<!-- Page Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6 mb-4">
+            <!-- Page Heading/Breadcrumbs -->
+            <h1 class="py-4"></h1>
+            <h1 class="mt-4 mb-3">Personal
+                <small>information</small>
+            </h1>
 
-      <p>Here you can check your personal information:</p>
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th>Graph</th>
-            <th>Information</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Full name</td>
-            <td>${name}</td>
-          </tr>
-          <tr>
-           <td>Passport number</td>
-            <td>${passport}</td>
-          </tr>
-          <tr>
-            <td>Driving license number</td>
-            <td>${driverCard}</td>
-          </tr>
-          <tr>
-            <td>Phone number</td>
-            <td>${phoneNumber}</td>
-          </tr>
-          <tr>
-            <td>Email</td>
-            <td>${email}</td>
-          </tr>
-          <tr>
-            <td>Password</td>
-            <td>${password}</td>
-          </tr>	  
-        </tbody>
-      </table>
-      <button type="submit" class="btn btn-warning" id="sendMessageButton">Edit</button>
+            <p>Here you can check your personal information:</p>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Graph</th>
+                    <th>Information</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Full name</td>
+                    <td>${name}</td>
+                </tr>
+                <tr>
+                    <td>Passport number</td>
+                    <td>${passport}</td>
+                </tr>
+                <tr>
+                    <td>Driving license number</td>
+                    <td>${driverCard}</td>
+                </tr>
+                <tr>
+                    <td>Phone number</td>
+                    <td>${phoneNumber}</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>${email}</td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td>${password}</td>
+                </tr>
+                </tbody>
+            </table>
+            <button type="submit" class="btn btn-warning" id="sendMessageButton">Edit</button>
+        </div>
     </div>
-  </div>
 </div>
 <!-- /.container -->
 

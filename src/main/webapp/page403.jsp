@@ -97,7 +97,7 @@
                 <fmt:message key="label.signIn"/>
             </a>
         <% } else { %>
-            <a class="btn btn-danger btn-sm" href="/logout" method="get">Logout</a>
+            <a class="btn btn-danger btn-sm" href="/logout" method="get"><fmt:message key="label.logout"/></a>
         <% } %>
     </div>
 </nav>
@@ -110,9 +110,11 @@
             <!-- Page Heading/Breadcrumbs -->
             <h1 class="py-4"></h1>
             <h1 class="mt-4 mb-3">403
-                <small>Forbidden</small>
+                <small><fmt:message key="label.forbidden"/></small>
             </h1>
-            <p>You don't have permission to access this page</p>
+            <p>
+                <fmt:message key="label.noPermission"/>
+            </p>
         </div>
     </div>
 </div>

@@ -10,35 +10,35 @@
 
 <head>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-  <title>Orders</title>
+    <title><fmt:message key="label.orders"/></title>
 
-  <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-  <!-- Custom styles for this template -->
-  <link href="css/modern-business.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/modern-business.css" rel="stylesheet">
 
 </head>
 
 <body>
 
-  <!-- Navigation -->
+<!-- Navigation -->
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
         <a href="/"><img src="/img/m.png" class="navbar-brand rounded"></a>
         <a class="navbar-brand" href="/">Mashina</a>
 
-        <% if (session.getAttribute("role") != null)  { %>
-            <p class="navbar-nav text-white">
-                Username: <%= session.getAttribute("login") %>, Role: <%= session.getAttribute("role") %>
-            </p>
+        <% if (session.getAttribute("role") != null) { %>
+        <p class="navbar-nav text-white">
+            Username: <%= session.getAttribute("login") %>, Role: <%= session.getAttribute("role") %>
+        </p>
         <% } %>
 
         <a class="navbar-brand"></a>
@@ -92,102 +92,106 @@
                 </li>
             </ul>
         </div>
-        <% if (session.getAttribute("role") == null)  { %>
-            <a class="btn btn-success btn-sm" href="login">
-                <fmt:message key="label.signIn"/>
-            </a>
+        <% if (session.getAttribute("role") == null) { %>
+        <a class="btn btn-success btn-sm" href="login">
+            <fmt:message key="label.signIn"/>
+        </a>
         <% } else { %>
-            <a class="btn btn-danger btn-sm" href="/logout" method="get">Logout</a>
+        <a class="btn btn-danger btn-sm" href="/logout" method="get">
+            <fmt:message key="label.logout"/>
+        </a>
         <% } %>
     </div>
 </nav>
-  <!-- Page Content -->
-  <div class="container">
-  <div class="row">
-    <div class="col-lg-12 mb-4">
-    <!-- Page Heading/Breadcrumbs -->
-      <h1 class="py-4"></h1>
-      <h1 class="mt-4 mb-3">Current
-        <small>orders</small>
-      </h1>
-      <p>Here you can check customers' current orders:</p>
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th>Name</th>		
-            <th>Phone number</th>			
-            <th>Email</th>			
-            <th>Start date</th>
-            <th>End date</th>
-            <th>Car model</th>
-            <th>Payment</th>
-			<th>Status</th>
-            <th>Details</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Eric Smith</td>
-            <td>89112854675</td>
-			<td>eric@epam.com</td>
-            <td>21.05.19</td>
-            <td>23.05.19</td>
-            <td>Tesla Model X</td>
-			<td>Confirmed</td>
-			<td>Approved</td>
-			<td>
-			  <a href="/admin/1/orders/1" class="btn btn-info btn-sm">details</a>
-			</td>
-          </tr>
-        </tbody>
-      </table>
-    
-      <h1 class="mt-4 mb-3">Past
-        <small>orders</small>
-      </h1>
-      <p>Here you can check customers' past orders:</p>
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th>Name</th>		
-            <th>Phone number</th>			
-            <th>Email</th>			
-            <th>Start date</th>
-            <th>End date</th>
-            <th>Car model</th>
-            <th>Payment</th>
-			<th>Status</th>
-            <th>Details</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Eric Jan</td>
-            <td>89112854675</td>
-			<td>eric@epam.com</td>
-            <td>21.05.19</td>
-            <td>23.05.19</td>
-            <td>Tesla Model X</td>
-			<td>Confirmed</td>
-			<td>Approved</td>
-			<td>
-			  <a href="/admin/1/orders/1" class="btn btn-info btn-sm">details</a>
-			</td>
-          </tr>
-        </tbody>
-      </table>	
-	</div>
-  </div>
-  </div>
-  <!-- /.container -->
+<!-- Page Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 mb-4">
+            <!-- Page Heading/Breadcrumbs -->
+            <h1 class="py-4"></h1>
+            <h1 class="mt-4 mb-3"><fmt:message key="label.current"/>
+                <small><fmt:message key="label._orders"/></small>
+            </h1>
+            <p><fmt:message key="label.checkCustomerOrder"/></p>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th><fmt:message key="label.name"/></th>
+                    <th><fmt:message key="label.phoneNumber"/></th>
+                    <th><fmt:message key="label.email"/></th>
+                    <th><fmt:message key="label.startDate"/></th>
+                    <th><fmt:message key="label.period"/></th>
+                    <th><fmt:message key="label.carModel"/></th>
+                    <th><fmt:message key="label.payment"/></th>
+                    <th><fmt:message key="label.status"/></th>
+                    <th><fmt:message key="label.details"/></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Eric Smith</td>
+                    <td>89112854675</td>
+                    <td>eric@epam.com</td>
+                    <td>21.05.19</td>
+                    <td>23.05.19</td>
+                    <td>Tesla Model X</td>
+                    <td>Confirmed</td>
+                    <td>Approved</td>
+                    <td>
+                        <a href="/admin/1/orders/1" class="btn btn-info btn-sm">details</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
 
-  <!-- Footer -->
-  <footer class="py-3 bg-dark">
+            <h1 class="mt-4 mb-3"><fmt:message key="label.past"/>
+                <small><fmt:message key="label._orders"/></small>
+            </h1>
+            <p><fmt:message key="label.checkCustomerPast"/></p>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th><fmt:message key="label.name"/></th>
+                    <th><fmt:message key="label.phoneNumber"/></th>
+                    <th><fmt:message key="label.email"/></th>
+                    <th><fmt:message key="label.startDate"/></th>
+                    <th><fmt:message key="label.period"/></th>
+                    <th><fmt:message key="label.carModel"/></th>
+                    <th><fmt:message key="label.payment"/></th>
+                    <th><fmt:message key="label.status"/></th>
+                    <th><fmt:message key="label.details"/></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Eric Jan</td>
+                    <td>89112854675</td>
+                    <td>eric@epam.com</td>
+                    <td>21.05.19</td>
+                    <td>23.05.19</td>
+                    <td>Tesla Model X</td>
+                    <td>Confirmed</td>
+                    <td>Approved</td>
+                    <td>
+                        <a href="/admin/1/orders/1" class="btn btn-info btn-sm">
+                            <fmt:message key="label.details"/>
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- /.container -->
+
+<!-- Footer -->
+<footer class="py-3 bg-dark">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Mashina Inc 2019</p>
+        <p class="m-0 text-center text-white">Copyright &copy; Mashina Inc 2019</p>
     </div>
     <!-- /.container -->
-  </footer>
+</footer>
 </body>
 
 </html>

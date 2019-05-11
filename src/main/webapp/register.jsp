@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Registration</title>
+    <title><fmt:message key="label.registration"/></title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -37,10 +37,10 @@
         <a href="/"><img src="/img/m.png" class="navbar-brand rounded"></a>
         <a class="navbar-brand" href="/">Mashina</a>
 
-        <% if (session.getAttribute("role") != null)  { %>
-            <p class="navbar-nav text-white">
-                Username: <%= session.getAttribute("login") %>, Role: <%= session.getAttribute("role") %>
-            </p>
+        <% if (session.getAttribute("role") != null) { %>
+        <p class="navbar-nav text-white">
+            Username: <%= session.getAttribute("login") %>, Role: <%= session.getAttribute("role") %>
+        </p>
         <% } %>
 
         <a class="navbar-brand"></a>
@@ -94,12 +94,14 @@
                 </li>
             </ul>
         </div>
-        <% if (session.getAttribute("role") == null)  { %>
-            <a class="btn btn-success btn-sm" href="login">
-                <fmt:message key="label.signIn"/>
-            </a>
+        <% if (session.getAttribute("role") == null) { %>
+        <a class="btn btn-success btn-sm" href="login">
+            <fmt:message key="label.signIn"/>
+        </a>
         <% } else { %>
-            <a class="btn btn-danger btn-sm" href="/logout" method="get">Logout</a>
+        <a class="btn btn-danger btn-sm" href="/logout" method="get">
+            <fmt:message key="label.logout"/>
+        </a>
         <% } %>
     </div>
 </nav>
@@ -118,42 +120,48 @@
                 <small><fmt:message key="label.form"/></small>
             </h1>
             <h4><fmt:message key="label.fillTheFields"/></h4>
-            <form class="registration-form" name="registration-form" method = "post">
+            <form class="registration-form" name="registration-form" method="post">
                 <div class="control-group form-group">
                     <div class="controls">
-                        <input type="text" class="form-control" name="fullName" id="name" placeholder="Full name" required
+                        <input type="text" class="form-control" name="fullName" id="name" placeholder="Full name"
+                               required
                                data-validation-required-message="Please enter your name.">
                         <p class="help-block"></p>
                     </div>
                 </div>
                 <div class="control-group form-group">
                     <div class="controls">
-                        <input type="text" class="form-control" id="text" name="passport" placeholder="Passport number" required
+                        <input type="text" class="form-control" id="text" name="passport" placeholder="Passport number"
+                               required
                                data-validation-required-message="Please enter your phone number.">
                     </div>
                 </div>
                 <div class="control-group form-group">
                     <div class="controls">
-                        <input type="text" class="form-control" id="text" name="driverCard" placeholder="Driving license number" required
+                        <input type="text" class="form-control" id="text" name="driverCard"
+                               placeholder="Driving license number" required
                                data-validation-required-message="Please enter your phone number.">
                     </div>
                 </div>
                 <div class="control-group form-group">
                     <div class="controls">
-                        <input type="tel" class="form-control" id="phone" name="phoneNumber" placeholder="Phone number" required
+                        <input type="tel" class="form-control" id="phone" name="phoneNumber" placeholder="Phone number"
+                               required
                                data-validation-required-message="Please enter your phone number.">
                     </div>
                 </div>
                 <div class="control-group form-group">
                     <div class="controls">
-                        <input type="email" class="form-control" id="email" name="eMail" placeholder="Your@email.com" required
+                        <input type="email" class="form-control" id="email" name="eMail" placeholder="Your@email.com"
+                               required
                                data-validation-required-message="Please enter your email address.">
                     </div>
                 </div>
                 <!-- Password and confirmation -->
                 <div class="control-group form-group">
                     <div class="controls">
-                        <input type="password" class="form-control" name="password" required="required" type="password" id="password"
+                        <input type="password" class="form-control" name="password" required="required" type="password"
+                               id="password"
                                placeholder="Password" required
                                data-validation-required-message="Please enter your email address.">
                     </div>
@@ -168,7 +176,8 @@
                 <div id="success"></div>
                 <!-- For success/fail messages -->
                 <button type="submit" class="btn btn-dark"><fmt:message key="label.createAccaunt"/></button>
-                <p class="mt-2 mb-4 message"><fmt:message key="label.hasAccount"/> <a href="login"><fmt:message key="label.signIn"/></a></p>
+                <p class="mt-2 mb-4 message"><fmt:message key="label.hasAccount"/> <a href="login"><fmt:message
+                        key="label.signIn"/></a></p>
             </form>
         </div>
 

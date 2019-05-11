@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Certain order</title>
+    <title><fmt:message key="label.certain"/> <fmt:message key="label.order"/></title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -97,7 +97,9 @@
             <fmt:message key="label.signIn"/>
         </a>
         <% } else { %>
-        <a class="btn btn-danger btn-sm" href="/logout" method="get">Logout</a>
+        <a class="btn btn-danger btn-sm" href="/logout" method="get">
+            <fmt:message key="label.logout"/>
+        </a>
         <% } %>
     </div>
 </nav>
@@ -108,18 +110,18 @@
         <div class="col-lg-8 mb-4">
             <!-- Page Heading/Breadcrumbs -->
             <h1 class="py-4"></h1>
-            <h1 class="mt-4 mb-3">Certain
-                <small>order</small>
+            <h1 class="mt-4 mb-3"><fmt:message key="label.certain"/>
+                <small><fmt:message key="label.order"/></small>
             </h1>
-            <p>Here you can find information about order:</p>
+            <p><fmt:message key="label.infoAboutOrder"/></p>
             <table class="table table-hover">
                 <thead>
                 <tr>
-                    <th>Start date</th>
-                    <th>Period</th>
-                    <th>Car model</th>
-                    <th>Payment</th>
-                    <th>Status</th>
+                    <th><fmt:message key="label.startDate"/></th>
+                    <th><fmt:message key="label.period"/></th>
+                    <th><fmt:message key="label.carModel"/></th>
+                    <th><fmt:message key="label.payment"/></th>
+                    <th><fmt:message key="label.status"/></th>
                 </tr>
                 </thead>
                 <tbody>

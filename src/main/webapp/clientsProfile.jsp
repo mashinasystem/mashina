@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Profile</title>
+    <title><fmt:message key="label.profile"/></title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -97,7 +97,9 @@
                 <fmt:message key="label.signIn"/>
             </a>
         <% } else { %>
-            <a class="btn btn-danger btn-sm" href="/logout" method="get">Logout</a>
+            <a class="btn btn-danger btn-sm" href="/logout" method="get">
+                <fmt:message key="label.logout"/>
+            </a>
         <% } %>
     </div>
 </nav>

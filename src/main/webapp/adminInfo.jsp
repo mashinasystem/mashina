@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin info</title>
+    <title><fmt:message key="label.admin"/> <fmt:message key="label._info"/></title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -35,10 +35,10 @@
         <a href="/"><img src="/img/m.png" class="navbar-brand rounded"></a>
         <a class="navbar-brand" href="/">Mashina</a>
 
-        <% if (session.getAttribute("role") != null)  { %>
-            <p class="navbar-nav text-white">
-                Username: <%= session.getAttribute("login") %>, Role: <%= session.getAttribute("role") %>
-            </p>
+        <% if (session.getAttribute("role") != null) { %>
+        <p class="navbar-nav text-white">
+            Username: <%= session.getAttribute("login") %>, Role: <%= session.getAttribute("role") %>
+        </p>
         <% } %>
 
         <a class="navbar-brand"></a>
@@ -92,12 +92,14 @@
                 </li>
             </ul>
         </div>
-        <% if (session.getAttribute("role") == null)  { %>
-            <a class="btn btn-success btn-sm" href="login">
-                <fmt:message key="label.signIn"/>
-            </a>
+        <% if (session.getAttribute("role") == null) { %>
+        <a class="btn btn-success btn-sm" href="login">
+            <fmt:message key="label.signIn"/>
+        </a>
         <% } else { %>
-            <a class="btn btn-danger btn-sm" href="/logout" method="get">Logout</a>
+        <a class="btn btn-danger btn-sm" href="/logout" method="get">
+            <fmt:message key="label.logout"/>
+        </a>
         <% } %>
     </div>
 </nav>
@@ -136,7 +138,8 @@
                 </tr>
                 </tbody>
             </table>
-            <button type="submit" class="btn btn-warning" id="sendMessageButton"><fmt:message key="label.edit"/></button>
+            <button type="submit" class="btn btn-warning" id="sendMessageButton"><fmt:message
+                    key="label.edit"/></button>
         </div>
     </div>
 </div>
