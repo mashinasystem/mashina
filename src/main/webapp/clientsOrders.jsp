@@ -32,7 +32,6 @@
 <!-- Navigation -->
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-
         <a href="/"><img src="/img/m.png" class="navbar-brand rounded"></a>
         <a class="navbar-brand" href="/">Mashina</a>
 
@@ -44,9 +43,11 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
 
             <% if (session.getAttribute("role") == null) {%>
+
             <ul class="navbar-nav ml-auto">
 
                     <%} else if (session.getAttribute("role").toString().equals("CUSTOMER")) {%>
+
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="/clients/1/profile">
@@ -65,6 +66,7 @@
                     </li>
 
                         <% } else if (session.getAttribute("role").toString().equals("ADMIN")) {%>
+
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="/admin/1/profile">
@@ -99,14 +101,13 @@
                 <a class="dropdown-item" href="?lang=ru"><fmt:message key="label.Russian"/></a>
             </div>
         </div>
+        <a class="text-dark">.</a>
         <% if (session.getAttribute("role") == null) { %>
         <a class="btn btn-success btn-sm" href="/login">
             <fmt:message key="label.signIn"/>
         </a>
         <% } else { %>
-        <a class="btn btn-danger btn-sm" href="/logout" method="get">
-            <fmt:message key="label.logout"/>
-        </a>
+        <a class="btn btn-danger btn-sm" href="/logout" method="get"><fmt:message key="label.logout"/></a>
         <% } %>
     </div>
 </nav>
@@ -183,7 +184,9 @@
                     <td>Confirmed</td>
                     <td>Finished</td>
                     <td>
-                        <a href="/clients/1/orders/1" class="btn btn-info btn-sm">edit</a>
+                        <a href="/clients/1/orders/1" class="btn btn-info btn-sm">
+                            <fmt:message key="label.edit"/>
+                        </a>
                     </td>
                 </tr>
 

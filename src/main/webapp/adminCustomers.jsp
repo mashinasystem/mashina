@@ -42,56 +42,54 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
 
-        <% if (session.getAttribute("role") == null) {%>
+            <% if (session.getAttribute("role") == null) {%>
 
             <ul class="navbar-nav ml-auto">
 
-        <%} else if (session.getAttribute("role").toString().equals("CUSTOMER")) {%>
+                    <%} else if (session.getAttribute("role").toString().equals("CUSTOMER")) {%>
 
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/clients/1/profile">
-                        <fmt:message key="label.profile"/>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/clients/1/orders">
-                        Orders
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/clients/1/info">
-                        Info
-                    </a>
-                </li>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/clients/1/profile">
+                            <fmt:message key="label.profile"/>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/clients/1/orders">
+                            <fmt:message key="label.orders"/>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/clients/1/info">
+                            <fmt:message key="label.Info"/>
+                        </a>
+                    </li>
 
-        <% } else if (session.getAttribute("role").toString().equals("ADMIN")) {%>
+                        <% } else if (session.getAttribute("role").toString().equals("ADMIN")) {%>
 
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/admin/1/profile">
-                        <fmt:message key="label.profile"/>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/admin/1/orders">
-                        Orders
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/admin/1/customers">
-                        Customers
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/admin/1/info">
-                        Info
-                    </a>
-                </li>
-
-        <% }%>
-
-            </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/1/profile">
+                                <fmt:message key="label.profile"/>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/1/orders">
+                                <fmt:message key="label.orders"/>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/1/customers">
+                                <fmt:message key="label.customers"/>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/1/info">
+                                <fmt:message key="label.Info"/>
+                            </a>
+                        </li>
+                        <% }%>
+                    </ul>
         </div>
 
         <div class="btn-group">
@@ -103,18 +101,17 @@
                 <a class="dropdown-item" href="?lang=ru"><fmt:message key="label.Russian"/></a>
             </div>
         </div>
-
-        <% if (session.getAttribute("role") == null)  { %>
-            <a class="btn btn-success btn-sm" href="/login">
-                <fmt:message key="label.signIn"/>
-            </a>
-        <% } else { %>
-        <a class="btn btn-danger btn-sm" href="/logout" method="get">
-            <fmt:message key="label.logout"/>
+        <a class="text-dark">.</a>
+        <% if (session.getAttribute("role") == null) { %>
+        <a class="btn btn-success btn-sm" href="/login">
+            <fmt:message key="label.signIn"/>
         </a>
+        <% } else { %>
+        <a class="btn btn-danger btn-sm" href="/logout" method="get"><fmt:message key="label.logout"/></a>
         <% } %>
     </div>
 </nav>
+
 <!-- Page Content -->
 <div class="container">
     <div class="row">
