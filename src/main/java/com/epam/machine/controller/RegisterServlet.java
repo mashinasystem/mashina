@@ -33,6 +33,7 @@ public class RegisterServlet extends HttpServlet {
         String phoneNumber = request.getParameter("phoneNumber");
         String eMail = request.getParameter("eMail");
         String password = request.getParameter("password");
+
         try {
             clientService.create(Client.builder()
                     .fullName(fullName)
@@ -47,6 +48,7 @@ public class RegisterServlet extends HttpServlet {
         } catch (ClassNotFoundException e) {
             logger.error(e.getMessage());
         }
+
         try {
             response.sendRedirect("/");
         } catch (IOException e) {

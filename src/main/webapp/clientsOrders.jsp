@@ -32,18 +32,9 @@
 <!-- Navigation -->
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
+
         <a href="/"><img src="/img/m.png" class="navbar-brand rounded"></a>
         <a class="navbar-brand" href="/">Mashina</a>
-
-        <% if (session.getAttribute("role") != null) { %>
-        <p class="navbar-nav text-white">
-            Username: <%= session.getAttribute("login") %>, Role: <%= session.getAttribute("role") %>
-        </p>
-        <% } %>
-
-        <a class="navbar-brand"></a>
-        <a class="navbar-brand" href="/clients/1/profile">CLIENT</a>
-        <a class="navbar-brand" href="/admin/1/profile">ADMIN</a>
 
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                 data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
@@ -51,49 +42,65 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
+
+            <% if (session.getAttribute("role") == null) {%>
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <fmt:message key="label.profile"/>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <fmt:message key="label.services"/>
-                    </a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">
-                        <fmt:message key="label.brands"/>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-                        <a class="dropdown-item" href="#">Tesla</a>
-                        <a class="dropdown-item" href="#">Porsche</a>
-                        <a class="dropdown-item" href="#">Jaguar</a>
-                        <a class="dropdown-item" href="#">Lexus</a>
-                        <a class="dropdown-item" href="#">BMW</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <fmt:message key="label.faq"/>
-                    </a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">
-                        <fmt:message key="label.language"/>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-                        <a class="dropdown-item" href="?lang=en"><fmt:message key="label.English"/></a>
-                        <a class="dropdown-item" href="?lang=ru"><fmt:message key="label.Russian"/></a>
-                    </div>
-                </li>
-            </ul>
+
+                    <%} else if (session.getAttribute("role").toString().equals("CUSTOMER")) {%>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/clients/1/profile">
+                            <fmt:message key="label.profile"/>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/clients/1/orders">
+                            <fmt:message key="label.orders"/>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/clients/1/info">
+                            <fmt:message key="label.Info"/>
+                        </a>
+                    </li>
+
+                        <% } else if (session.getAttribute("role").toString().equals("ADMIN")) {%>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/1/profile">
+                                <fmt:message key="label.profile"/>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/1/orders">
+                                <fmt:message key="label.orders"/>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/1/customers">
+                                <fmt:message key="label.customers"/>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/1/info">
+                                <fmt:message key="label.Info"/>
+                            </a>
+                        </li>
+                        <% }%>
+                    </ul>
+        </div>
+
+        <div class="btn-group">
+            <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown">
+                <fmt:message key="label.language"/>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right">
+                <a class="dropdown-item" href="?lang=en"><fmt:message key="label.English"/></a>
+                <a class="dropdown-item" href="?lang=ru"><fmt:message key="label.Russian"/></a>
+            </div>
         </div>
         <% if (session.getAttribute("role") == null) { %>
-        <a class="btn btn-success btn-sm" href="login">
+        <a class="btn btn-success btn-sm" href="/login">
             <fmt:message key="label.signIn"/>
         </a>
         <% } else { %>
@@ -107,8 +114,8 @@
 <!-- Page Content -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-2"></div>
-        <div class="col-lg-8 mb-4">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-10 mb-4">
             <!-- Page Heading/Breadcrumbs -->
             <h1 class="py-4"></h1>
             <h1 class="mt-4 mb-3"><fmt:message key="label.current"/>
@@ -155,7 +162,7 @@
             <h1 class="mt-4 mb-3"><fmt:message key="label.past"/>
                 <small><fmt:message key="label._orders"/></small>
             </h1>
-            <p>Here you can check your past orders:</p>
+            <p><fmt:message key="label.checkPast"/></p>
             <table class="table table-hover">
                 <thead>
                 <tr>
@@ -176,17 +183,7 @@
                     <td>Confirmed</td>
                     <td>Finished</td>
                     <td>
-                        <a href="/clients/1/orders/1" class="btn btn-info btn-sm">details</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>21.05.19</td>
-                    <td>23.05.19</td>
-                    <td>Tesla Model X</td>
-                    <td>No payment</td>
-                    <td>Declined</td>
-                    <td>
-                        <a href="/clients/1/orders/1" class="btn btn-info btn-sm">details</a>
+                        <a href="/clients/1/orders/1" class="btn btn-info btn-sm">edit</a>
                     </td>
                 </tr>
 
