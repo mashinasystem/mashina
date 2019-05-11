@@ -1,5 +1,6 @@
 insert into DRIVER (NAME, PASSPORT, LICENSE, PHONE_NUM, EMAIL, PASSWORD)
 values ('Gwion Ritter', '1234567890', '1423597068', '89112345678', 'login@gmail.com', 'password'),
+       ('Ray Dalio', '1234567890', '1423597068', '89112345678', 'a@gmail.com', 'password'),
        ('Kyla Williams', '142359708', '4109523876', '13342567676', 'atgmaildotcom@gmail.com', 'Pa$$w0rd'),
        ('Reem Wiggins', '4109523876', '9018237465', '89560816741', 'rewig@mash.com',
         'AnthropomorphousHuman19');

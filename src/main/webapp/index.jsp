@@ -44,7 +44,6 @@
 
             <ul class="navbar-nav ml-auto">
 
-
         <%} else if (session.getAttribute("role").toString().equals("CUSTOMER")) {%>
 
             <ul class="navbar-nav ml-auto">
