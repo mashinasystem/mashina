@@ -2,20 +2,30 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page isELIgnored="false" %>
 
-<fmt:setLocale value="${param.lang}"/>
+<fmt:setLocale value="${sessionScope.lang}"/>
 <fmt:setBundle basename="messages"/>
 
 <!DOCTYPE html>
-<html lang="${param.lang}">
 
+<html lang="${sessionScope.lang}">
 <head>
+    <c:if test="${not empty param.lang}">
+        <c:set var="lang" scope="session" value="${param.lang}"/>
+    </c:if>
+    <script>
+        (function setLangParameterToSessionScope() {
+            if (window.location.search === '?lang=en' || window.location.search === '?lang=ru') {
+                window.location.search = '';
+            }
+        })()
+    </script>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Personal info</title>
+    <title><fmt:message key="label.personal"/> <fmt:message key="label._info"/></title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -42,56 +52,54 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
 
-        <% if (session.getAttribute("role") == null) {%>
+            <% if (session.getAttribute("role") == null) {%>
 
             <ul class="navbar-nav ml-auto">
 
-        <%} else if (session.getAttribute("role").toString().equals("CUSTOMER")) {%>
+                    <%} else if (session.getAttribute("role").toString().equals("CUSTOMER")) {%>
 
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/clients/1/profile">
-                        <fmt:message key="label.profile"/>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/clients/1/orders">
-                        Orders
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/clients/1/info">
-                        Info
-                    </a>
-                </li>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/clients/1/profile">
+                            <fmt:message key="label.profile"/>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/clients/1/orders">
+                            <fmt:message key="label.orders"/>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/clients/1/info">
+                            <fmt:message key="label.Info"/>
+                        </a>
+                    </li>
 
-        <% } else if (session.getAttribute("role").toString().equals("ADMIN")) {%>
+                        <% } else if (session.getAttribute("role").toString().equals("ADMIN")) {%>
 
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/admin/1/profile">
-                        <fmt:message key="label.profile"/>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/admin/1/orders">
-                        Orders
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/admin/1/customers">
-                        Customers
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/admin/1/info">
-                        Info
-                    </a>
-                </li>
-
-        <% }%>
-
-            </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/1/profile">
+                                <fmt:message key="label.profile"/>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/1/orders">
+                                <fmt:message key="label.orders"/>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/1/customers">
+                                <fmt:message key="label.customers"/>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/1/info">
+                                <fmt:message key="label.Info"/>
+                            </a>
+                        </li>
+                        <% }%>
+                    </ul>
         </div>
 
         <div class="btn-group">
@@ -104,67 +112,66 @@
             </div>
         </div>
         <a class="text-dark">.</a>
-
-        <% if (session.getAttribute("role") == null)  { %>
-            <a class="btn btn-success btn-sm" href="/login">
-                <fmt:message key="label.signIn"/>
-            </a>
+        <% if (session.getAttribute("role") == null) { %>
+        <a class="btn btn-success btn-sm" href="/login">
+            <fmt:message key="label.signIn"/>
+        </a>
         <% } else { %>
-            <a class="btn btn-danger btn-sm" href="/logout" method="get">Logout</a>
+        <a class="btn btn-danger btn-sm" href="/logout" method="get"><fmt:message key="label.logout"/></a>
         <% } %>
-
     </div>
 </nav>
 
-  <!-- Page Content -->
- <div class="container">
-  <div class="row">
-	<div class="col-lg-3"></div>
-    <div class="col-lg-6 mb-4">
-    <!-- Page Heading/Breadcrumbs -->
-      <h1 class="py-4"></h1>
-      <h1 class="mt-4 mb-3">Personal
-        <small>information</small>
-      </h1>
+<!-- Page Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6 mb-4">
+            <!-- Page Heading/Breadcrumbs -->
+            <h1 class="py-4"></h1>
+            <h1 class="mt-4 mb-3"><fmt:message key="label.personal"/>
+                <small><fmt:message key="label.info"/></small>
+            </h1>
 
-      <p>Here you can check your personal information:</p>
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th>Graph</th>
-            <th>Information</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Full name</td>
-            <td>${name}</td>
-          </tr>
-          <tr>
-           <td>Passport number</td>
-            <td>${passport}</td>
-          </tr>
-          <tr>
-            <td>Driving license number</td>
-            <td>${driverCard}</td>
-          </tr>
-          <tr>
-            <td>Phone number</td>
-            <td>${phoneNumber}</td>
-          </tr>
-          <tr>
-            <td>Email</td>
-            <td>${email}</td>
-          </tr>
-          <tr>
-            <td>Password</td>
-            <td>${password}</td>
-          </tr>	  
-        </tbody>
-      </table>
-      <button type="submit" class="btn btn-warning" id="sendMessageButton">Edit</button>
+            <p><fmt:message key="label.checkPersonalInfo"/></p>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th><fmt:message key="label.graph"/></th>
+                    <th><fmt:message key="label.Info"/></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><fmt:message key="label.name"/></td>
+                    <td>${name}</td>
+                </tr>
+                <tr>
+                    <td><fmt:message key="label.passport"/></td>
+                    <td>${passport}</td>
+                </tr>
+                <tr>
+                    <td><fmt:message key="label.lisence"/></td>
+                    <td>${driverCard}</td>
+                </tr>
+                <tr>
+                    <td><fmt:message key="label.phoneNumber"/></td>
+                    <td>${phoneNumber}</td>
+                </tr>
+                <tr>
+                    <td><fmt:message key="label.email"/></td>
+                    <td>${email}</td>
+                </tr>
+                <tr>
+                    <td><fmt:message key="label.password"/></td>
+                    <td>${password}</td>
+                </tr>
+                </tbody>
+            </table>
+            <button type="submit" class="btn btn-warning" id="sendMessageButton"><fmt:message
+                    key="label.details"/></button>
+        </div>
     </div>
-  </div>
 </div>
 <!-- /.container -->
 

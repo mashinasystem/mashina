@@ -2,20 +2,30 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page isELIgnored="false" %>
 
-<fmt:setLocale value="${param.lang}"/>
+<fmt:setLocale value="${sessionScope.lang}"/>
 <fmt:setBundle basename="messages"/>
 
 <!DOCTYPE html>
-<html lang="en">
 
+<html lang="${sessionScope.lang}">
 <head>
+    <c:if test="${not empty param.lang}">
+        <c:set var="lang" scope="session" value="${param.lang}"/>
+    </c:if>
+    <script>
+        (function setLangParameterToSessionScope() {
+            if (window.location.search === '?lang=en' || window.location.search === '?lang=ru') {
+                window.location.search = '';
+            }
+        })()
+    </script>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Orders</title>
+    <title><fmt:message key="label.orders"/></title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -42,56 +52,54 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
 
-        <% if (session.getAttribute("role") == null) {%>
+            <% if (session.getAttribute("role") == null) {%>
 
             <ul class="navbar-nav ml-auto">
 
-        <%} else if (session.getAttribute("role").toString().equals("CUSTOMER")) {%>
+                    <%} else if (session.getAttribute("role").toString().equals("CUSTOMER")) {%>
 
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/clients/1/profile">
-                        <fmt:message key="label.profile"/>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/clients/1/orders">
-                        Orders
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/clients/1/info">
-                        Info
-                    </a>
-                </li>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/clients/1/profile">
+                            <fmt:message key="label.profile"/>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/clients/1/orders">
+                            <fmt:message key="label.orders"/>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/clients/1/info">
+                            <fmt:message key="label.Info"/>
+                        </a>
+                    </li>
 
-        <% } else if (session.getAttribute("role").toString().equals("ADMIN")) {%>
+                        <% } else if (session.getAttribute("role").toString().equals("ADMIN")) {%>
 
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/admin/1/profile">
-                        <fmt:message key="label.profile"/>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/admin/1/orders">
-                        Orders
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/admin/1/customers">
-                        Customers
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/admin/1/info">
-                        Info
-                    </a>
-                </li>
-
-        <% }%>
-
-            </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/1/profile">
+                                <fmt:message key="label.profile"/>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/1/orders">
+                                <fmt:message key="label.orders"/>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/1/customers">
+                                <fmt:message key="label.customers"/>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/1/info">
+                                <fmt:message key="label.Info"/>
+                            </a>
+                        </li>
+                        <% }%>
+                    </ul>
         </div>
 
         <div class="btn-group">
@@ -104,18 +112,15 @@
             </div>
         </div>
         <a class="text-dark">.</a>
-
-        <% if (session.getAttribute("role") == null)  { %>
-            <a class="btn btn-success btn-sm" href="/login">
-                <fmt:message key="label.signIn"/>
-            </a>
+        <% if (session.getAttribute("role") == null) { %>
+        <a class="btn btn-success btn-sm" href="/login">
+            <fmt:message key="label.signIn"/>
+        </a>
         <% } else { %>
-            <a class="btn btn-danger btn-sm" href="/logout" method="get">Logout</a>
+        <a class="btn btn-danger btn-sm" href="/logout" method="get"><fmt:message key="label.logout"/></a>
         <% } %>
-
     </div>
 </nav>
-
 
 <!-- Page Content -->
 <div class="container">
@@ -124,19 +129,19 @@
         <div class="col-lg-10 mb-4">
             <!-- Page Heading/Breadcrumbs -->
             <h1 class="py-4"></h1>
-            <h1 class="mt-4 mb-3">Current
-                <small>orders</small>
+            <h1 class="mt-4 mb-3"><fmt:message key="label.current"/>
+                <small><fmt:message key="label._orders"/></small>
             </h1>
-            <p>Here you can check your current orders:</p>
+            <p><fmt:message key="label.checkCurrentOrders"/></p>
             <table class="table table-hover">
                 <thead>
                 <tr>
-                    <th>Start date</th>
-                    <th>End date</th>
-                    <th>Car model</th>
-                    <th>Payment</th>
-                    <th>Status</th>
-                    <th>Details</th>
+                    <th><fmt:message key="label.startDate"/></th>
+                    <th><fmt:message key="label.period"/></th>
+                    <th><fmt:message key="label.carModel"/></th>
+                    <th><fmt:message key="label.payment"/></th>
+                    <th><fmt:message key="label.status"/></th>
+                    <th><fmt:message key="label.details"/></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -152,7 +157,7 @@
                             <td><c:out value="${offer.status}"/></td>
                             <td>
                                 <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton" name="orderDet"
-                                        value="${offerId}">edit
+                                        value="${offerId}"><fmt:message key="label.details"/>
                                 </button>
                             </td>
                         </tr>
@@ -163,24 +168,25 @@
             </table>
 
             <a href="/neworder" class="btn btn-success btn-lg btn-block">
-                New order
+                <fmt:message key="label.newOrder"/>
             </a>
-            <h1 class="mt-4 mb-3">Past
-                <small>orders</small>
+            <h1 class="mt-4 mb-3"><fmt:message key="label.past"/>
+                <small><fmt:message key="label._orders"/></small>
             </h1>
-            <p>Here you can check your past orders:</p>
+            <p><fmt:message key="label.checkPast"/></p>
             <table class="table table-hover">
                 <thead>
                 <tr>
-                    <th>Start date</th>
-                    <th>End date</th>
-                    <th>Car model</th>
-                    <th>Payment</th>
-                    <th>Status</th>
-                    <th>Details</th>
+                    <th><fmt:message key="label.startDate"/></th>
+                    <th><fmt:message key="label.period"/></th>
+                    <th><fmt:message key="label.carModel"/></th>
+                    <th><fmt:message key="label.payment"/></th>
+                    <th><fmt:message key="label.status"/></th>
+                    <th><fmt:message key="label.details"/></th>
                 </tr>
                 </thead>
                 <tbody>
+
                 <tr>
                     <td>21.05.19</td>
                     <td>23.05.19</td>
@@ -188,21 +194,24 @@
                     <td>Confirmed</td>
                     <td>Finished</td>
                     <td>
-                        <a href="/clients/1/orders/1" class="btn btn-info btn-sm">edit</a>
+                        <a href="/clients/1/orders/1" class="btn btn-info btn-sm">
+                            <fmt:message key="label.edit"/>
+                        </a>
                     </td>
                 </tr>
+
                 </tbody>
             </table>
 
-            <h1 class="mt-4 mb-3">Your
-                <small>fines</small>
+            <h1 class="mt-4 mb-3"><fmt:message key="label.your"/>
+                <small><fmt:message key="label.fines"/></small>
             </h1>
             <table class="table table-hover">
                 <thead>
                 <tr>
                     <th>№</th>
-                    <th>Cost</th>
-                    <th>Status</th>
+                    <th><fmt:message key="label.cost"/></th>
+                    <th><fmt:message key="label.status"/></th>
                     <th></th>
                 </tr>
                 </thead>
@@ -213,15 +222,15 @@
                         <td><c:out value="${ticket.cost}"/> $</td>
                         <td>
                             <c:if test="${ticket.isPaid}">
-                                paid
+                                <fmt:message key="label.paid"/>
                             </c:if>
                             <c:if test="${!ticket.isPaid}">
-                                not paid
+                                <fmt:message key="label.notPaid"/>
                             </c:if>
                         </td>
                         <td>
                             <button type="submit" class="btn btn-info btn-sm">
-                                pay
+                                <fmt:message key="label.pay"/>
                             </button>
                         </td>
 

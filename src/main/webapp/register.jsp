@@ -2,20 +2,30 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page isELIgnored="false" %>
 
-<fmt:setLocale value="${param.lang}"/>
+<fmt:setLocale value="${sessionScope.lang}"/>
 <fmt:setBundle basename="messages"/>
 
 <!DOCTYPE html>
-<html lang="${param.lang}">
 
+<html lang="${sessionScope.lang}">
 <head>
+    <c:if test="${not empty param.lang}">
+        <c:set var="lang" scope="session" value="${param.lang}"/>
+    </c:if>
+    <script>
+        (function setLangParameterToSessionScope() {
+            if (window.location.search === '?lang=en' || window.location.search === '?lang=ru') {
+                window.location.search = '';
+            }
+        })()
+    </script>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Registration</title>
+    <title><fmt:message key="label.registration"/></title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -43,56 +53,54 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
 
-        <% if (session.getAttribute("role") == null) {%>
+            <% if (session.getAttribute("role") == null) {%>
 
             <ul class="navbar-nav ml-auto">
 
-        <%} else if (session.getAttribute("role").toString().equals("CUSTOMER")) {%>
+                    <%} else if (session.getAttribute("role").toString().equals("CUSTOMER")) {%>
 
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/clients/1/profile">
-                        <fmt:message key="label.profile"/>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/clients/1/orders">
-                        Orders
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/clients/1/info">
-                        Info
-                    </a>
-                </li>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/clients/1/profile">
+                            <fmt:message key="label.profile"/>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/clients/1/orders">
+                            <fmt:message key="label.orders"/>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/clients/1/info">
+                            <fmt:message key="label.Info"/>
+                        </a>
+                    </li>
 
-        <% } else if (session.getAttribute("role").toString().equals("ADMIN")) {%>
+                        <% } else if (session.getAttribute("role").toString().equals("ADMIN")) {%>
 
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/admin/1/profile">
-                        <fmt:message key="label.profile"/>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/admin/1/orders">
-                        Orders
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/admin/1/customers">
-                        Customers
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/admin/1/info">
-                        Info
-                    </a>
-                </li>
-
-        <% }%>
-
-            </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/1/profile">
+                                <fmt:message key="label.profile"/>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/1/orders">
+                                <fmt:message key="label.orders"/>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/1/customers">
+                                <fmt:message key="label.customers"/>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/1/info">
+                                <fmt:message key="label.Info"/>
+                            </a>
+                        </li>
+                        <% }%>
+                    </ul>
         </div>
 
         <div class="btn-group">
@@ -105,15 +113,13 @@
             </div>
         </div>
         <a class="text-dark">.</a>
-
-        <% if (session.getAttribute("role") == null)  { %>
-            <a class="btn btn-success btn-sm" href="/login">
-                <fmt:message key="label.signIn"/>
-            </a>
+        <% if (session.getAttribute("role") == null) { %>
+        <a class="btn btn-success btn-sm" href="/login">
+            <fmt:message key="label.signIn"/>
+        </a>
         <% } else { %>
-            <a class="btn btn-danger btn-sm" href="/logout" method="get">Logout</a>
+        <a class="btn btn-danger btn-sm" href="/logout" method="get"><fmt:message key="label.logout"/></a>
         <% } %>
-
     </div>
 </nav>
 
@@ -130,42 +136,48 @@
                 <small><fmt:message key="label.form"/></small>
             </h1>
             <h4><fmt:message key="label.fillTheFields"/></h4>
-            <form class="registration-form" name="registration-form" method = "post">
+            <form class="registration-form" name="registration-form" method="post">
                 <div class="control-group form-group">
                     <div class="controls">
-                        <input type="text" class="form-control" name="fullName" id="name" placeholder="Full name" required
+                        <input type="text" class="form-control" name="fullName" id="name" placeholder="Full name"
+                               required
                                data-validation-required-message="Please enter your name.">
                         <p class="help-block"></p>
                     </div>
                 </div>
                 <div class="control-group form-group">
                     <div class="controls">
-                        <input type="text" class="form-control" id="text" name="passport" placeholder="Passport number" required
+                        <input type="text" class="form-control" id="text" name="passport" placeholder="Passport number"
+                               required
                                data-validation-required-message="Please enter your phone number.">
                     </div>
                 </div>
                 <div class="control-group form-group">
                     <div class="controls">
-                        <input type="text" class="form-control" id="text" name="driverCard" placeholder="Driving license number" required
+                        <input type="text" class="form-control" id="text" name="driverCard"
+                               placeholder="Driving license number" required
                                data-validation-required-message="Please enter your phone number.">
                     </div>
                 </div>
                 <div class="control-group form-group">
                     <div class="controls">
-                        <input type="tel" class="form-control" id="phone" name="phoneNumber" placeholder="Phone number" required
+                        <input type="tel" class="form-control" id="phone" name="phoneNumber" placeholder="Phone number"
+                               required
                                data-validation-required-message="Please enter your phone number.">
                     </div>
                 </div>
                 <div class="control-group form-group">
                     <div class="controls">
-                        <input type="email" class="form-control" id="email" name="eMail" placeholder="Your@email.com" required
+                        <input type="email" class="form-control" id="email" name="eMail" placeholder="Your@email.com"
+                               required
                                data-validation-required-message="Please enter your email address.">
                     </div>
                 </div>
                 <!-- Password and confirmation -->
                 <div class="control-group form-group">
                     <div class="controls">
-                        <input type="password" class="form-control" name="password" required="required" type="password" id="password"
+                        <input type="password" class="form-control" name="password" required="required" type="password"
+                               id="password"
                                placeholder="Password" required
                                data-validation-required-message="Please enter your email address.">
                     </div>
@@ -180,7 +192,8 @@
                 <div id="success"></div>
                 <!-- For success/fail messages -->
                 <button type="submit" class="btn btn-dark"><fmt:message key="label.createAccaunt"/></button>
-                <p class="mt-2 mb-4 message"><fmt:message key="label.hasAccount"/> <a href="login"><fmt:message key="label.signIn"/></a></p>
+                <p class="mt-2 mb-4 message"><fmt:message key="label.hasAccount"/> <a href="login"><fmt:message
+                        key="label.signIn"/></a></p>
             </form>
         </div>
 
