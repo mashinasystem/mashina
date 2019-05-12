@@ -88,6 +88,11 @@
                                 <fmt:message key="label.Info"/>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/1/cars">
+                                <fmt:message key="label.cars"/>
+                            </a>
+                        </li>
                         <% }%>
                     </ul>
         </div>
@@ -144,9 +149,6 @@
                     </form>
                 </c:forEach>
             </table>
-            <button type="button" class="btn btn-success btn-lg btn-block">
-                <fmt:message key="label.addCustomer"/>
-            </button>
         </div>
     </div>
 </div>
