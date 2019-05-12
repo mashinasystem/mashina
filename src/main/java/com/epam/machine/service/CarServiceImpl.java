@@ -3,17 +3,18 @@ package com.epam.machine.service;
 import com.epam.machine.entity.Car;
 import com.epam.machine.repository.CarRepositoryImpl;
 import java.sql.SQLException;
+import java.util.List;
 
 public class CarServiceImpl implements CarService {
-    CarRepositoryImpl carRepository = new CarRepositoryImpl();
+    private CarRepositoryImpl carRepository = new CarRepositoryImpl();
     @Override
     public Car get(int id) throws SQLException, ClassNotFoundException {
         return carRepository.get(id);
     }
 
     @Override
-    public void create(Car car) {
-
+    public void create(Car car) throws SQLException, ClassNotFoundException {
+        carRepository.create(car);
     }
 
     @Override
@@ -24,5 +25,10 @@ public class CarServiceImpl implements CarService {
     @Override
     public void update(int id) {
 
+    }
+
+    @Override
+    public List<Car> getAll() throws SQLException, ClassNotFoundException {
+        return carRepository.getAll();
     }
 }

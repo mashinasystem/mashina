@@ -12,5 +12,7 @@ public interface OfferRepository {
 
     void delete(int id);
 
-    void update(int id);
+    void update(int id, Offer offer) throws ClassNotFoundException, SQLException;
+
+    List<Offer> getAll() throws SQLException, ClassNotFoundException;
 }

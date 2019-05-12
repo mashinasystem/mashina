@@ -36,6 +36,7 @@ public class OfferRepositroryImpl implements OfferRepository {
                         .status(resultSet.getString(8))
                         .payment(resultSet.getInt(5))
                         .beginDay(resultSet.getObject(6).toString())
+                        .id(resultSet.getInt(1))
                         .build());
             }
         }
@@ -50,7 +51,7 @@ public class OfferRepositroryImpl implements OfferRepository {
              Statement statement = connection.createStatement()) {
             String sql = "INSERT INTO offer " + "(driver_id,admin_id,car_id,payment,period_days,status)" +
                     " VALUES (" + "\'" + offer.getDriverId() + "\',\'" + 1 + "\',\'" +
-                    3 + "\',\'" + offer.getPayment() + "\',\'" + offer.getPeriod() +
+                    offer.getCar().getId() + "\',\'" + offer.getPayment() + "\',\'" + offer.getPeriod() +
                     "\',\'" + offer.getStatus() + "\');";
             statement.executeUpdate(sql);
         }
@@ -60,5 +61,43 @@ public class OfferRepositroryImpl implements OfferRepository {
     public void delete(int id) {}
 
     @Override
-    public void update(int id) {}
+    public void update(int id, Offer offer) throws ClassNotFoundException, SQLException {
+        Class.forName(JDBC_DRIVER);
+
+        try (Connection connection = DriverManager.getConnection(DATA_BASE_URL, ADMIN, PASSWORD);
+             Statement statement = connection.createStatement()) {
+            String sql = "UPDATE offer SET driver_id = " + offer.getDriverId() + ", car_id = " +
+                    offer.getCar().getId() + ", payment = " + offer.getPayment() + ", period_days = "
+                    + offer.getPeriod() + ", status = '" + offer.getStatus() + "' WHERE offer.id = " + id + ";";
+            statement.executeUpdate(sql);
+        }
+    }
+
+    @Override
+    public List<Offer> getAll() throws SQLException, ClassNotFoundException {
+        Class.forName(JDBC_DRIVER);
+
+        List<Offer> offers = new ArrayList<>();
+        int carId = 0;
+        ResultSet resultSet;
+        try (Connection connection = DriverManager.getConnection(DATA_BASE_URL, ADMIN, PASSWORD);
+             PreparedStatement statement = connection.prepareStatement(
+                     "select * from offer")) {
+            resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                carId = resultSet.getInt(4);
+                CarServiceImpl carService = new CarServiceImpl();
+                offers.add(Offer.builder()
+                        .car(carService.get(carId))
+                        .driverId(resultSet.getInt(2))
+                        .period(resultSet.getInt(7))
+                        .status(resultSet.getString(8))
+                        .payment(resultSet.getInt(5))
+                        .beginDay(resultSet.getObject(6).toString())
+                        .id(resultSet.getInt(1))
+                        .build());
+            }
+        }
+        return offers;
+    }
 }

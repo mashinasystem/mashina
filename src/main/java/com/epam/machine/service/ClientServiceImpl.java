@@ -6,6 +6,7 @@ import com.epam.machine.repository.ClientRepositoryImpl;
 import lombok.NoArgsConstructor;
 
 import java.sql.SQLException;
+import java.util.List;
 
 @NoArgsConstructor
 public class ClientServiceImpl implements ClientService {
@@ -46,6 +47,11 @@ public class ClientServiceImpl implements ClientService {
     @Override
     public boolean clientLoginCheck(String login, String password) throws SQLException, ClassNotFoundException {
         return clientRepositoryImpl.checkLogin(login, password);
+    }
+
+    @Override
+    public List<Client> getAll() throws SQLException, ClassNotFoundException {
+        return clientRepositoryImpl.getAll();
     }
 
 }

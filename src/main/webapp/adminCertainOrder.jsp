@@ -122,30 +122,13 @@
             </h1>
             <p><fmt:message key="label.infoAboutOrder"/></p>
             <table class="table table-hover">
-                <thead>
+                <form action = "/admin/1/orders/1" method = "post">
                 <tr>
-                    <th><fmt:message key="label.name"/></th>
-                    <th><fmt:message key="label.phoneNumber"/></th>
-                    <th><fmt:message key="label.email"/></th>
-                    <th><fmt:message key="label.startDate"/></th>
-                    <th><fmt:message key="label.period"/></th>
-                    <th><fmt:message key="label.carModel"/></th>
-                    <th><fmt:message key="label.payment"/></th>
-                    <th><fmt:message key="label.status"/></th>
+                    <td><c:out value="${offer.status}"/></td>
+                    <td><input type="text" placeholder="new status" name="status"/></td>
+                    <td><button type="submit" value="login">change status</button></td>
                 </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>Eric Smith</td>
-                    <td>89112854675</td>
-                    <td>eric@epam.com</td>
-                    <td>21.05.19</td>
-                    <td>23.05.19</td>
-                    <td>Tesla Model X</td>
-                    <td>Confirmed</td>
-                    <td>Approved</td>
-                </tr>
-                </tbody>
+                </form>
             </table>
             <h1 class="mt-2 mb-3">Fines</h1>
             <h4>20$ <span class="badge badge-success">paid</span></h4>

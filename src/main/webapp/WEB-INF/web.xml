@@ -165,4 +165,22 @@
         <servlet-name>certainOrderServlet</servlet-name>
         <url-pattern>/clients/1/order</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>carAdmin</servlet-name>
+        <servlet-class>com.epam.machine.controller.CarAdminServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>carAdmin</servlet-name>
+        <url-pattern>/admin/1/cars</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>newCar</servlet-name>
+        <servlet-class>com.epam.machine.controller.NewCarServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>newCar</servlet-name>
+        <url-pattern>/admin/1/newcar</url-pattern>
+    </servlet-mapping>
 </web-app>

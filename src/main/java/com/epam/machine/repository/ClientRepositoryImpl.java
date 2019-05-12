@@ -9,6 +9,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 @NoArgsConstructor
 public class ClientRepositoryImpl implements ClientRepository {
@@ -117,5 +119,23 @@ public class ClientRepositoryImpl implements ClientRepository {
             resultSet = statement.executeQuery(sql);
             return resultSet.next();
         }
+    }
+
+    @Override
+    public List<Client> getAll() throws ClassNotFoundException, SQLException {
+        Class.forName(JDBC_DRIVER);
+
+        List<Client> clients = new ArrayList<>();
+        ClientRepository clientRepository = new ClientRepositoryImpl();
+        ResultSet resultSet;
+        try (Connection connection = DriverManager.getConnection(DATA_BASE_URL, ADMIN, PASSWORD);
+             PreparedStatement statement = connection.prepareStatement(
+                     "select id from driver")) {
+            resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                clients.add(clientRepository.get(resultSet.getInt(1)));
+            }
+        }
+        return clients;
     }
 }

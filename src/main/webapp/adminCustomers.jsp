@@ -132,15 +132,17 @@
                     <th><fmt:message key="label.lisence"/></th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr>
-                    <td>Eric Smith</td>
-                    <td>89112854675</td>
-                    <td>eric@epam.com</td>
-                    <td>8945 456452</td>
-                    <td>7875 4657</td>
-                </tr>
-                </tbody>
+                <c:forEach items="${clients}" var="client">
+                    <form action="/clients/1/order" method="get">
+                        <tr>
+                            <td><c:out value="${client.fullName}"/></td>
+                            <td><c:out value="${client.phoneNumber}"/></td>
+                            <td></td>
+                            <td><c:out value="${client.passport}"/></td>
+                            <td><c:out value="${client.driverCard}"/></td>
+                        </tr>
+                    </form>
+                </c:forEach>
             </table>
             <button type="button" class="btn btn-success btn-lg btn-block">
                 <fmt:message key="label.addCustomer"/>

@@ -2,13 +2,23 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page isELIgnored="false" %>
 
-<fmt:setLocale value="${param.lang}"/>
+<fmt:setLocale value="${sessionScope.lang}"/>
 <fmt:setBundle basename="messages"/>
 
 <!DOCTYPE html>
-<html lang="en">
 
+<html lang="${sessionScope.lang}">
 <head>
+    <c:if test="${not empty param.lang}">
+        <c:set var="lang" scope="session" value="${param.lang}"/>
+    </c:if>
+    <script>
+        (function setLangParameterToSessionScope() {
+            if (window.location.search === '?lang=en' || window.location.search === '?lang=ru') {
+                window.location.search = '';
+            }
+        })()
+    </script>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -102,7 +112,7 @@
             </div>
         </div>
         <a class="text-dark">.</a>
-        <% if (session.getAttribute("role") == null)  { %>
+        <% if (session.getAttribute("role") == null) { %>
         <a class="btn btn-success btn-sm" href="/login">
             <fmt:message key="label.signIn"/>
         </a>
@@ -115,94 +125,47 @@
 <!-- Page Content -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-12 mb-4">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-10 mb-4">
             <!-- Page Heading/Breadcrumbs -->
             <h1 class="py-4"></h1>
             <h1 class="mt-4 mb-3"><fmt:message key="label.current"/>
                 <small><fmt:message key="label._orders"/></small>
             </h1>
-            <p><fmt:message key="label.checkCustomerOrder"/></p>
+            <p><fmt:message key="label.checkCurrentOrders"/></p>
             <table class="table table-hover">
                 <thead>
                 <tr>
-                    <th><fmt:message key="label.name"/></th>
-                    <th><fmt:message key="label.phoneNumber"/></th>
-                    <th><fmt:message key="label.email"/></th>
-                    <th><fmt:message key="label.startDate"/></th>
-                    <th><fmt:message key="label.period"/></th>
                     <th><fmt:message key="label.carModel"/></th>
-                    <th><fmt:message key="label.payment"/></th>
-                    <th><fmt:message key="label.status"/></th>
-                    <th><fmt:message key="label.details"/></th>
+                    <th><fmt:message key="label.carnumber"/></th>
+                    <th><fmt:message key="label.marque"/></th>
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach items="${offers}" var="offer">
-                    <form action="/admin/1/orders/1" method="get">
-                        <input id="id_anything123" type="hidden" name="val" value="${offerId}"/>
+
+                <c:forEach items="${cars}" var="car">
+                    <form action="/clients/1/order" method="get">
+                    <c:set var="carId" value="${car.id}" scope="session"/>
+                        <input id="id_anything123" type="hidden" name="val" value="${car.id}"/>
                         <tr>
-                            <td><c:out value="${offer.driverId}"/></td>
-                            <td></td>
-                            <td></td>
-                            <td><c:out value="${offer.beginDay}"/></td>
-                            <td><c:out value="${offer.period}"/></td>
-                            <td><c:out value="${offer.car.getModel()}"/></td>
-                            <td><c:out value="${offer.payment}"/></td>
-                            <td><c:out value="${offer.status}"/></td>
+                            <td><c:out value="${car.model}"/></td>
+                            <td><c:out value="${car.number}"/></td>
+                            <td><c:out value="${car.marque}"/></td>
                             <td>
                                 <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton" name="orderDet"
-                                        value="${offerId}"><fmt:message key="label.details"/>
+                                        value="${carId}"><fmt:message key="label.details"/>
                                 </button>
                             </td>
                         </tr>
-                        <c:set var="offerId" value="${offerId + 1}" scope="session"/>
                     </form>
                 </c:forEach>
                 </tbody>
             </table>
 
-            <h1 class="mt-4 mb-3"><fmt:message key="label.past"/>
-                <small><fmt:message key="label._orders"/></small>
-            </h1>
-            <p><fmt:message key="label.checkCustomerPast"/></p>
-            <table class="table table-hover">
-                <thead>
-                <tr>
-                    <th><fmt:message key="label.name"/></th>
-                    <th><fmt:message key="label.phoneNumber"/></th>
-                    <th><fmt:message key="label.email"/></th>
-                    <th><fmt:message key="label.startDate"/></th>
-                    <th><fmt:message key="label.period"/></th>
-                    <th><fmt:message key="label.carModel"/></th>
-                    <th><fmt:message key="label.payment"/></th>
-                    <th><fmt:message key="label.status"/></th>
-                    <th><fmt:message key="label.details"/></th>
-                </tr>
-                </thead>
-                <tbody>
-                <c:forEach items="${offers}" var="offer">
-                    <form action="/clients/1/order" method="get">
-                        <input id="id_anything123" type="hidden" name="val" value="${offerId}"/>
-                        <tr>
-                            <td><c:out value="${offer.driverId}"/></td>
-                            <td></td>
-                            <td></td>
-                            <td><c:out value="${offer.beginDay}"/></td>
-                            <td><c:out value="${offer.period}"/></td>
-                            <td><c:out value="${offer.car.getModel()}"/></td>
-                            <td><c:out value="${offer.payment}"/></td>
-                            <td><c:out value="${offer.status}"/></td>
-                            <td>
-                                <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton" name="orderDet"
-                                        value="${offerId}"><fmt:message key="label.details"/>
-                                </button>
-                            </td>
-                        </tr>
-                        <c:set var="offerId" value="${offerId + 1}" scope="session"/>
-                    </form>
-                </c:forEach>
-                </tbody>
-            </table>
+            <a href="/admin/1/newcar" class="btn btn-success btn-lg btn-block">
+                <fmt:message key="label.newcar"/>
+            </a>
+
         </div>
     </div>
 </div>
@@ -215,6 +178,7 @@
     </div>
     <!-- /.container -->
 </footer>
+
 </body>
 
 </html>

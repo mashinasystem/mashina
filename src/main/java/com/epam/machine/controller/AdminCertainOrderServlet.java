@@ -5,17 +5,62 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
+
+import com.epam.machine.entity.Offer;
+import com.epam.machine.service.OfferServiceImpl;
 import org.apache.log4j.Logger;
 
 public class AdminCertainOrderServlet extends HttpServlet {
     final static Logger logger = Logger.getLogger(AdminCertainOrderServlet.class);
+    private OfferServiceImpl offerService = new OfferServiceImpl();
+    private int offerId;
+    private List<Offer> offers;
 
     @Override
     public void doGet (HttpServletRequest request, HttpServletResponse response) {
         try {
+            offerId = Integer.parseInt(request.getParameter("val"));
+            offers = offerService.getAll();
+
             request.getRequestDispatcher("/adminCertainOrder.jsp").forward(request, response);
-        } catch(ServletException | IOException err) {
+        } catch(ServletException | IOException | SQLException | ClassNotFoundException err) {
             logger.error("Something is wrong. Game over. Try again. " + err.getMessage());
+        }
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
+        int statusId = Integer.parseInt(request.getParameter("status"));
+        String status = offers.get(offerId).getStatus();
+
+        if (statusId == 1) {
+            status = "Unexpectedly disappeared";
+        }
+        if (statusId == 2) {
+            status = "In progress";
+        }
+        if (statusId == 3) {
+            status = "Finished";
+        }
+        if (statusId == 4) {
+            status = "Declined";
+        }
+
+        offers.get(offerId).setStatus(status);
+        System.out.println(offers.get(offerId).getId());
+        try {
+            offerService.update(offers.get(offerId).getId(), offers.get(offerId));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        try {
+            response.sendRedirect("/admin/1/orders");
+        } catch (IOException e) {
+            logger.error(e.getMessage());
         }
     }
 }

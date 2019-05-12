@@ -16,16 +16,18 @@ import org.apache.log4j.Logger;
 public class CertainOrderServlet extends HttpServlet {
     final static Logger logger = Logger.getLogger(CertainOrderServlet.class);
     private OfferServiceImpl offerService = new OfferServiceImpl();
+    private int offerId;
+    private List<Offer> offers;
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) {
         try {
-            int offerId = Integer.parseInt(request.getParameter("val"));
+            offerId = Integer.parseInt(request.getParameter("val"));
 
             HttpSession session = request.getSession();
             String login = session.getAttribute("login").toString();
 
-            List<Offer> offers = offerService.get(login);
+            offers = offerService.get(login);
             request.setAttribute("offer", offers.get(offerId));
 
             request.getRequestDispatcher("/clientCertainOrder.jsp").forward(request, response);
@@ -34,6 +36,31 @@ public class CertainOrderServlet extends HttpServlet {
         } catch (SQLException e) {
             logger.error(e.getMessage());
         } catch (ClassNotFoundException e) {
+            logger.error(e.getMessage());
+        }
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
+        int statusId = Integer.parseInt(request.getParameter("status"));
+        String status = offers.get(offerId).getStatus();
+
+        if (statusId == 1) {
+            status = "Declined";
+        }
+
+        offers.get(offerId).setStatus(status);
+        System.out.println(offers.get(offerId).getId());
+        try {
+            offerService.update(offers.get(offerId).getId(), offers.get(offerId));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        try {
+            response.sendRedirect("/clients/1/orders");
+        } catch (IOException e) {
             logger.error(e.getMessage());
         }
     }
