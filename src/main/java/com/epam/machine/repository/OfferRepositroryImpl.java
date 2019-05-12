@@ -14,8 +14,6 @@ public class OfferRepositroryImpl implements OfferRepository {
     final static private String ADMIN = "Admin";
     final static private String PASSWORD = "qwerty";
 
-    private CarServiceImpl carService = new CarServiceImpl();
-
     @Override
     public List<Offer> get(int id) throws ClassNotFoundException, SQLException {
         Class.forName(JDBC_DRIVER);
@@ -78,7 +76,7 @@ public class OfferRepositroryImpl implements OfferRepository {
     @Override
     public List<Offer> getAll() throws SQLException, ClassNotFoundException {
         Class.forName(JDBC_DRIVER);
-
+        CarServiceImpl carService = new CarServiceImpl();
         List<Offer> offers = new ArrayList<>();
         int carId = 0;
         ResultSet resultSet;

@@ -16,8 +16,6 @@ public class CarRepositoryImpl implements CarRepository {
     final static private String ADMIN = "Admin";
     final static private String PASSWORD = "qwerty";
 
-    private CarService carService = new CarServiceImpl();
-
     @Override
     public Car get(int id) throws ClassNotFoundException, SQLException {
         Class.forName(JDBC_DRIVER);
@@ -64,6 +62,7 @@ public class CarRepositoryImpl implements CarRepository {
     public List<Car> getAll() throws ClassNotFoundException, SQLException {
         List<Car> cars = new ArrayList<>();
         Class.forName(JDBC_DRIVER);
+        CarService carService = new CarServiceImpl();
         ResultSet resultSet;
         try (Connection connection = DriverManager.getConnection(DATA_BASE_URL, ADMIN, PASSWORD);
              PreparedStatement statement = connection.prepareStatement(
