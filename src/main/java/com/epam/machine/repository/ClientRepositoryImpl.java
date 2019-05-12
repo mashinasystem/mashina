@@ -20,8 +20,6 @@ public class ClientRepositoryImpl implements ClientRepository {
     final static private String ADMIN = "Admin";
     final static private String PASSWORD = "qwerty";
 
-    private ClientRepository clientRepository = new ClientRepositoryImpl();
-
     @Override
     public Client get(int id) throws ClassNotFoundException, SQLException {
         Class.forName(JDBC_DRIVER);
@@ -126,7 +124,7 @@ public class ClientRepositoryImpl implements ClientRepository {
     @Override
     public List<Client> getAll() throws ClassNotFoundException, SQLException {
         Class.forName(JDBC_DRIVER);
-
+        ClientRepository clientRepository = new ClientRepositoryImpl();
         List<Client> clients = new ArrayList<>();
         ResultSet resultSet;
         try (Connection connection = DriverManager.getConnection(DATA_BASE_URL, ADMIN, PASSWORD);

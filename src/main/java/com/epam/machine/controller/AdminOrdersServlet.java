@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.epam.machine.entity.Offer;
@@ -20,7 +21,23 @@ public class AdminOrdersServlet extends HttpServlet {
     @Override
     public void doGet (HttpServletRequest request, HttpServletResponse response) {
         try {
-            request.setAttribute("offers", offerService.getAll());
+            List<Offer> offers = new ArrayList<>();
+            List<Offer> pastOffers = new ArrayList<>();
+            List<Offer> presentOffers = new ArrayList<>();
+
+            offers = offerService.getAll();
+
+            for (int i = 0; i < offers.size(); i++) {
+                if (offers.get(i).getStatus().equals("Declined") || offers.get(i).getStatus().equals("Finished")) {
+                    pastOffers.add(offers.get(i));
+                } else {
+                    presentOffers.add(offers.get(i));
+                }
+            }
+
+            request.setAttribute("pastOffers", pastOffers);
+            request.setAttribute("presentOffers", presentOffers);
+
             request.getRequestDispatcher("/adminOrders.jsp").forward(request, response);
         } catch(ServletException | IOException | SQLException | ClassNotFoundException err) {
             logger.error("Something is wrong. Game over. Try again. " + err.getMessage());

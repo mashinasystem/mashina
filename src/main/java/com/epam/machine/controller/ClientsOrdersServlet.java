@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ClientsOrdersServlet extends HttpServlet {
@@ -26,10 +27,22 @@ public class ClientsOrdersServlet extends HttpServlet {
             String login = session.getAttribute("login").toString();
 
             List<Offer> offers = offerService.get(login);
-            request.setAttribute("offers", offers);
 
             List<Ticket> tickets = ticketService.get(login);
             request.setAttribute("tickets", tickets);
+
+            List<Offer> presentOffers = new ArrayList<>();
+            List<Offer> pastOffers = new ArrayList<>();
+
+            for (int i = 0; i < offers.size(); i++) {
+                if (offers.get(i).getStatus().equals("Declined") || offers.get(i).getStatus().equals("Finished")) {
+                    pastOffers.add(offers.get(i));
+                } else {
+                    presentOffers.add(offers.get(i));
+                }
+            }
+            request.setAttribute("pastOffers", pastOffers);
+            request.setAttribute("presentOffers", presentOffers);
 
             request.getRequestDispatcher("/clientsOrders.jsp").forward(request, response);
         } catch (ServletException | IOException | SQLException | ClassNotFoundException err) {

@@ -138,7 +138,7 @@
                 </thead>
                 <tbody>
                 <c:set var="offerId" value="0" scope="session"/>
-                <c:forEach items="${offers}" var="offer">
+                <c:forEach items="${presentOffers}" var="offer">
                     <form action="/admin/1/orders/1" method="get">
                         <input id="id_anything123" type="hidden" name="val" value="${offerId}"/>
                         <tr>
@@ -181,9 +181,8 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach items="${offers}" var="offer">
+                <c:forEach items="${pastOffers}" var="offer">
                     <form action="/clients/1/order" method="get">
-                        <input id="id_anything123" type="hidden" name="val" value="${offerId}"/>
                         <tr>
                             <td><c:out value="${offer.driverId}"/></td>
                             <td></td>
@@ -193,13 +192,7 @@
                             <td><c:out value="${offer.car.getModel()}"/></td>
                             <td><c:out value="${offer.payment}"/></td>
                             <td><c:out value="${offer.status}"/></td>
-                            <td>
-                                <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton" name="orderDet"
-                                        value="${offerId}"><fmt:message key="label.details"/>
-                                </button>
-                            </td>
                         </tr>
-                        <c:set var="offerId" value="${offerId + 1}" scope="session"/>
                     </form>
                 </c:forEach>
                 </tbody>
