@@ -16,19 +16,19 @@ import org.apache.log4j.Logger;
 public class CertainOrderServlet extends HttpServlet {
     final static Logger logger = Logger.getLogger(CertainOrderServlet.class);
     private OfferServiceImpl offerService = new OfferServiceImpl();
-    private int offerId;
+    private int offerIdInList;
     private List<Offer> offers;
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) {
         try {
-            offerId = Integer.parseInt(request.getParameter("val"));
+            offerIdInList = Integer.parseInt(request.getParameter("val"));
 
             HttpSession session = request.getSession();
             String login = session.getAttribute("login").toString();
 
             offers = offerService.get(login);
-            request.setAttribute("offer", offers.get(offerId));
+            request.setAttribute("offer", offers.get(offerIdInList));
 
             request.getRequestDispatcher("/clientCertainOrder.jsp").forward(request, response);
         } catch (ServletException | IOException err) {
@@ -43,16 +43,15 @@ public class CertainOrderServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
         int statusId = Integer.parseInt(request.getParameter("status"));
-        String status = offers.get(offerId).getStatus();
+        String status = offers.get(offerIdInList).getStatus();
 
         if (statusId == 1) {
             status = "Declined";
         }
 
-        offers.get(offerId).setStatus(status);
-        System.out.println(offers.get(offerId).getId());
+        offers.get(offerIdInList).setStatus(status);
         try {
-            offerService.update(offers.get(offerId).getId(), offers.get(offerId));
+            offerService.update(offers.get(offerIdInList).getId(), offers.get(offerIdInList));
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {

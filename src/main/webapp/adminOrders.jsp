@@ -137,6 +137,7 @@
                 </tr>
                 </thead>
                 <tbody>
+                <c:set var="offerId" value="0" scope="session"/>
                 <c:forEach items="${offers}" var="offer">
                     <form action="/admin/1/orders/1" method="get">
                         <input id="id_anything123" type="hidden" name="val" value="${offerId}"/>

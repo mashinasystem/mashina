@@ -15,15 +15,14 @@ import org.apache.log4j.Logger;
 public class AdminCertainOrderServlet extends HttpServlet {
     final static Logger logger = Logger.getLogger(AdminCertainOrderServlet.class);
     private OfferServiceImpl offerService = new OfferServiceImpl();
-    private int offerId;
+    private int offerIdInList;
     private List<Offer> offers;
 
     @Override
     public void doGet (HttpServletRequest request, HttpServletResponse response) {
         try {
-            offerId = Integer.parseInt(request.getParameter("val"));
             offers = offerService.getAll();
-
+            offerIdInList = Integer.parseInt(request.getParameter("val"));
             request.getRequestDispatcher("/adminCertainOrder.jsp").forward(request, response);
         } catch(ServletException | IOException | SQLException | ClassNotFoundException err) {
             logger.error("Something is wrong. Game over. Try again. " + err.getMessage());
@@ -33,7 +32,7 @@ public class AdminCertainOrderServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
         int statusId = Integer.parseInt(request.getParameter("status"));
-        String status = offers.get(offerId).getStatus();
+        String status = offers.get(offerIdInList).getStatus();
 
         if (statusId == 1) {
             status = "Unexpectedly disappeared";
@@ -48,10 +47,9 @@ public class AdminCertainOrderServlet extends HttpServlet {
             status = "Declined";
         }
 
-        offers.get(offerId).setStatus(status);
-        System.out.println(offers.get(offerId).getId());
+        offers.get(offerIdInList).setStatus(status);
         try {
-            offerService.update(offers.get(offerId).getId(), offers.get(offerId));
+            offerService.update(offers.get(offerIdInList).getId(), offers.get(offerIdInList));
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
