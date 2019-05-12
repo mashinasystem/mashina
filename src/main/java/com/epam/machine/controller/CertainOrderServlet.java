@@ -16,17 +16,19 @@ import org.apache.log4j.Logger;
 public class CertainOrderServlet extends HttpServlet {
     final static Logger logger = Logger.getLogger(CertainOrderServlet.class);
     private OfferServiceImpl offerService = new OfferServiceImpl();
+    private int offerIdInList;
+    private List<Offer> offers;
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) {
         try {
-            int offerId = Integer.parseInt(request.getParameter("val"));
+            offerIdInList = Integer.parseInt(request.getParameter("val"));
 
             HttpSession session = request.getSession();
             String login = session.getAttribute("login").toString();
 
-            List<Offer> offers = offerService.get(login);
-            request.setAttribute("offer", offers.get(offerId));
+            offers = offerService.get(login);
+            request.setAttribute("offer", offers.get(offerIdInList));
 
             request.getRequestDispatcher("/clientCertainOrder.jsp").forward(request, response);
         } catch (ServletException | IOException err) {
@@ -34,6 +36,30 @@ public class CertainOrderServlet extends HttpServlet {
         } catch (SQLException e) {
             logger.error(e.getMessage());
         } catch (ClassNotFoundException e) {
+            logger.error(e.getMessage());
+        }
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
+        int statusId = Integer.parseInt(request.getParameter("status"));
+        String status = offers.get(offerIdInList).getStatus();
+
+        if (statusId == 1) {
+            status = "Declined";
+        }
+
+        offers.get(offerIdInList).setStatus(status);
+        try {
+            offerService.update(offers.get(offerIdInList).getId(), offers.get(offerIdInList));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        try {
+            response.sendRedirect("/clients/1/orders");
+        } catch (IOException e) {
             logger.error(e.getMessage());
         }
     }

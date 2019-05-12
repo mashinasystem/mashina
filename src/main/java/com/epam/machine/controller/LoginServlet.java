@@ -19,8 +19,8 @@ public class LoginServlet extends HttpServlet {
     final static Logger logger = Logger.getLogger(LoginServlet.class);
 
     private HttpSession session;
-    ClientService clientServiceImpl = new ClientServiceImpl();
-    AdminService adminServiceImpl = new AdminServiceImpl();
+    private ClientService clientServiceImpl = new ClientServiceImpl();
+    private AdminService adminServiceImpl = new AdminServiceImpl();
 
     @Override
     public void doGet (HttpServletRequest request, HttpServletResponse response) {

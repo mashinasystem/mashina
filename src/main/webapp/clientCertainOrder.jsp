@@ -136,21 +136,17 @@
             <table class="table table-hover">
                 <thead>
                 <tr>
-                    <th><fmt:message key="label.startDate"/></th>
-                    <th><fmt:message key="label.period"/></th>
-                    <th><fmt:message key="label.carModel"/></th>
-                    <th><fmt:message key="label.payment"/></th>
                     <th><fmt:message key="label.status"/></th>
                 </tr>
                 </thead>
                 <tbody>
+                <form action = "/clients/1/order" method = "post">
                 <tr>
-                    <td><c:out value="${offer.beginDay}"/></td>
-                    <td><c:out value="${offer.period}"/></td>
-                    <td><c:out value="${offer.car.getModel()}"/></td>
-                    <td><c:out value="${offer.payment}"/></td>
                     <td><c:out value="${offer.status}"/></td>
+                    <td><input type="text" placeholder="new status" name="status"/></td>
+                    <td><button type="submit" value="login">change status</button></td>
                 </tr>
+                </form>
                 </tbody>
             </table>
         </div>

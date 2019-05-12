@@ -3,6 +3,7 @@ package com.epam.machine.service;
 import com.epam.machine.entity.Client;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public interface ClientService {
 
@@ -15,4 +16,6 @@ public interface ClientService {
     Client get(String login) throws SQLException, ClassNotFoundException;
 
     boolean clientLoginCheck(String login,String password) throws SQLException, ClassNotFoundException;
+
+    List<Client> getAll() throws SQLException, ClassNotFoundException;
 }

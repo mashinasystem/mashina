@@ -176,6 +176,21 @@
                 </div>
             </div>
         </div>
+                <div class="col-lg-4 portfolio-item">
+                    <div class="card h-100">
+                        <a href="/admin/1/customers"><img class="card-img-top" src="htp://placehold.it/700x400" alt=""></a>
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                <a href="/admin/1/cars">
+                                    <fmt:message key="label.cars"/>
+                                </a>
+                            </h4>
+                            <p class="card-text">
+                                <fmt:message key="text.checkOrEdit"/>
+                            </p>
+                        </div>
+                    </div>
+                </div>
     </div>
     <h1 class="py-4"></h1>
     <!-- /.row -->

@@ -33,5 +33,12 @@ public class OfferServiceImpl implements OfferService{
     public void delete(int id) {}
 
     @Override
-    public void update(int id) {}
+    public void update(int id, Offer offer) throws SQLException, ClassNotFoundException {
+        offerRepositrory.update(id, offer);
+    }
+
+    @Override
+    public List<Offer> getAll() throws SQLException, ClassNotFoundException {
+        return offerRepositrory.getAll();
+    }
 }

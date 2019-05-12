@@ -2,19 +2,30 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page isELIgnored="false" %>
 
-<fmt:setLocale value="${param.lang}"/>
+<fmt:setLocale value="${sessionScope.lang}"/>
 <fmt:setBundle basename="messages"/>
 
 <!DOCTYPE html>
-<html lang="en">
 
+<html lang="${sessionScope.lang}">
 <head>
+    <c:if test="${not empty param.lang}">
+        <c:set var="lang" scope="session" value="${param.lang}"/>
+    </c:if>
+    <script>
+        (function setLangParameterToSessionScope() {
+            if (window.location.search === '?lang=en' || window.location.search === '?lang=ru') {
+                window.location.search = '';
+            }
+        })()
+    </script>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title><fmt:message key="label.certain"/> <fmt:message key="label.order"/></title>
+    <title><fmt:message key="label.orders"/></title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -114,25 +125,47 @@
 <!-- Page Content -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-12 mb-4">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-10 mb-4">
             <!-- Page Heading/Breadcrumbs -->
             <h1 class="py-4"></h1>
-            <h1 class="mt-4 mb-3"><fmt:message key="label.certain"/>
-                <small><fmt:message key="label.order"/></small>
+            <h1 class="mt-4 mb-3"><fmt:message key="label.current"/>
+                <small><fmt:message key="label._orders"/></small>
             </h1>
-            <p><fmt:message key="label.infoAboutOrder"/></p>
+            <p><fmt:message key="label.checkCurrentOrders"/></p>
             <table class="table table-hover">
-                <form action = "/admin/1/orders/1" method = "post">
+                <thead>
                 <tr>
-                    <td><c:out value="${offer.status}"/></td>
-                    <td><input type="text" placeholder="new status" name="status"/></td>
-                    <td><button type="submit" value="login">change status</button></td>
+                    <th><fmt:message key="label.carModel"/></th>
+                    <th><fmt:message key="label.carnumber"/></th>
+                    <th><fmt:message key="label.marque"/></th>
                 </tr>
-                </form>
+                </thead>
+                <tbody>
+
+                <c:forEach items="${cars}" var="car">
+                    <form action="/clients/1/order" method="get">
+                    <c:set var="carId" value="${car.id}" scope="session"/>
+                        <input id="id_anything123" type="hidden" name="val" value="${car.id}"/>
+                        <tr>
+                            <td><c:out value="${car.model}"/></td>
+                            <td><c:out value="${car.number}"/></td>
+                            <td><c:out value="${car.marque}"/></td>
+                            <td>
+                                <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton" name="orderDet"
+                                        value="${carId}"><fmt:message key="label.details"/>
+                                </button>
+                            </td>
+                        </tr>
+                    </form>
+                </c:forEach>
+                </tbody>
             </table>
-            <h1 class="mt-2 mb-3">Fines</h1>
-            <h4>20$ <span class="badge badge-success">paid</span></h4>
-            <h4>50$ <span class="badge badge-danger">not paid</span></h4>
+
+            <a href="/admin/1/newcar" class="btn btn-success btn-lg btn-block">
+                <fmt:message key="label.newcar"/>
+            </a>
+
         </div>
     </div>
 </div>
@@ -145,6 +178,7 @@
     </div>
     <!-- /.container -->
 </footer>
+
 </body>
 
 </html>
