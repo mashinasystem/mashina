@@ -15,7 +15,7 @@ import org.apache.log4j.Logger;
 
 public class AdminInfoServlet extends HttpServlet {
     final static Logger logger = Logger.getLogger(AdminInfoServlet.class);
-    AdminService adminServiceImpl = new AdminServiceImpl();
+    private AdminService adminServiceImpl = new AdminServiceImpl();
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) {
