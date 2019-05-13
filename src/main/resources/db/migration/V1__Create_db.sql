@@ -28,8 +28,8 @@ create table ADMINISTRATOR
 create table CAR
 (
     ID     serial primary key,
-    MARQUE varchar(16),
-    MODEL  varchar(16),
+    MARQUE varchar(32),
+    MODEL  varchar(32),
     NUMBER varchar(10) not null
 );
 

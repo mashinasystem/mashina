@@ -26,18 +26,28 @@ public class TicketRepositoryImpl implements TicketRepository {
         try (Connection connection = DriverManager.getConnection(DATA_BASE_URL, ADMIN, PASSWORD);
              Statement statement = connection.createStatement()) {
 
-            String sql = "SELECT * FROM ticket WHERE ticket.driver_id = " + driverId + ";";
+            String sql;
+            if (driverId < 0) {
+                sql = "SELECT * FROM ticket;";
+            } else {
+                sql = "SELECT * FROM ticket WHERE ticket.driver_id = " + driverId + ";";
+            }
             resultSet = statement.executeQuery(sql);
             List<Ticket> tickets = new ArrayList<>();
             while (resultSet.next()) {
                 tickets.add(Ticket.builder()
                         .id(resultSet.getInt(1))
+                        .driverId(resultSet.getInt(2))
                         .isPaid(resultSet.getBoolean(3))
                         .cost(resultSet.getInt(4))
                         .build());
             }
             return tickets;
         }
+    }
+
+    public List<Ticket> get() throws ClassNotFoundException, SQLException {
+        return this.get(-1);
     }
 
     @Override
@@ -74,10 +84,9 @@ public class TicketRepositoryImpl implements TicketRepository {
 
         try (Connection connection = DriverManager.getConnection(DATA_BASE_URL, ADMIN, PASSWORD);
              Statement statement = connection.createStatement()) {
-            String sql =
-                    "UPDATE ticket " +
-                    "SET is_paid = " + paid +
-                    "WHERE id = " + id + ";";
+            String sql = "UPDATE ticket" +
+                    " SET is_paid = " + paid +
+                    " WHERE id = " + id + ";";
             statement.executeUpdate(sql);
         }
     }

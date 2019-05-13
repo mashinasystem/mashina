@@ -4,6 +4,7 @@ import com.epam.machine.entity.Offer;
 import com.epam.machine.entity.Ticket;
 import com.epam.machine.service.OfferServiceImpl;
 import com.epam.machine.service.TicketServiceImpl;
+import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -15,6 +16,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class ClientsOrdersServlet extends HttpServlet {
+    final static Logger logger = Logger.getLogger(AdminCertainOrderServlet.class);
 
     private OfferServiceImpl offerService = new OfferServiceImpl();
     private TicketServiceImpl ticketService = new TicketServiceImpl();
@@ -33,7 +35,32 @@ public class ClientsOrdersServlet extends HttpServlet {
 
             request.getRequestDispatcher("/clientsOrders.jsp").forward(request, response);
         } catch (ServletException | IOException | SQLException | ClassNotFoundException err) {
-            System.out.println("Something is wrong. Game over. Try again" + err.getMessage());
+            logger.error("Something is wrong. Game over. Try again. " + err.getMessage());
+        }
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
+        try {
+            int ticketId = Integer.parseInt(request.getParameter("currentTicketId"));
+
+            try {
+                ticketService.update(Ticket.builder()
+                        .id(ticketId)
+                        .isPaid(true)
+                        .build());
+            } catch (SQLException | ClassNotFoundException e) {
+                logger.error(e.getMessage());
+            }
+
+            try {
+                response.sendRedirect("/clients/1/orders");
+            } catch (IOException e) {
+                logger.error(e.getMessage());
+            }
+
+        } catch (NumberFormatException err){
+            logger.error("Incorrect input. " + err.getMessage());
         }
     }
 }
