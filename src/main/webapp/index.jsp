@@ -20,7 +20,6 @@
         })()
     </script>
 
-
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta name="description" content=""/>
@@ -122,7 +121,9 @@
             <fmt:message key="label.signIn"/>
         </a>
         <% } else { %>
-        <a class="btn btn-danger btn-sm" href="/logout" method="get"><fmt:message key="label.logout"/></a>
+        <a class="btn btn-danger btn-sm" href="/logout" method="get">
+            <fmt:message key="label.logout"/>
+        </a>
         <% } %>
     </div>
 </nav>

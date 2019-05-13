@@ -25,7 +25,7 @@ public class CarAdminServlet extends HttpServlet {
             List<Car> cars = carService.getAll();
             request.setAttribute("cars", cars);
 
-            request.getRequestDispatcher("/CarsAdmin.jsp").forward(request, response);
+            request.getRequestDispatcher("/adminCars.jsp").forward(request, response);
         } catch (ServletException | IOException | SQLException | ClassNotFoundException err) {
             System.out.println("Something is wrong. Game over. Try again" + err.getMessage());
         }

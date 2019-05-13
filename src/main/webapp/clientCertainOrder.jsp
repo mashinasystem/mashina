@@ -144,7 +144,7 @@
                 <tr>
                     <td><c:out value="${offer.status}"/></td>
                     <td><input type="text" placeholder="new status" name="status"/></td>
-                    <td><button type="submit" value="login">change status</button></td>
+                    <td><button type="submit" value="login"><fmt:message key="label.changeStatus"/></button></td>
                 </tr>
                 </form>
                 </tbody>

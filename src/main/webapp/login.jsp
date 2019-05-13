@@ -108,13 +108,10 @@
                 <fmt:message key="label.language"/>
             </button>
             <div class="dropdown-menu dropdown-menu-right">
-                <a class="dropdown-item" href="?lang=en">
-                    <fmt:message key="label.English"/>
-                </a>
-                <a class="dropdown-item" href="?lang=ru">
-                    <fmt:message key="label.Russian"/>
-                </a>
+                <a class="dropdown-item" href="?lang=en"><fmt:message key="label.English"/></a>
+                <a class="dropdown-item" href="?lang=ru"><fmt:message key="label.Russian"/></a>
             </div>
+        </div>
         </div>
         <a class="text-dark">.</a>
         <% if (session.getAttribute("role") == null) { %>
