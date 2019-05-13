@@ -2,13 +2,23 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page isELIgnored="false" %>
 
-<fmt:setLocale value="${param.lang}"/>
+<fmt:setLocale value="${sessionScope.lang}"/>
 <fmt:setBundle basename="messages"/>
 
 <!DOCTYPE html>
-<html lang="en">
 
+<html lang="${sessionScope.lang}">
 <head>
+    <c:if test="${not empty param.lang}">
+        <c:set var="lang" scope="session" value="${param.lang}"/>
+    </c:if>
+    <script>
+        (function setLangParameterToSessionScope() {
+            if (window.location.search === '?lang=en' || window.location.search === '?lang=ru') {
+                window.location.search = '';
+            }
+        })()
+    </script>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -107,7 +117,7 @@
             </div>
         </div>
         <a class="text-dark">.</a>
-        <% if (session.getAttribute("role") == null)  { %>
+        <% if (session.getAttribute("role") == null) { %>
         <a class="btn btn-success btn-sm" href="/login">
             <fmt:message key="label.signIn"/>
         </a>

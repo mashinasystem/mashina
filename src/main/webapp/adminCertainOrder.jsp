@@ -2,13 +2,24 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page isELIgnored="false" %>
 
-<fmt:setLocale value="${param.lang}"/>
+<fmt:setLocale value="${sessionScope.lang}"/>
 <fmt:setBundle basename="messages"/>
 
 <!DOCTYPE html>
-<html lang="en">
 
+<html lang="${sessionScope.lang}">
 <head>
+    <c:if test="${not empty param.lang}">
+        <c:set var="lang" scope="session" value="${param.lang}"/>
+    </c:if>
+    <script>
+        (function setLangParameterToSessionScope() {
+            if (window.location.search === '?lang=en' || window.location.search === '?lang=ru') {
+                window.location.search = '';
+            }
+        })()
+    </script>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -127,17 +138,18 @@
             </h1>
             <p><fmt:message key="label.infoAboutOrder"/></p>
             <table class="table table-hover">
-                <form action = "/admin/1/orders/1" method = "post">
-                <tr>
-                    <td><c:out value="${offer.status}"/></td>
-                    <td><input type="text" placeholder="new status" name="status"/></td>
-                    <td><button type="submit" value="login">change status</button></td>
-                </tr>
+                <form action="/admin/1/orders/1" method="post">
+                    <tr>
+                        <td><c:out value="${offer.status}"/></td>
+                        <td><input type="text" placeholder="new status" name="status"/></td>
+                        <td>
+                            <button type="submit" value="login">
+                                <fmt:message key="label.changeStatus"/>
+                            </button>
+                        </td>
+                    </tr>
                 </form>
             </table>
-            <h1 class="mt-2 mb-3">Fines</h1>
-            <h4>20$ <span class="badge badge-success">paid</span></h4>
-            <h4>50$ <span class="badge badge-danger">not paid</span></h4>
         </div>
     </div>
 </div>
