@@ -112,14 +112,13 @@
                 <a class="dropdown-item" href="?lang=ru"><fmt:message key="label.Russian"/></a>
             </div>
         </div>
-        </div>
         <a class="text-dark">.</a>
         <% if (session.getAttribute("role") == null) { %>
         <a class="btn btn-success btn-sm" href="/login">
             <fmt:message key="label.signIn"/>
         </a>
         <% } else { %>
-        <a class="btn btn-danger btn-sm" href="/logout" method="get"><fmt:message key="label.logout"/></a>
+            <a class="btn btn-danger btn-sm" href="/logout" method="get"><fmt:message key="label.logout"/></a>
         <% } %>
     </div>
 </nav>

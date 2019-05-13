@@ -182,7 +182,6 @@
                     <th><fmt:message key="label.carModel"/></th>
                     <th><fmt:message key="label.payment"/></th>
                     <th><fmt:message key="label.status"/></th>
-                    <th><fmt:message key="label.details"/></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -193,11 +192,6 @@
                     <td>Tesla Model X</td>
                     <td>Confirmed</td>
                     <td>Finished</td>
-                    <td>
-                        <a href="/clients/1/orders/1" class="btn btn-info btn-sm">
-                            <fmt:message key="label.edit"/>
-                        </a>
-                    </td>
                 </tr>
 
                 </tbody>

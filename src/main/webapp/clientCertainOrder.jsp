@@ -29,6 +29,7 @@
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
@@ -133,22 +134,32 @@
                 <small><fmt:message key="label.order"/></small>
             </h1>
             <p><fmt:message key="label.infoAboutOrder"/></p>
+
             <table class="table table-hover">
-                <thead>
-                <tr>
-                    <th><fmt:message key="label.status"/></th>
-                </tr>
-                </thead>
                 <tbody>
                 <form action = "/clients/1/order" method = "post">
                 <tr>
                     <td><c:out value="${offer.status}"/></td>
-                    <td><input type="text" placeholder="new status" name="status"/></td>
-                    <td><button type="submit" value="login"><fmt:message key="label.changeStatus"/></button></td>
+                    <td><input type="text" class="form-control" placeholder="new status" name="status"/></td>
+                    <td>
+                        <div class="dropdown">
+                            <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" value="login">
+                                <fmt:message key="label.changeStatus"/>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="btn btn-dark dropdown-item" type="submit">Not paid</a>
+                                <a class="btn btn-dark dropdown-item" type="submit">Paid</a>
+                                <a class="btn btn-dark dropdown-item" type="submit">In progress</a>
+                                <a class="btn btn-dark dropdown-item" type="submit">Finished</a>
+                                <a class="btn btn-dark dropdown-item" type="submit">Declined</a>
+                            </div>
+                        </div>
+                    </td>
                 </tr>
                 </form>
                 </tbody>
             </table>
+
         </div>
     </div>
 </div>

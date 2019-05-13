@@ -136,6 +136,8 @@
             <small><fmt:message key="label.order"/></small>
         </h1>
         <h4><fmt:message key="label.fillTheFields"/></h4>
+
+
         <form class="registration-form" name="registration-form" method="post">
             <div class="control-group form-group">
                 <div class="controls">
@@ -154,6 +156,8 @@
             <!-- For success/fail messages -->
             <button type="submit" class="btn btn-dark"><fmt:message key="label.create"/></button>
         </form>
+
+
     </div>
 </div>
 
