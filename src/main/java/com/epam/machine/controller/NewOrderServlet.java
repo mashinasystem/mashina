@@ -1,5 +1,6 @@
 package com.epam.machine.controller;
 
+import com.epam.machine.entity.Car;
 import com.epam.machine.entity.Offer;
 import com.epam.machine.service.CarServiceImpl;
 import com.epam.machine.service.ClientServiceImpl;
@@ -11,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
+
 import org.apache.log4j.Logger;
 
 public class NewOrderServlet extends HttpServlet {
@@ -39,6 +42,9 @@ public class NewOrderServlet extends HttpServlet {
             int period = Integer.parseInt(request.getParameter("period"));
 
             try {
+                List<Car> cars = carService.getAll();
+                request.setAttribute("cars", cars);
+
                 offerService.create(Offer.builder()
                         .car(carService.get(carId))
                         .payment(period * 200)

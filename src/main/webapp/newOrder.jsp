@@ -29,6 +29,7 @@
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
@@ -138,13 +139,24 @@
         <h4><fmt:message key="label.fillTheFields"/></h4>
 
 
-        <form class="registration-form" name="registration-form" method="post">
+        <form action="/newOrder" method="post">
             <div class="control-group form-group">
-                <div class="controls">
-                    <input type="text" class="form-control" id="name" placeholder="carId" name="carId" required
-                           data-validation-required-message="Please enter your name.">
-                    <p class="help-block"></p>
+                <button type="button" class="btn btn-outline-dark btn-block dropdown-toggle" data-toggle="dropdown" value="login">
+                    Choose auto
+                </button>
+
+                <c:set var="carId" value="0" scope="session"/>
+                <div class="dropdown-menu">
+                    <c:forEach items="${cars}" var="car">
+                        <input id="id_anything123" type="hidden" name="val" value="${carId}"/>
+                        <a type="submit">
+                            <c:out value="${car.model}"/>
+                            <c:out value="${car.marque()}"/>
+                        </a>
+                        <c:set var="carId" value="${carId + 1}" scope="session"/>
+                    </c:forEach>
                 </div>
+
             </div>
             <div class="control-group form-group">
                 <div class="controls">
@@ -154,7 +166,7 @@
             </div>
             <div id="success"></div>
             <!-- For success/fail messages -->
-            <button type="submit" class="btn btn-dark"><fmt:message key="label.create"/></button>
+            <button type="submit" class="btn btn-success"><fmt:message key="label.create"/></button>
         </form>
 
 
