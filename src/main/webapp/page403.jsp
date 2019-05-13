@@ -98,6 +98,11 @@
                                 <fmt:message key="label.Info"/>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/1/cars">
+                                <fmt:message key="label.cars"/>
+                            </a>
+                        </li>
                         <% }%>
                     </ul>
         </div>

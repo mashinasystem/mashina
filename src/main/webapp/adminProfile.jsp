@@ -98,6 +98,11 @@
                                 <fmt:message key="label.Info"/>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/1/cars">
+                                <fmt:message key="label.cars"/>
+                            </a>
+                        </li>
                         <% }%>
                     </ul>
         </div>
@@ -132,7 +137,7 @@
     </h1>
 
     <div class="row">
-        <div class="col-lg-4 portfolio-item">
+        <div class="col-lg-6 portfolio-item">
             <div class="card h-100">
                 <a href="/admin/1/orders"><img class="card-img-top" src="htp://placehold.it/700x400" alt=""></a>
                 <div class="card-body">
@@ -146,7 +151,7 @@
             </div>
 
         </div>
-        <div class="col-lg-4 portfolio-item">
+        <div class="col-lg-6 portfolio-item">
             <div class="card h-100">
                 <a href="/admin/1/customers"><img class="card-img-top" src="htp://placehold.it/700x400" alt=""></a>
                 <div class="card-body">
@@ -161,7 +166,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-4 portfolio-item">
+        <div class="col-lg-6 portfolio-item">
             <div class="card h-100">
                 <a href="/admin/1/info"><img class="card-img-top" src="htp://placehold.it/700x400" alt=""></a>
                 <div class="card-body">
@@ -176,21 +181,21 @@
                 </div>
             </div>
         </div>
-                <div class="col-lg-4 portfolio-item">
-                    <div class="card h-100">
-                        <a href="/admin/1/customers"><img class="card-img-top" src="htp://placehold.it/700x400" alt=""></a>
-                        <div class="card-body">
-                            <h4 class="card-title">
-                                <a href="/admin/1/cars">
-                                    <fmt:message key="label.cars"/>
-                                </a>
-                            </h4>
-                            <p class="card-text">
-                                <fmt:message key="text.checkOrEdit"/>
-                            </p>
-                        </div>
-                    </div>
+        <div class="col-lg-6 portfolio-item">
+            <div class="card h-100">
+                <a href="/admin/1/customers"><img class="card-img-top" src="htp://placehold.it/700x400" alt=""></a>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <a href="/admin/1/cars">
+                            <fmt:message key="label.cars"/>
+                        </a>
+                    </h4>
+                    <p class="card-text">
+                        <fmt:message key="text.checkOrEdit"/>
+                    </p>
                 </div>
+            </div>
+        </div>
     </div>
     <h1 class="py-4"></h1>
     <!-- /.row -->

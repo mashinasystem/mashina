@@ -157,7 +157,7 @@
                             <td><c:out value="${offer.status}"/></td>
                             <td>
                                 <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton" name="orderDet"
-                                        value="${offerId}"><fmt:message key="label.details"/>
+                                        value="${offerId}"><fmt:message key="label.edit"/>
                                 </button>
                             </td>
                         </tr>

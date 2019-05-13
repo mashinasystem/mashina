@@ -25,7 +25,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title><fmt:message key="label.orders"/></title>
+    <title><fmt:message key="label.cars"/></title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -98,6 +98,11 @@
                                 <fmt:message key="label.Info"/>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/1/cars">
+                                <fmt:message key="label.cars"/>
+                            </a>
+                        </li>
                         <% }%>
                     </ul>
         </div>
@@ -130,9 +135,9 @@
             <!-- Page Heading/Breadcrumbs -->
             <h1 class="py-4"></h1>
             <h1 class="mt-4 mb-3"><fmt:message key="label.current"/>
-                <small><fmt:message key="label._orders"/></small>
+                <small><fmt:message key="label.cars"/></small>
             </h1>
-            <p><fmt:message key="label.checkCurrentOrders"/></p>
+            <p><fmt:message key="label.checkCurrentAutos"/></p>
             <table class="table table-hover">
                 <thead>
                 <tr>
@@ -151,11 +156,6 @@
                             <td><c:out value="${car.model}"/></td>
                             <td><c:out value="${car.number}"/></td>
                             <td><c:out value="${car.marque}"/></td>
-                            <td>
-                                <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton" name="orderDet"
-                                        value="${carId}"><fmt:message key="label.details"/>
-                                </button>
-                            </td>
                         </tr>
                     </form>
                 </c:forEach>
@@ -163,7 +163,7 @@
             </table>
 
             <a href="/admin/1/newcar" class="btn btn-success btn-lg btn-block">
-                <fmt:message key="label.newcar"/>
+                <fmt:message key="label.addCustomer"/>
             </a>
 
         </div>
