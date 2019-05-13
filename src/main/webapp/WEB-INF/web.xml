@@ -30,7 +30,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>ClientsProfileServlet</servlet-name>
-        <url-pattern>/clients/1/profile</url-pattern>
+        <url-pattern>/clients/profile</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -39,7 +39,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>ClientsInfoServlet</servlet-name>
-        <url-pattern>/clients/1/info</url-pattern>
+        <url-pattern>/clients/info</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -48,7 +48,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>ClientsOrdersServlet</servlet-name>
-        <url-pattern>/clients/1/orders</url-pattern>
+        <url-pattern>/clients/orders</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -57,7 +57,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>AdminProfileServlet</servlet-name>
-        <url-pattern>/admin/1/profile</url-pattern>
+        <url-pattern>/admin/profile</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -66,7 +66,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>AdminInfoServlet</servlet-name>
-        <url-pattern>/admin/1/info</url-pattern>
+        <url-pattern>/admin/info</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -75,7 +75,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>AdminOrdersServlet</servlet-name>
-        <url-pattern>/admin/1/orders</url-pattern>
+        <url-pattern>/admin/orders</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -84,7 +84,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>AdminCustomersServlet</servlet-name>
-        <url-pattern>/admin/1/customers</url-pattern>
+        <url-pattern>/admin/customers</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -93,7 +93,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>AdminCertainOrderServlet</servlet-name>
-        <url-pattern>/admin/1/orders/1</url-pattern>
+        <url-pattern>/admin/orders/order</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -102,7 +102,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>AdminFines</servlet-name>
-        <url-pattern>/admin/1/orders/1/fines/1</url-pattern>
+        <url-pattern>/admin/orders/order/fines</url-pattern>
     </servlet-mapping>
 
     <filter>
@@ -163,7 +163,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>certainOrderServlet</servlet-name>
-        <url-pattern>/clients/1/order</url-pattern>
+        <url-pattern>/clients/order</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -172,7 +172,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>carAdmin</servlet-name>
-        <url-pattern>/admin/1/cars</url-pattern>
+        <url-pattern>/admin/cars</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -181,6 +181,6 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>newCar</servlet-name>
-        <url-pattern>/admin/1/newcar</url-pattern>
+        <url-pattern>/admin/newcar</url-pattern>
     </servlet-mapping>
 </web-app>

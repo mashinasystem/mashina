@@ -60,17 +60,17 @@
 
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/clients/1/profile">
+                        <a class="nav-link" href="/clients/profile">
                             <fmt:message key="label.profile"/>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/clients/1/orders">
+                        <a class="nav-link" href="/clients/orders">
                             <fmt:message key="label.orders"/>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/clients/1/info">
+                        <a class="nav-link" href="/clients/info">
                             <fmt:message key="label.Info"/>
                         </a>
                     </li>
@@ -79,22 +79,22 @@
 
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="/admin/1/profile">
+                            <a class="nav-link" href="/admin/profile">
                                 <fmt:message key="label.profile"/>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/admin/1/orders">
+                            <a class="nav-link" href="/admin/orders">
                                 <fmt:message key="label.orders"/>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/admin/1/customers">
+                            <a class="nav-link" href="/admin/customers">
                                 <fmt:message key="label.customers"/>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/admin/1/info">
+                            <a class="nav-link" href="/admin/info">
                                 <fmt:message key="label.Info"/>
                             </a>
                         </li>
@@ -134,10 +134,10 @@
     <div class="row">
         <div class="col-lg-4 portfolio-item">
             <div class="card h-100">
-                <a href="/admin/1/orders"><img class="card-img-top" src="htp://placehold.it/700x400" alt=""></a>
+                <a href="/admin/orders"><img class="card-img-top" src="htp://placehold.it/700x400" alt=""></a>
                 <div class="card-body">
                     <h4 class="card-title">
-                        <a href="/admin/1/orders"><fmt:message key="label.orders"/></a>
+                        <a href="/admin/orders"><fmt:message key="label.orders"/></a>
                     </h4>
                     <p class="card-text">
                         <fmt:message key="text.bookACar"/>
@@ -148,10 +148,10 @@
         </div>
         <div class="col-lg-4 portfolio-item">
             <div class="card h-100">
-                <a href="/admin/1/customers"><img class="card-img-top" src="htp://placehold.it/700x400" alt=""></a>
+                <a href="/admin/customers"><img class="card-img-top" src="htp://placehold.it/700x400" alt=""></a>
                 <div class="card-body">
                     <h4 class="card-title">
-                        <a href="/admin/1/customers">
+                        <a href="/admin/customers">
                             <fmt:message key="label.customers"/>
                         </a>
                     </h4>
@@ -163,10 +163,10 @@
         </div>
         <div class="col-lg-4 portfolio-item">
             <div class="card h-100">
-                <a href="/admin/1/info"><img class="card-img-top" src="htp://placehold.it/700x400" alt=""></a>
+                <a href="/admin/info"><img class="card-img-top" src="htp://placehold.it/700x400" alt=""></a>
                 <div class="card-body">
                     <h4 class="card-title">
-                        <a href="/admin/1/info">
+                        <a href="/admin/info">
                             <fmt:message key="label.personal"/> <fmt:message key="label.area"/>
                         </a>
                     </h4>
@@ -178,10 +178,10 @@
         </div>
                 <div class="col-lg-4 portfolio-item">
                     <div class="card h-100">
-                        <a href="/admin/1/customers"><img class="card-img-top" src="htp://placehold.it/700x400" alt=""></a>
+                        <a href="/admin/customers"><img class="card-img-top" src="htp://placehold.it/700x400" alt=""></a>
                         <div class="card-body">
                             <h4 class="card-title">
-                                <a href="/admin/1/cars">
+                                <a href="/admin/cars">
                                     <fmt:message key="label.cars"/>
                                 </a>
                             </h4>

@@ -60,17 +60,17 @@
 
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/clients/1/profile">
+                        <a class="nav-link" href="/clients/profile">
                             <fmt:message key="label.profile"/>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/clients/1/orders">
+                        <a class="nav-link" href="/clients/orders">
                             <fmt:message key="label.orders"/>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/clients/1/info">
+                        <a class="nav-link" href="/clients/info">
                             <fmt:message key="label.Info"/>
                         </a>
                     </li>
@@ -79,22 +79,22 @@
 
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="/admin/1/profile">
+                            <a class="nav-link" href="/admin/profile">
                                 <fmt:message key="label.profile"/>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/admin/1/orders">
+                            <a class="nav-link" href="/admin/orders">
                                 <fmt:message key="label.orders"/>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/admin/1/customers">
+                            <a class="nav-link" href="/admin/customers">
                                 <fmt:message key="label.customers"/>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/admin/1/info">
+                            <a class="nav-link" href="/admin/info">
                                 <fmt:message key="label.Info"/>
                             </a>
                         </li>
@@ -147,7 +147,7 @@
                 <tbody>
                 <c:set var="offerId" value="0" scope="session"/>
                 <c:forEach items="${offers}" var="offer">
-                    <form action="/clients/1/order" method="get">
+                    <form action="/clients/order" method="get">
                         <input id="id_anything123" type="hidden" name="val" value="${offerId}"/>
                         <tr>
                             <td><c:out value="${offer.beginDay}"/></td>
@@ -194,7 +194,7 @@
                     <td>Confirmed</td>
                     <td>Finished</td>
                     <td>
-                        <a href="/clients/1/orders/1" class="btn btn-info btn-sm">
+                        <a href="/clients/orders/order" class="btn btn-info btn-sm">
                             <fmt:message key="label.edit"/>
                         </a>
                     </td>

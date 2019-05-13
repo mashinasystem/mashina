@@ -49,17 +49,17 @@
 
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/clients/1/profile">
+                        <a class="nav-link" href="/clients/profile">
                             <fmt:message key="label.profile"/>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/clients/1/orders">
+                        <a class="nav-link" href="/clients/orders">
                             <fmt:message key="label.orders"/>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/clients/1/info">
+                        <a class="nav-link" href="/clients/info">
                             <fmt:message key="label.Info"/>
                         </a>
                     </li>
@@ -68,22 +68,22 @@
 
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="/admin/1/profile">
+                            <a class="nav-link" href="/admin/profile">
                                 <fmt:message key="label.profile"/>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/admin/1/orders">
+                            <a class="nav-link" href="/admin/orders">
                                 <fmt:message key="label.orders"/>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/admin/1/customers">
+                            <a class="nav-link" href="/admin/customers">
                                 <fmt:message key="label.customers"/>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/admin/1/info">
+                            <a class="nav-link" href="/admin/info">
                                 <fmt:message key="label.Info"/>
                             </a>
                         </li>
@@ -122,7 +122,7 @@
             </h1>
             <p><fmt:message key="label.infoAboutOrder"/></p>
             <table class="table table-hover">
-                <form action = "/admin/1/orders/1" method = "post">
+                <form action = "/admin/orders/order" method = "post">
                 <tr>
                     <td><c:out value="${offer.status}"/></td>
                     <td><input type="text" placeholder="new status" name="status"/></td>

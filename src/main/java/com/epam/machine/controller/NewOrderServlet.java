@@ -53,7 +53,7 @@ public class NewOrderServlet extends HttpServlet {
             }
 
             try {
-                response.sendRedirect("/clients/1/orders");
+                response.sendRedirect("/clients/orders");
             } catch (IOException e) {
                 logger.error(e.getMessage());
             }

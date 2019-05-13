@@ -44,7 +44,7 @@ public class NewCarServlet extends HttpServlet {
         }
 
         try {
-            response.sendRedirect("/admin/1/cars");
+            response.sendRedirect("/admin/cars");
         } catch (IOException e) {
             e.printStackTrace();
         }

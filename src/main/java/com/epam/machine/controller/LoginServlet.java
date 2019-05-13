@@ -42,12 +42,12 @@ public class LoginServlet extends HttpServlet {
                 session = request.getSession();
                 session.setAttribute("login", username);
                 session.setAttribute("role", Role.ADMIN);
-                response.sendRedirect("/admin/1/profile");
+                response.sendRedirect("/admin/profile");
             } else if (clientServiceImpl.clientLoginCheck(username,password)) {
                 session = request.getSession();
                 session.setAttribute("login", username);
                 session.setAttribute("role", Role.CUSTOMER);
-                response.sendRedirect("/clients/1/profile");
+                response.sendRedirect("/clients/profile");
             } else {
                 request.setAttribute("fail", 1);
                 request.getRequestDispatcher("/login.jsp").forward(request, response);

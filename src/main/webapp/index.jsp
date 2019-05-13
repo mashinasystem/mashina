@@ -60,17 +60,17 @@
 
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/clients/1/profile">
+                        <a class="nav-link" href="/clients/profile">
                             <fmt:message key="label.profile"/>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/clients/1/orders">
+                        <a class="nav-link" href="/clients/orders">
                             <fmt:message key="label.orders"/>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/clients/1/info">
+                        <a class="nav-link" href="/clients/info">
                             <fmt:message key="label.Info"/>
                         </a>
                     </li>
@@ -79,22 +79,22 @@
 
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="/admin/1/profile">
+                            <a class="nav-link" href="/admin/profile">
                                 <fmt:message key="label.profile"/>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/admin/1/orders">
+                            <a class="nav-link" href="/admin/orders">
                                 <fmt:message key="label.orders"/>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/admin/1/customers">
+                            <a class="nav-link" href="/admin/customers">
                                 <fmt:message key="label.customers"/>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/admin/1/info">
+                            <a class="nav-link" href="/admin/info">
                                 <fmt:message key="label.Info"/>
                             </a>
                         </li>
@@ -194,10 +194,10 @@
     <div class="row">
         <div class="col-lg-4 col-sm-6 portfolio-item">
             <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="img/card1.jpg" alt=""></a>
+                <a><img class="card-img-top" src="img/card1.jpg" alt=""></a>
                 <div class="card-body">
                     <h4 class="card-title">
-                        <a href="#">Porsche 911 Carrera</a>
+                        <a>Porsche 911 Carrera</a>
                     </h4>
                     <p class="card-text">
                         <fmt:message key="text.Porsche911Carrera"/>
@@ -207,10 +207,10 @@
         </div>
         <div class="col-lg-4 col-sm-6 portfolio-item">
             <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="img/card2.jpg" alt=""></a>
+                <a><img class="card-img-top" src="img/card2.jpg" alt=""></a>
                 <div class="card-body">
                     <h4 class="card-title">
-                        <a href="#">Jaguar F-Type</a>
+                        <a>Jaguar F-Type</a>
                     </h4>
                     <p class="card-text">
                         <fmt:message key="text.JaguarFType"/>
@@ -220,10 +220,10 @@
         </div>
         <div class="col-lg-4 col-sm-6 portfolio-item">
             <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="img/card3.jpg" alt=""></a>
+                <a><img class="card-img-top" src="img/card3.jpg" alt=""></a>
                 <div class="card-body">
                     <h4 class="card-title">
-                        <a href="#">Lotus Evora</a>
+                        <a>Lotus Evora</a>
                     </h4>
                     <p class="card-text">
                         <fmt:message key="text.LotusEvora"/>
@@ -233,10 +233,10 @@
         </div>
         <div class="col-lg-4 col-sm-6 portfolio-item">
             <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="img/card4.jpg" alt=""></a>
+                <a><img class="card-img-top" src="img/card4.jpg" alt=""></a>
                 <div class="card-body">
                     <h4 class="card-title">
-                        <a href="#">BMW i8</a>
+                        <a>BMW i8</a>
                     </h4>
                     <p class="card-text">
                         <fmt:message key="text.BMWi8"/>
@@ -246,10 +246,10 @@
         </div>
         <div class="col-lg-4 col-sm-6 portfolio-item">
             <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="img/card5.jpg" alt=""></a>
+                <a><img class="card-img-top" src="img/card5.jpg" alt=""></a>
                 <div class="card-body">
                     <h4 class="card-title">
-                        <a href="#">Nissan GT-R</a>
+                        <a>Nissan GT-R</a>
                     </h4>
                     <p class="card-text">
                         <fmt:message key="text.NissanGTR"/>
@@ -259,10 +259,10 @@
         </div>
         <div class="col-lg-4 col-sm-6 portfolio-item">
             <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="img/card6.jpg" alt=""></a>
+                <a><img class="card-img-top" src="img/card6.jpg" alt=""></a>
                 <div class="card-body">
                     <h4 class="card-title">
-                        <a href="#">Lexus LC</a>
+                        <a>Lexus LC</a>
                     </h4>
                     <p class="card-text">
                         <fmt:message key="text.LexusLC"/>

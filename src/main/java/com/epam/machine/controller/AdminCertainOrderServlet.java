@@ -56,7 +56,7 @@ public class AdminCertainOrderServlet extends HttpServlet {
             e.printStackTrace();
         }
         try {
-            response.sendRedirect("/admin/1/orders");
+            response.sendRedirect("/admin/orders");
         } catch (IOException e) {
             logger.error(e.getMessage());
         }
