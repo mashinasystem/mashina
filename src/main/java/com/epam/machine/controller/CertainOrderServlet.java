@@ -28,7 +28,7 @@ public class CertainOrderServlet extends HttpServlet {
             String login = session.getAttribute("login").toString();
 
             offers = offerService.get(login);
-            request.setAttribute("offer", offers.get(offerIdInList));
+            request.setAttribute("offer", offerService.getOffer(offerIdInList));
 
             request.getRequestDispatcher("/clientCertainOrder.jsp").forward(request, response);
         } catch (ServletException | IOException err) {
@@ -43,20 +43,28 @@ public class CertainOrderServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
         int statusId = Integer.parseInt(request.getParameter("status"));
-        String status = offers.get(offerIdInList).getStatus();
+        String status = "Not stated";
 
-        if (statusId == 1) {
-            status = "Declined";
-        }
-
-        offers.get(offerIdInList).setStatus(status);
         try {
-            offerService.update(offers.get(offerIdInList).getId(), offers.get(offerIdInList));
+            status = offerService.getOffer(offerIdInList).getStatus();
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+
+        if (statusId == 1) {
+            status = "Declined";
+        }
+
+        try {
+            offerService.update(offerIdInList, status);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
         try {
             response.sendRedirect("/clients/1/orders");
         } catch (IOException e) {

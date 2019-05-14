@@ -32,7 +32,14 @@ public class AdminCertainOrderServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
         int statusId = Integer.parseInt(request.getParameter("status"));
-        String status = offers.get(offerIdInList).getStatus();
+        String status = null;
+        try {
+            status = offerService.getOffer(offerIdInList).getStatus();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
 
         if (statusId == 1) {
             status = "Unexpectedly disappeared";
@@ -47,9 +54,8 @@ public class AdminCertainOrderServlet extends HttpServlet {
             status = "Declined";
         }
 
-        offers.get(offerIdInList).setStatus(status);
         try {
-            offerService.update(offers.get(offerIdInList).getId(), offers.get(offerIdInList));
+            offerService.update(offerIdInList, status);
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {

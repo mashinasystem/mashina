@@ -20,7 +20,12 @@ public class AdminOrdersServlet extends HttpServlet {
     @Override
     public void doGet (HttpServletRequest request, HttpServletResponse response) {
         try {
-            request.setAttribute("offers", offerService.getAll());
+            List<Offer> pastOffers = offerService.getAllPast();
+            request.setAttribute("pastOffers", pastOffers);
+
+            List<Offer> presentOffers = offerService.getAllPresent();
+            request.setAttribute("presentOffers", presentOffers);
+
             request.getRequestDispatcher("/adminOrders.jsp").forward(request, response);
         } catch(ServletException | IOException | SQLException | ClassNotFoundException err) {
             logger.error("Something is wrong. Game over. Try again. " + err.getMessage());

@@ -12,7 +12,15 @@ public interface OfferService {
 
     void delete(int id);
 
-    void update(int id, Offer offer) throws SQLException, ClassNotFoundException;
+    void update(int id, String status) throws SQLException, ClassNotFoundException;
 
     List<Offer> getAll() throws SQLException, ClassNotFoundException;
+
+    List<Offer> get(int id) throws SQLException, ClassNotFoundException;
+
+    Offer getOffer(int id) throws SQLException, ClassNotFoundException;
+
+    List<Offer> getAllPast() throws SQLException, ClassNotFoundException;
+
+    List<Offer> getAllPresent() throws SQLException, ClassNotFoundException;
 }
