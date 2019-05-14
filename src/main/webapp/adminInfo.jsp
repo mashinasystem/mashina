@@ -161,8 +161,6 @@
                 </tr>
                 </tbody>
             </table>
-            <button type="submit" class="btn btn-warning" id="sendMessageButton"><fmt:message
-                    key="label.edit"/></button>
         </div>
     </div>
 </div>
