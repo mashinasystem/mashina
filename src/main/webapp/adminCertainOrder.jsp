@@ -150,6 +150,13 @@
                     </tr>
                 </form>
             </table>
+            <p><fmt:message key="label.values"/></p>
+            <ul>
+                <li> 1 - <fmt:message key="label.notPaid"/></li>
+                <li> 2 - <fmt:message key="label.inProgress"/></li>
+                <li> 3 - <fmt:message key="label.finished"/></li>
+                <li> 4 - <fmt:message key="label.declined"/></li>
+            </ul>
         </div>
     </div>
 </div>
