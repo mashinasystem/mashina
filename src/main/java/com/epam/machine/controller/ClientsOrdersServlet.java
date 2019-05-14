@@ -44,26 +44,53 @@ public class ClientsOrdersServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
+        boolean ifNotNullTicket = true;
+        boolean ifNotNullOffer = true;
+
         try {
             int ticketId = Integer.parseInt(request.getParameter("currentTicketId"));
+        } catch (NumberFormatException err) {
+            ifNotNullTicket = false;
+        }
 
+        try {
+            int OfferId = Integer.parseInt(request.getParameter("val"));
+        } catch (NumberFormatException err) {
+            ifNotNullOffer = false;
+        }
+
+        if (ifNotNullOffer) {
             try {
-                ticketService.update(Ticket.builder()
-                        .id(ticketId)
-                        .isPaid(true)
-                        .build());
-            } catch (SQLException | ClassNotFoundException e) {
-                logger.error(e.getMessage());
+                int offerId = Integer.parseInt(request.getParameter("val"));
+                offerService.update(offerId, "Declined");
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
             }
+        }
 
+        if (ifNotNullTicket) {
             try {
-                response.sendRedirect("/clients/1/orders");
-            } catch (IOException e) {
-                logger.error(e.getMessage());
-            }
+                int ticketId = Integer.parseInt(request.getParameter("currentTicketId"));
+                try {
+                    ticketService.update(Ticket.builder()
+                            .id(ticketId)
+                            .isPaid(true)
+                            .build());
+                } catch (SQLException | ClassNotFoundException e) {
+                    logger.error(e.getMessage());
+                }
 
-        } catch (NumberFormatException err){
-            logger.error("Incorrect input. " + err.getMessage());
+
+            } catch (NumberFormatException err) {
+                logger.error("Incorrect input. " + err.getMessage());
+            }
+        }
+        try {
+            response.sendRedirect("/clients/1/orders");
+        } catch (IOException e) {
+            logger.error(e.getMessage());
         }
     }
 }

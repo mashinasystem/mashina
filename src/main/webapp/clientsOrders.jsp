@@ -147,8 +147,8 @@
                 <tbody>
                 <c:set var="offerId" value="0" scope="session"/>
                 <c:forEach items="${presentOffers}" var="offer">
-                    <form action="/clients/1/order" method="get">
-                        <input id="id_anything123" type="hidden" name="val" value="${offer.id}"/>
+                    <form action="/clients/1/orders" method="post">
+                        <input id="id_anything123" type="hidden" name="val" value="${offer.id}" scope = "session"/>
                         <tr>
                             <td><c:out value="${offer.beginDay}"/></td>
                             <td><c:out value="${offer.period}"/></td>
@@ -157,7 +157,7 @@
                             <td><c:out value="${offer.status}"/></td>
                             <td>
                                 <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton" name="orderDet"
-                                        value="${offer.id}"><fmt:message key="label.edit"/>
+                                        value="${offer.id}">X
                                 </button>
                             </td>
                         </tr>
@@ -232,7 +232,7 @@
                         <td>
                             <c:if test="${!ticket.isPaid}">
                                 <form class="registration-form" name="registration-form" method="post">
-                                    <input type="hidden" name="currentTicketId" value="${ticket.id}"/>
+                                    <input type="hidden" name="currentTicketId" value="${ticket.id}" scope = "session"/>
                                     <button type="submit" class="btn btn-info btn-sm">
                                         <fmt:message key="label.pay"/>
                                     </button>

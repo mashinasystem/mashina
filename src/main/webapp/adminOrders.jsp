@@ -158,9 +158,9 @@
                         <input id="id_anything123" type="hidden" name="val" value="${offer.id}"/>
                         <input id="id_anything123" type="hidden" name="driverId" value="${offer.driverId}"/>
                         <tr>
-                            <td><c:out value="${clients.get(offer.driverId).getFullName()}"/></td>
-                            <td><c:out value="${clients.get(offer.driverId).getPhoneNumber()}"/></td>
-                            <td><c:out value="${clients.get(offer.driverId).getEMail()}"/></td>
+                            <td><c:out value="${clientsPr.get(offerId).getFullName()}"/></td>
+                            <td><c:out value="${clientsPr.get(offerId).getPhoneNumber()}"/></td>
+                            <td><c:out value="${clientsPr.get(offerId).getEMail()}"/></td>
                             <td><c:out value="${offer.beginDay}"/></td>
                             <td><c:out value="${offer.period}"/></td>
                             <td><c:out value="${offer.car.getModel()}"/></td>
@@ -197,12 +197,13 @@
                 </tr>
                 </thead>
                 <tbody>
+                <c:set var="offerId1" value="0" scope="session"/>
                 <c:forEach items="${pastOffers}" var="offer">
                     <form action="/admin/1/orders/1" method="get">
                         <tr>
-                            <td><c:out value="${clients.get(offer.driverId).getFullName()}"/></td>
-                            <td><c:out value="${clients.get(offer.driverId).getPhoneNumber()}"/></td>
-                            <td><c:out value="${clients.get(offer.driverId).getEMail()}"/></td>
+                            <td><c:out value="${clientsPast.get(offerId1).getFullName()}"/></td>
+                            <td><c:out value="${clientsPast.get(offerId1).getPhoneNumber()}"/></td>
+                            <td><c:out value="${clientsPast.get(offerId1).getEMail()}"/></td>
                             <td><c:out value="${offer.beginDay}"/></td>
                             <td><c:out value="${offer.period}"/></td>
                             <td><c:out value="${offer.car.getModel()}"/></td>
@@ -211,6 +212,7 @@
                             <td>
                             </td>
                         </tr>
+                        <c:set var="offerId1" value="${offerId + 1}" scope="session"/>
                     </form>
                 </c:forEach>
                 </tbody>
