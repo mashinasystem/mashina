@@ -203,6 +203,7 @@
                 </tbody>
             </table>
 
+            <!-- Show and pay fines -->
             <h1 class="mt-4 mb-3"><fmt:message key="label.your"/>
                 <small><fmt:message key="label.fines"/></small>
             </h1>
@@ -229,11 +230,15 @@
                             </c:if>
                         </td>
                         <td>
-                            <button type="submit" class="btn btn-info btn-sm">
-                                <fmt:message key="label.pay"/>
-                            </button>
+                            <c:if test="${!ticket.isPaid}">
+                                <form class="registration-form" name="registration-form" method="post">
+                                    <input type="hidden" name="currentTicketId" value="${ticket.id}"/>
+                                    <button type="submit" class="btn btn-info btn-sm">
+                                        <fmt:message key="label.pay"/>
+                                    </button>
+                                </form>
+                            </c:if>
                         </td>
-
                     </tr>
                 </c:forEach>
             </table>

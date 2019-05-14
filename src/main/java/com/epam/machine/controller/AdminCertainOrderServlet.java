@@ -4,27 +4,36 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.epam.machine.entity.Offer;
+import com.epam.machine.entity.Ticket;
+import com.epam.machine.repository.ClientRepositoryImpl;
+import com.epam.machine.service.ClientServiceImpl;
 import com.epam.machine.service.OfferServiceImpl;
+import com.epam.machine.service.TicketServiceImpl;
 import org.apache.log4j.Logger;
 
 public class AdminCertainOrderServlet extends HttpServlet {
     final static Logger logger = Logger.getLogger(AdminCertainOrderServlet.class);
+
     private OfferServiceImpl offerService = new OfferServiceImpl();
+
     private int offerIdInList;
     private List<Offer> offers;
 
     @Override
-    public void doGet (HttpServletRequest request, HttpServletResponse response) {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) {
         try {
             offers = offerService.getAll();
             offerIdInList = Integer.parseInt(request.getParameter("val"));
+
             request.getRequestDispatcher("/adminCertainOrder.jsp").forward(request, response);
-        } catch(ServletException | IOException | SQLException | ClassNotFoundException err) {
+        } catch (ServletException | IOException | SQLException | ClassNotFoundException err) {
             logger.error("Something is wrong. Game over. Try again. " + err.getMessage());
         }
     }

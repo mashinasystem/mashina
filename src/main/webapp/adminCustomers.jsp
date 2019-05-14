@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="ftm" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page isELIgnored="false" %>
 
 <fmt:setLocale value="${sessionScope.lang}"/>
@@ -140,9 +141,9 @@
             <table class="table table-hover">
                 <thead>
                 <tr>
+                    <th><fmt:message key="label.id"/></th>
                     <th><fmt:message key="label.name"/></th>
                     <th><fmt:message key="label.phoneNumber"/></th>
-                    <th><fmt:message key="label.email"/></th>
                     <th><fmt:message key="label.passport"/></th>
                     <th><fmt:message key="label.lisence"/></th>
                 </tr>
@@ -150,15 +151,70 @@
                 <c:forEach items="${clients}" var="client">
                     <form action="/clients/1/order" method="get">
                         <tr>
+                            <td><c:out value="${client.id}"/></td>
                             <td><c:out value="${client.fullName}"/></td>
                             <td><c:out value="${client.phoneNumber}"/></td>
-                            <td></td>
                             <td><c:out value="${client.passport}"/></td>
                             <td><c:out value="${client.driverCard}"/></td>
                         </tr>
                     </form>
                 </c:forEach>
             </table>
+
+            <!-- Show and create fines -->
+            <h1 class="mt-4 mb-3"><fmt:message key="label.allThe"/>
+                <small><fmt:message key="label.fines"/></small>
+            </h1>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>№</th>
+                    <th><fmt:message key="label.cost"/></th>
+                    <th><fmt:message key="label.name"/></th>
+                    <th><fmt:message key="label.status"/></th>
+                </tr>
+                </thead>
+                <c:set var="ticketId" value="0" scope="session"/>
+                <c:forEach items="${tickets}" var="ticket" varStatus="t">
+                    <tr>
+                        <td><c:out value="${ticket.id}"/></td>
+                        <td><c:out value="${ticket.cost}"/> $</td>
+                        <td><c:out value="${names.get(t.index)}"/></td>
+                        <td>
+                            <c:if test="${ticket.isPaid}">
+                                <fmt:message key="label.paid"/>
+                            </c:if>
+                            <c:if test="${!ticket.isPaid}">
+                                <fmt:message key="label.notPaid"/>
+                            </c:if>
+                        </td>
+                    </tr>
+                </c:forEach>
+            </table>
+
+            <h1 class="mt-4 mb-3"><fmt:message key="label.create"/>
+                <small><ftm:message key="label.new"/> <fmt:message key="label.fines"/></small>
+            </h1>
+            <h4><fmt:message key="label.fillTheFields"/></h4>
+            <form class="registration-form" name="registration-form" method="post">
+                <div class="control-group form-group">
+                    <div class="controls">
+                        <input type="text" class="form-control" id="name" placeholder="Driver ID" name="driverId"
+                               required data-validation-required-message="Enter the driver ID">
+                        <p class="help-block"></p>
+                    </div>
+                </div>
+                <div class="control-group form-group">
+                    <div class="controls">
+                        <input type="text" class="form-control" id="text" placeholder="Ticket cost" name="ticketCost"
+                               required data-validation-required-message="Enter the fine cost">
+                    </div>
+                </div>
+                <div id="success"></div>
+                <!-- For success/fail messages -->
+                <button type="submit" class="btn btn-dark"><fmt:message key="label.create"/></button>
+            </form>
+
         </div>
     </div>
 </div>

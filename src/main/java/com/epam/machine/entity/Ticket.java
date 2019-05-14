@@ -14,4 +14,7 @@ public class Ticket {
     public boolean getIsPaid(){
         return isPaid;
     }
+    public void setIsPaid(boolean isPaid){
+        this.isPaid = isPaid;
+    }
 }
