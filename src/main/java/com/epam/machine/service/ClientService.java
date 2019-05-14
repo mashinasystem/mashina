@@ -18,4 +18,6 @@ public interface ClientService {
     boolean clientLoginCheck(String login,String password) throws SQLException, ClassNotFoundException;
 
     List<Client> getAll() throws SQLException, ClassNotFoundException;
+
+    Client get(int id) throws SQLException, ClassNotFoundException;
 }

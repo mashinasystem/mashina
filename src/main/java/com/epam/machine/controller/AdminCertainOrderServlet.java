@@ -45,7 +45,7 @@ public class AdminCertainOrderServlet extends HttpServlet {
         }
 
         if (statusId == 1) {
-            status = "Unexpectedly disappeared";
+            status = "Not paid";
         }
         if (statusId == 2) {
             status = "In progress";
