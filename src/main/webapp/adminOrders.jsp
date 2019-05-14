@@ -156,10 +156,11 @@
                 <c:forEach items="${presentOffers}" var="offer">
                     <form action="/admin/1/orders/1" method="get">
                         <input id="id_anything123" type="hidden" name="val" value="${offer.id}"/>
+                        <input id="id_anything123" type="hidden" name="driverId" value="${offer.driverId}"/>
                         <tr>
-                            <td><c:out value="${offer.driverId}"/></td>
-                            <td></td>
-                            <td></td>
+                            <td><c:out value="${clients.get(offer.driverId).getFullName()}"/></td>
+                            <td><c:out value="${clients.get(offer.driverId).getPhoneNumber()}"/></td>
+                            <td><c:out value="${clients.get(offer.driverId).getEMail()}"/></td>
                             <td><c:out value="${offer.beginDay}"/></td>
                             <td><c:out value="${offer.period}"/></td>
                             <td><c:out value="${offer.car.getModel()}"/></td>
@@ -199,9 +200,9 @@
                 <c:forEach items="${pastOffers}" var="offer">
                     <form action="/admin/1/orders/1" method="get">
                         <tr>
-                            <td><c:out value="${offer.driverId}"/></td>
-                            <td></td>
-                            <td></td>
+                            <td><c:out value="${clients.get(offer.driverId).getFullName()}"/></td>
+                            <td><c:out value="${clients.get(offer.driverId).getPhoneNumber()}"/></td>
+                            <td><c:out value="${clients.get(offer.driverId).getEMail()}"/></td>
                             <td><c:out value="${offer.beginDay}"/></td>
                             <td><c:out value="${offer.period}"/></td>
                             <td><c:out value="${offer.car.getModel()}"/></td>
