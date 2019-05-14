@@ -4,18 +4,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import com.epam.machine.entity.Offer;
-import com.epam.machine.entity.Ticket;
-import com.epam.machine.repository.ClientRepositoryImpl;
-import com.epam.machine.service.ClientServiceImpl;
 import com.epam.machine.service.OfferServiceImpl;
-import com.epam.machine.service.TicketServiceImpl;
 import org.apache.log4j.Logger;
 
 public class AdminCertainOrderServlet extends HttpServlet {
