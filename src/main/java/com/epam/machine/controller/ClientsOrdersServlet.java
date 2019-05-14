@@ -27,8 +27,11 @@ public class ClientsOrdersServlet extends HttpServlet {
             HttpSession session = request.getSession();
             String login = session.getAttribute("login").toString();
 
-            List<Offer> offers = offerService.get(login);
-            request.setAttribute("offers", offers);
+            List<Offer> pastOffers = offerService.getPast(login);
+            request.setAttribute("pastOffers", pastOffers);
+
+            List<Offer> presentOffers = offerService.getPresent(login);
+            request.setAttribute("presentOffers", presentOffers);
 
             List<Ticket> tickets = ticketService.get(login);
             request.setAttribute("tickets", tickets);

@@ -6,15 +6,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import com.epam.machine.entity.Offer;
-import com.epam.machine.entity.Ticket;
-import com.epam.machine.service.ClientServiceImpl;
 import com.epam.machine.service.OfferService;
 import com.epam.machine.service.OfferServiceImpl;
-import com.epam.machine.service.TicketServiceImpl;
 import org.apache.log4j.Logger;
 
 public class AdminOrdersServlet extends HttpServlet {
@@ -25,7 +21,11 @@ public class AdminOrdersServlet extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) {
         try {
-            request.setAttribute("offers", offerService.getAll());
+            List<Offer> pastOffers = offerService.getAllPast();
+            request.setAttribute("pastOffers", pastOffers);
+
+            List<Offer> presentOffers = offerService.getAllPresent();
+            request.setAttribute("presentOffers", presentOffers);
 
             request.getRequestDispatcher("/adminOrders.jsp").forward(request, response);
         } catch (ServletException | IOException | SQLException | ClassNotFoundException err) {

@@ -146,9 +146,9 @@
                 </thead>
                 <tbody>
                 <c:set var="offerId" value="0" scope="session"/>
-                <c:forEach items="${offers}" var="offer">
+                <c:forEach items="${presentOffers}" var="offer">
                     <form action="/clients/1/order" method="get">
-                        <input id="id_anything123" type="hidden" name="val" value="${offerId}"/>
+                        <input id="id_anything123" type="hidden" name="val" value="${offer.id}"/>
                         <tr>
                             <td><c:out value="${offer.beginDay}"/></td>
                             <td><c:out value="${offer.period}"/></td>
@@ -157,7 +157,7 @@
                             <td><c:out value="${offer.status}"/></td>
                             <td>
                                 <button type="submit" class="btn btn-info btn-sm" id="sendMessageButton" name="orderDet"
-                                        value="${offerId}"><fmt:message key="label.edit"/>
+                                        value="${offer.id}"><fmt:message key="label.edit"/>
                                 </button>
                             </td>
                         </tr>
@@ -187,18 +187,18 @@
                 </thead>
                 <tbody>
 
-                <tr>
-                    <td>21.05.19</td>
-                    <td>23.05.19</td>
-                    <td>Tesla Model X</td>
-                    <td>Confirmed</td>
-                    <td>Finished</td>
-                    <td>
-                        <a href="/clients/1/orders/1" class="btn btn-info btn-sm">
-                            <fmt:message key="label.edit"/>
-                        </a>
-                    </td>
-                </tr>
+                <c:forEach items="${pastOffers}" var="offer">
+                    <form action="/clients/1/order" method="get">
+
+                        <tr>
+                            <td><c:out value="${offer.beginDay}"/></td>
+                            <td><c:out value="${offer.period}"/></td>
+                            <td><c:out value="${offer.car.getModel()}"/></td>
+                            <td><c:out value="${offer.payment}"/></td>
+                            <td><c:out value="${offer.status}"/></td>
+                        </tr>
+                    </form>
+                </c:forEach>
 
                 </tbody>
             </table>
